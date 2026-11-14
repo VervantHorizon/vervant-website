@@ -16,9 +16,15 @@ Verified prototype functionality includes:
 - A4, Letter, Legal and Tabloid output, margins, background printing and landscape output.
 - HTML limited to 1 MB, CSS limited to 256 KB, request body limited to 2 MB, and bounded rendering concurrency.
 
+## Interactive local demo
+
+- Invoice preview builder: https://vervant-pdf-api.deed.page/tools/invoice-preview/
+- Runs in the visitor's browser. It does not upload, store or transmit invoice information.
+- It uses browser print-to-PDF and is a layout demonstration, not the hosted Vervant API or tax/accounting software.
+
 ## Important security limitation
 
-The current runtime launches Chromium with --no-sandbox because its constrained Linux environment cannot start the built-in sandbox. Disabling JavaScript and blocking page network requests reduce attack surface but do not provide full process isolation. The hosted API is not publicly available. Do not send production, personal, confidential or sensitive customer documents. The prototype has not received an independent security audit or certification.
+The current runtime launches Chromium with --no-sandbox because its constrained Linux environment cannot start the built-in sandbox. Disabling page JavaScript and blocking page network requests reduce attack surface but do not provide process isolation. The hosted API is not publicly available. Do not send production, personal, confidential or sensitive customer documents. The prototype has not received an independent security audit or certification.
 
 ## Public resources
 
@@ -32,4 +38,4 @@ The current runtime launches Chromium with --no-sandbox because its constrained 
 
 ## Availability
 
-The static product website and guides are public. The hosted API, public registration and live payments are not open.
+The static product website, guides and local invoice-preview demo are public. The hosted API, public registration and live payments are not open.
