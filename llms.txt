@@ -14,9 +14,11 @@ Verified prototype functionality includes:
 - Page JavaScript disabled while rendering.
 - Outbound and local network requests blocked during rendering.
 - A4, Letter, Legal and Tabloid output, margins, background printing and landscape output.
-- Input-size limits and bounded render concurrency.
+- HTML limited to 1 MB, CSS limited to 256 KB, request body limited to 2 MB, and bounded rendering concurrency.
 
-Vervant does not certify tax compliance, provide accounting advice, or claim SOC 2/ISO certification or an independent security audit.
+## Important security limitation
+
+The current runtime launches Chromium with --no-sandbox because its constrained Linux environment cannot start the built-in sandbox. Disabling JavaScript and blocking page network requests reduce attack surface but do not provide full process isolation. The hosted API is not publicly available. Do not send production, personal, confidential or sensitive customer documents. The prototype has not received an independent security audit or certification.
 
 ## Public resources
 
@@ -30,4 +32,4 @@ Vervant does not certify tax compliance, provide accounting advice, or claim SOC
 
 ## Availability
 
-The static product website and guides are public. The hosted API, public registration and live payments are not open. Do not send production or confidential customer data.
+The static product website and guides are public. The hosted API, public registration and live payments are not open.
