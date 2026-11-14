@@ -1,0 +1,33 @@
+# Vervant PDF API
+
+> Developer-first HTML-to-PDF API for SaaS backends; hosted service is currently in private-beta preparation and not publicly available.
+
+## Product
+
+Vervant is building an HTTP API that converts caller-supplied HTML or reusable templates into PDF documents for invoices, receipts, statements and reports.
+
+Verified prototype functionality includes:
+- HTML-to-PDF generation.
+- Reusable Handlebars templates.
+- API-key creation and revocation.
+- Monthly usage limits and generation history.
+- Page JavaScript disabled while rendering.
+- Outbound and local network requests blocked during rendering.
+- A4, Letter, Legal and Tabloid output, margins, background printing and landscape output.
+- Input-size limits and bounded render concurrency.
+
+Vervant does not certify tax compliance, provide accounting advice, or claim SOC 2/ISO certification or an independent security audit.
+
+## Public resources
+
+- Product site: https://vervant-pdf-api.deed.page/
+- Developer guides: https://vervant-pdf-api.deed.page/guides/
+- Safe rendering guide: https://vervant-pdf-api.deed.page/guides/secure-html-to-pdf.html
+- Node.js and Puppeteer guide: https://vervant-pdf-api.deed.page/guides/nodejs-html-to-pdf.html
+- Invoice PDF CSS guide: https://vervant-pdf-api.deed.page/guides/invoice-pdf-css-page-breaks.html
+- Invoice template: https://vervant-pdf-api.deed.page/examples/invoice-template.html
+- Public feedback: https://github.com/VervantHorizon/vervant-website/discussions
+
+## Availability
+
+The static product website and guides are public. The hosted API, public registration and live payments are not open. Do not send production or confidential customer data.
