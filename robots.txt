@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vervanthorizon.github.io/sitemap.xml
