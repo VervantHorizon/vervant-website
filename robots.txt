@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vervanthorizon.github.io/sitemap.xml
+Sitemap: https://vervant-pdf-api.deed.page/sitemap.xml

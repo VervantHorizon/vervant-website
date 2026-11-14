@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://vervanthorizon.github.io/</loc><priority>1.0</priority></url>
-<url><loc>https://vervanthorizon.github.io/guides/</loc><priority>0.8</priority></url>
-<url><loc>https://vervanthorizon.github.io/guides/secure-html-to-pdf.html</loc><priority>0.8</priority></url>
-<url><loc>https://vervanthorizon.github.io/guides/nodejs-html-to-pdf.html</loc><priority>0.8</priority></url>
-<url><loc>https://vervanthorizon.github.io/examples/invoice-template.html</loc><priority>0.7</priority></url>
-<url><loc>https://vervanthorizon.github.io/privacy.html</loc><priority>0.3</priority></url>
+<url><loc>https://vervant-pdf-api.deed.page/</loc><priority>1.0</priority></url>
+<url><loc>https://vervant-pdf-api.deed.page/guides/</loc><priority>0.8</priority></url>
+<url><loc>https://vervant-pdf-api.deed.page/guides/secure-html-to-pdf.html</loc><priority>0.8</priority></url>
+<url><loc>https://vervant-pdf-api.deed.page/guides/nodejs-html-to-pdf.html</loc><priority>0.8</priority></url>
+<url><loc>https://vervant-pdf-api.deed.page/examples/invoice-template.html</loc><priority>0.7</priority></url>
+<url><loc>https://vervant-pdf-api.deed.page/privacy.html</loc><priority>0.3</priority></url>
 </urlset>
