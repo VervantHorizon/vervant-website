@@ -28,7 +28,7 @@ input[type=file]{font-size:12px;padding:8px}textarea{min-height:65px;resize:vert
 .item-box .field{margin-bottom:9px}.item-box textarea{min-height:52px}
 .btn{border:0;cursor:pointer;font:750 13px/1 inherit;border-radius:9px;padding:11px 13px;display:inline-flex;align-items:center;justify-content:center;gap:6px}
 .btn.green{background:var(--green);color:white}.btn.soft{background:var(--mint);color:var(--green)}.btn.outline{background:#fff;border:1px solid var(--line);color:var(--ink)}
-.btn:disabled{opacity:.42;cursor:not-allowed}
+.btn:disabled{opacity:.42;cursor:not-allowed}select.preset{min-width:185px;padding:10px 12px;border:1px solid #d5dfd6;border-radius:9px;background:#fbfcfa;color:var(--ink);font:700 12px system-ui}
 .btn.wide{width:100%}.btn.small{padding:7px 9px;font-size:11px}
 .actions{display:flex;gap:8px;flex-wrap:wrap}.status{font-size:12px;color:var(--muted);margin:9px 0 0;min-height:18px}.status.error{color:var(--red)}
 .preview-wrap{position:sticky;top:14px}.preview-top{padding:16px 18px;background:#e4ece2;border-bottom:1px solid #d2dfd3;display:flex;align-items:center;justify-content:space-between;gap:10px}.preview-top b{font-size:13px}.preview-top span{font-size:11px;color:#61756a}
@@ -62,13 +62,13 @@ input[type=file]{font-size:12px;padding:8px}textarea{min-height:65px;resize:vert
 <div class="field"><label for="category">Business type</label><input id="category" placeholder="Furniture maker" value="Furniture maker"></div>
 <div class="field"><label for="location">City / service area</label><input id="location" placeholder="Santa Tecla, La Libertad" value="Your city or service area"></div>
 </div>
-<div class="field"><label for="whatsapp">Business WhatsApp *</label><input id="whatsapp" inputmode="numeric" placeholder="503XXXXXXXX"><p class="hint">Digits only, including country code. Use a business number you own or are authorized to publish.</p></div>
+<div class="row"><div class="field"><label for="whatsapp">Business WhatsApp</label><input id="whatsapp" inputmode="numeric" placeholder="+1 555 000 0000"><p class="hint">Include country code. Optional if you use email enquiries.</p></div><div class="field"><label for="email">Business enquiry email</label><input id="email" type="email" placeholder="quotes@yourbusiness.com"><p class="hint">Optional if you use WhatsApp. At least one contact channel is required.</p></div></div>
 <div class="field"><label for="introText">Introduction</label><textarea id="introText">We design and build custom pieces for homes and businesses. Tell us what you need and we will help you request a quote.</textarea></div>
 <div class="field"><label for="accent">Brand color</label><div class="row"><input id="accent" type="color" value="#205e48" style="height:42px;padding:4px"><p class="hint">Used for catalog buttons.</p></div></div>
 <div class="divider"></div>
 <div class="section-title"><b>Products and projects</b><span class="count" id="counter">0 / 12</span></div>
 <div id="productList"></div>
-<div class="actions"><button id="addProduct" class="btn soft" type="button">＋ Add product</button><button id="loadDemo" class="btn outline" type="button">Load sample</button></div>
+<div class="actions"><button id="addProduct" class="btn soft" type="button">＋ Add product</button><select id="demoType" class="preset" aria-label="Choose a sample"><option value="wood">Sample · Furniture</option><option value="signage">Sample · Signage and print</option><option value="industrial">Sample · Metal fabrication</option></select><button id="loadDemo" class="btn outline" type="button">Load sample</button></div>
 <div class="privacy">Privacy: this tool does not upload photos, transmit form data or save entries. Your content stays in browser memory while this page is open.</div>
 <button id="export" class="btn green wide" type="button" disabled>Download catalog HTML ↓</button>
 <p id="status" class="status">Add at least one product and a valid WhatsApp number to export.</p>
@@ -83,7 +83,7 @@ input[type=file]{font-size:12px;padding:8px}textarea{min-height:65px;resize:vert
 <h2 id="previewName">Oak Workshop</h2>
 <p class="site-sub" id="previewTagline">Custom-made furniture</p>
 <p class="site-sub" id="previewIntro">We design and build custom pieces for homes and businesses.</p>
-<a class="site-contact" id="previewContact" href="#" aria-disabled="true">WhatsApp · number needed</a>
+<a class="site-contact" id="previewContact" href="#" aria-disabled="true">Add WhatsApp or email to enable enquiries</a>
 </div>
 <div class="products">
 <div class="products-head"><b>Products and projects</b><input placeholder="Search…" disabled></div>
@@ -100,7 +100,7 @@ input[type=file]{font-size:12px;padding:8px}textarea{min-height:65px;resize:vert
 "use strict";
 const byId = function(id){return document.getElementById(id);};
 const state = {products:[]};
-const inputs = ["businessName","tagline","category","location","whatsapp","introText","accent"];
+const inputs = ["businessName","tagline","category","location","whatsapp","email","introText","accent"];
 const esc = function(value){return String(value == null ? "" : value).replace(/[&<>"']/g,function(ch){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch];});};
 const digits = function(value){return String(value || "").replace(/\D/g,"");};
 const validNumber = function(value){const n=digits(value);return n.length>=8 && n.length<=15;};
@@ -110,6 +110,7 @@ const getData = function(){return {
  category:byId("category").value.trim(),
  location:byId("location").value.trim(),
  phone:digits(byId("whatsapp").value),
+ email:byId("email").value.trim(),
  intro:byId("introText").value.trim(),
  accent:byId("accent").value,
  products:state.products
@@ -148,27 +149,29 @@ function compressImage(file){
 function renderPreview(){
  const d=getData();byId("previewName").textContent=d.name;byId("previewTagline").textContent=d.tagline;byId("previewIntro").textContent=d.intro;
  byId("previewCategory").textContent=[d.category,d.location].filter(Boolean).join(" · ").toUpperCase() || "CATALOG";
- byId("previewLocation").textContent=d.location || "City / service area por confirmar";
+ byId("previewLocation").textContent=d.location || "City / service area to be confirmed";
  byId("previewHero").style.background="#e6efe6";
  const contact=byId("previewContact");
  if(validNumber(d.phone)){contact.href=waUrl(d.phone,"Hello, I saw your catalog and would like more information.");contact.textContent="Contact on WhatsApp ↗";contact.removeAttribute("aria-disabled");}
- else{contact.href="#";contact.textContent="WhatsApp · number needed";contact.setAttribute("aria-disabled","true");}
+ else if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)){contact.href="mailto:"+d.email+"?subject="+encodeURIComponent("Product enquiry for "+d.name);contact.textContent="Email the business ↗";contact.removeAttribute("aria-disabled");}
+ else{contact.href="#";contact.textContent="Add WhatsApp or email to enable enquiries";contact.setAttribute("aria-disabled","true");}
  const cards=byId("previewCards");cards.innerHTML="";
  if(!d.products.length){cards.innerHTML='<div class="empty">Your products will appear here.</div>';return;}
  d.products.forEach(function(p){
   const el=document.createElement("article");el.className="card";
   const photo=p.image?'<img src="'+p.image+'" alt="'+esc(p.name)+'">':'<span>'+esc((p.name||"V").slice(0,1).toUpperCase())+'</span>';
   const message="Hello, I would like a quote for: "+p.name+". Could you share more details?";
-  const active=validNumber(d.phone);
-  el.innerHTML='<div class="photo">'+photo+'</div><div class="card-content"><h3>'+esc(p.name||"Untitled product")+'</h3><p>'+esc(p.description||"Description coming soon.")+'</p><small>'+esc(p.price||"Request a quote")+'</small><a href="'+(active?waUrl(d.phone,message):"#")+'" '+(active?'target="_blank" rel="noopener"':'aria-disabled="true"')+'>Quote on WhatsApp</a></div>';
+  const active=validNumber(d.phone)||/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email);
+  const quoteHref=validNumber(d.phone)?waUrl(d.phone,message):(d.email?"mailto:"+d.email+"?subject="+encodeURIComponent("Quote request: "+p.name)+"&body="+encodeURIComponent(message):"#");
+  el.innerHTML='<div class="photo">'+photo+'</div><div class="card-content"><h3>'+esc(p.name||"Untitled product")+'</h3><p>'+esc(p.description||"Description coming soon.")+'</p><small>'+esc(p.price||"Request a quote")+'</small><a href="'+quoteHref+'" '+(active?'target="_blank" rel="noopener"':'aria-disabled="true"')+'>Request a quote</a></div>';
   cards.appendChild(el);
  });
 }
 function validate(){
  const d=getData();const hasProduct=d.products.length>0 && d.products.every(function(p){return p.name.trim().length>0;});
- const ok=d.name.length>0 && validNumber(d.phone) && hasProduct;
+ const validEmail=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email);const ok=d.name.length>0 && (validNumber(d.phone)||validEmail) && hasProduct;
  byId("export").disabled=!ok;
- if(!validNumber(d.phone)){status("Enter a valid WhatsApp number with country code (8–15 digits).",true);}
+ if(!validNumber(d.phone) && !validEmail){status("Add a valid business WhatsApp number or enquiry email address.",true);}
  else if(!d.products.length){status("Add at least one product card.");}
  else if(!hasProduct){status("Enter a name for every product.");}
  else{status("Ready to export. Review the details and download your HTML file.");}
@@ -179,33 +182,72 @@ byId("addProduct").addEventListener("click",function(){
  state.products.push({name:"",category:"",description:"",price:"Request a quote",image:""});renderProductsForm();renderPreview();validate();
 });
 byId("loadDemo").addEventListener("click",function(){
- byId("businessName").value="Oak Workshop";byId("tagline").value="Custom-made furniture";byId("category").value="Furniture maker";byId("location").value="Your city or service area";byId("introText").value="We design and build custom pieces for homes and businesses. Tell us what you need and we will help you request a quote.";
- state.products=[
-  {name:"Custom dining table",category:"Dining",description:"Made to fit your room, preferred dimensions and finish.",price:"Quote based on dimensions",image:""},
-  {name:"Kitchen cabinetry",category:"Kitchen",description:"Custom storage and modular layouts for your space.",price:"Request a quote",image:""},
-  {name:"Solid wood door",category:"Doors",description:"Made to order with your choice of finish.",price:"Request a quote",image:""},
-  {name:"Work desk",category:"Office",description:"A practical desk designed for your home or workplace.",price:"Quote based on design",image:""}
- ];renderProductsForm();renderPreview();validate();status("Sample loaded. Add your WhatsApp number to enable export.");
+ const demos={
+  wood:{
+   name:"Oakline Workshop",tagline:"Custom furniture, built for your space",category:"Custom furniture",location:"Serving customers worldwide",
+   intro:"We design and build made-to-order furniture for homes, offices and hospitality spaces. Share your dimensions, preferred materials and finish to start a quote.",
+   products:[
+    {name:"Made-to-measure dining table",category:"Dining",description:"Solid wood and engineered-wood options, sized for your room and preferred finish.",price:"Quote based on dimensions",image:""},
+    {name:"Kitchen cabinetry",category:"Kitchens",description:"Custom storage layouts, door styles and finishes for residential and commercial projects.",price:"Request a quote",image:""},
+    {name:"Reception desk",category:"Commercial interiors",description:"A made-to-spec reception counter with storage, cable management and finish options.",price:"Quote based on design",image:""},
+    {name:"Built-in wardrobe",category:"Storage",description:"Made-to-measure storage planned around your available wall space and interior layout.",price:"Request a quote",image:""}
+   ]
+  },
+  signage:{
+   name:"Northstar Signs",tagline:"Custom signs, dimensional letters and print",category:"Signage and wide-format print",location:"Serving commercial customers worldwide",
+   intro:"We produce custom signage and branded environments. Choose a sign type and share the dimensions, material, lighting and installation details to start a focused enquiry.",
+   products:[
+    {name:"Dimensional letters",category:"Built-up signage",description:"Custom-cut PVC, acrylic or metal letters with optional illumination and mounting.",price:"Quote by size and material",image:""},
+    {name:"Illuminated lightbox",category:"Illuminated signs",description:"Indoor or outdoor lightbox signs built to the required dimensions and finish.",price:"Request a quote",image:""},
+    {name:"Window graphics",category:"Print and graphics",description:"Cut vinyl, printed graphics and privacy films for shopfronts and interior glass.",price:"Quote by area and material",image:""},
+    {name:"Wayfinding signs",category:"Interior signage",description:"Directional and room-identification signage for offices, retail and public spaces.",price:"Request a quote",image:""},
+    {name:"Vehicle graphics",category:"Print and graphics",description:"Fleet graphics, decals and partial or full wraps based on vehicle type and coverage.",price:"Quote by vehicle and coverage",image:""}
+   ]
+  },
+  industrial:{
+   name:"ForgeWorks Fabrication",tagline:"Custom metalwork for industrial and commercial projects",category:"Metal fabrication",location:"Remote enquiries · Worldwide projects considered",
+   intro:"We review drawings, dimensions and material requirements before preparing a fabrication quote. Add the details you already have and our team can clarify the rest.",
+   products:[
+    {name:"Sheet metal cutting",category:"Cutting",description:"Cut profiles and blanks supplied to drawing, material and thickness requirements.",price:"Quote from drawing and material",image:""},
+    {name:"Press brake bending",category:"Forming",description:"Bent sheet components specified by material, thickness, angle and part dimensions.",price:"Request a quote",image:""},
+    {name:"Welded frames and supports",category:"Fabrication",description:"Made-to-spec frames, brackets and supports for commercial or industrial applications.",price:"Quote by drawing and quantity",image:""},
+    {name:"CNC-cut components",category:"CNC services",description:"Repeatable profiles and drilled parts prepared from customer drawings or approved files.",price:"Request a quote",image:""},
+    {name:"Custom enclosures",category:"Fabrication",description:"Metal enclosures and housings with configurable openings, mounting and finish.",price:"Quote by specification",image:""}
+   ]
+  }
+ };
+ const demo=demos[byId("demoType").value]||demos.wood;
+ byId("businessName").value=demo.name;byId("tagline").value=demo.tagline;byId("category").value=demo.category;byId("location").value=demo.location;byId("introText").value=demo.intro;
+ byId("whatsapp").value="";byId("email").value="";
+ state.products=demo.products.map(p=>({...p}));
+ renderProductsForm();renderPreview();validate();
+ status("Sample loaded. Replace the fictional details and add an authorized business WhatsApp number or enquiry email before exporting.");
 });
 function generateHtml(d){
  const json=JSON.stringify(d).replace(/</g,"\\u003c").replace(/\u2028/g,"\\u2028").replace(/\u2029/g,"\\u2029");
+ const css=':root{--accent:'+d.accent+';--ink:#17271f;--muted:#65756b;--paper:#f3f6f1;--line:#e0e8df;--card:#fff}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}.wrap{width:min(1080px,calc(100% - 32px));margin:auto}.hero{padding:48px 0 26px}.label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:850;color:var(--accent)}.hero h1{font-size:clamp(34px,6vw,58px);line-height:1;letter-spacing:-.06em;margin:12px 0}.hero p{color:#5d6d63;max-width:700px}.contact,.quote-btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;border:0;border-radius:9px;padding:11px 15px;font-size:13px;font-weight:800;cursor:pointer}.toolbar{padding:12px 0 26px}.search{padding:12px 14px;border:1px solid #dce4dc;border-radius:10px;width:100%;max-width:400px;font:inherit;background:white}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.filters button{border:1px solid var(--line);background:#fff;color:#53645a;border-radius:999px;padding:7px 12px;font:700 12px system-ui;cursor:pointer}.filters button.active{background:var(--accent);border-color:var(--accent);color:#fff}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;padding-bottom:45px}.card{background:var(--card);border:1px solid var(--line);border-radius:15px;overflow:hidden;min-width:0}.photo{height:190px;background:#e4ece4;display:grid;place-items:center;color:var(--accent);font-weight:850;font-size:40px}.photo img{width:100%;height:100%;object-fit:cover}.content{padding:15px}.category{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:850}.content h2{font-size:17px;line-height:1.25;margin:6px 0}.content p{font-size:13px;color:var(--muted);min-height:40px;margin:0 0 12px}.price{font-weight:850;font-size:12px;color:var(--accent);margin-bottom:13px}.quote-btn{display:block;text-align:center;width:100%}.foot{border-top:1px solid #dfe6dd;padding:18px 0 32px;color:#6d7b71;font-size:12px}.notice{font-size:11px;color:#78857c;padding:0 0 24px}.empty{grid-column:1/-1;padding:40px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}dialog{width:min(520px,calc(100% - 24px));border:0;border-radius:18px;padding:0;box-shadow:0 22px 80px #10231e40}dialog::backdrop{background:#10231e99}.form{padding:24px}.form h2{font-size:25px;letter-spacing:-.04em;margin:0 0 5px}.form .sub{color:var(--muted);font-size:13px;margin:0 0 18px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:11px}.fields label{font-size:11px;color:#52645a;font-weight:800}.fields input,.fields textarea{width:100%;font:14px system-ui;border:1px solid #d5dfd6;border-radius:8px;padding:10px;margin-top:5px}.fields .full{grid-column:1/-1}.fields textarea{min-height:75px}.form-actions{display:flex;gap:9px;margin-top:17px;justify-content:flex-end}.form-actions button{border:1px solid var(--line);background:#fff;padding:10px 13px;border-radius:9px;font-weight:750;cursor:pointer}.form-actions .send{background:var(--accent);border-color:var(--accent);color:#fff}@media(max-width:560px){.hero{padding-top:30px}.photo{height:155px}.fields{grid-template-columns:1fr}.fields .full{grid-column:auto}.form{padding:18px}}';
  const lines=[
-'<!doctype html>',
-'<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3EV%3C/text%3E%3C/svg%3E"><meta name="theme-color" content="'+esc(d.accent)+'"><title>'+esc(d.name)+' — Catálogo</title>',
-'<style>*{box-sizing:border-box}body{margin:0;background:#f3f5f0;color:#182820;font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}.wrap{width:min(1050px,calc(100% - 30px));margin:auto}.hero{padding:48px 0 30px}.label{font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:850;color:'+esc(d.accent)+'}.hero h1{font-size:clamp(34px,6vw,58px);line-height:1;letter-spacing:-.06em;margin:11px 0}.hero p{color:#5d6d63;max-width:640px}.contact,.card a{display:inline-block;background:'+esc(d.accent)+';color:white;text-decoration:none;border-radius:9px;padding:11px 15px;font-size:13px;font-weight:800}.search{margin:25px 0 16px;padding:12px 14px;border:1px solid #dce4dc;border-radius:10px;width:100%;max-width:350px;font:inherit;background:white}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;padding-bottom:45px}.card{background:white;border:1px solid #e0e7df;border-radius:14px;overflow:hidden}.photo{height:190px;background:#e3ece3;display:grid;place-items:center;color:'+esc(d.accent)+';font-weight:850;font-size:40px}.photo img{width:100%;height:100%;object-fit:cover}.content{padding:14px}.content h2{font-size:17px;line-height:1.2;margin:0 0 7px}.content p{font-size:13px;color:#69776e;min-height:40px;margin:0 0 10px}.price{font-weight:850;font-size:12px;color:'+esc(d.accent)+';margin-bottom:13px}.card a{display:block;text-align:center}.foot{border-top:1px solid #dfe6dd;padding:18px 0 30px;color:#6d7b71;font-size:12px}@media(max-width:520px){.hero{padding-top:32px}.photo{height:160px}}</style></head><body>',
-'<header class="wrap hero"><div class="label">'+esc([d.category,d.location].filter(Boolean).join(" · ").toUpperCase())+'</div><h1>'+esc(d.name)+'</h1><p><b>'+esc(d.tagline)+'</b></p><p>'+esc(d.intro)+'</p><a class="contact" href="https://wa.me/'+digits(d.phone)+'?text='+encodeURIComponent("Hello, I saw your catalog and would like more information.")+'" target="_blank" rel="noopener">Contact on WhatsApp ↗</a></header>',
-'<main class="wrap"><input id="search" class="search" placeholder="Buscar en el catálogo…" aria-label="Buscar en el catálogo"><section class="grid" id="grid"></section></main>',
-'<footer class="wrap foot">'+esc(d.location||"Contáctanos para conocer más")+' · '+esc(d.name)+' · Catálogo digital</footer>',
-'<script type="application/json" id="site-data">'+json+'<'+'/script>',
-'<script>(function(){const d=JSON.parse(document.getElementById("site-data").textContent);const esc=function(s){return String(s||"").replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",\'"\':"&quot;"}[c]})};const grid=document.getElementById("grid");function draw(q){grid.innerHTML="";d.products.filter(function(p){return (p.name+" "+p.category+" "+p.description).toLowerCase().includes(q.toLowerCase())}).forEach(function(p){const card=document.createElement("article");card.className="card";const photo=p.image?\'<img src="\'+p.image+\'" alt="\'+esc(p.name)+\'">\':\'<span>\'+esc((p.name||"V").slice(0,1).toUpperCase())+\'</span>\';const msg="Hello, I would like a quote for: "+p.name+". Could you share more details?";card.innerHTML=\'<div class="photo">\'+photo+\'</div><div class="content"><h2>\'+esc(p.name)+\'</h2><p>\'+esc(p.description)+\'</p><div class="price">\'+esc(p.price||"Request a quote")+\'</div><a href="https://wa.me/\'+d.phone+\'?text=\'+encodeURIComponent(msg)+\'" target="_blank" rel="noopener">Request a quote ↗</a></div>\';grid.appendChild(card)})}document.getElementById("search").addEventListener("input",function(e){draw(e.target.value)});draw("")})();<\/script>',
-'</body></html>'
+'<!doctype html>','<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="'+esc(d.accent)+'"><meta name="description" content="'+esc(d.intro)+'"><title>'+esc(d.name)+' — Product catalog and quote requests</title><style>'+css+'</style></head><body>',
+'<header class="wrap hero"><div class="label">'+esc([d.category,d.location].filter(Boolean).join(" · ").toUpperCase())+'</div><h1>'+esc(d.name)+'</h1><p><b>'+esc(d.tagline)+'</b></p><p>'+esc(d.intro)+'</p><a class=\"contact\" href=\"'+(validNumber(d.phone)?("https://wa.me/"+digits(d.phone)+"?text="+encodeURIComponent("Hello, I saw your catalog and would like more information.")):("mailto:"+encodeURIComponent(d.email||"")+"?subject="+encodeURIComponent("Product enquiry for "+d.name)))+'\" target=\"_blank\" rel=\"noopener\">Contact the business ↗</a></header>',
+'<main class="wrap"><div class="toolbar"><input id="search" class="search" placeholder="Search products, services or materials…" aria-label="Search the catalog"><nav class="filters" id="filters" aria-label="Filter by category"></nav></div><section class="grid" id="grid" aria-live="polite"></section></main>',
+'<footer class="wrap foot">'+esc(d.location||"Contact us to learn more")+' · '+esc(d.name)+'</footer>',
+'<p class="wrap notice">Quote requests are prepared in this browser and opened in WhatsApp or your email app. No payments are processed and form entries are not stored.</p>',
+'<dialog id="quoteDialog" aria-labelledby="quoteTitle"><form id="quoteForm" class="form"><h2 id="quoteTitle">Request a quote</h2><p class="sub" id="quoteProduct">Add the details you already know. You can leave any field blank.</p><div class="fields"><label class="full">Send enquiry via<select id="qChannel"></select></label><label class="full">Measurements or specifications<input id="qMeasures" placeholder="e.g. 2400 × 1200, wall thickness, drawing reference…"></label><label>Measurement units<select id="qUnits"><option value="mm">Millimetres (mm)</option><option value="cm">Centimetres (cm)</option><option value="m">Metres (m)</option><option value="in">Inches (in)</option><option value="ft">Feet (ft)</option><option value="not specified">Not specified</option></select></label><label>Material or finish<input id="qMaterial" placeholder="e.g. steel, MDF, acrylic…"></label><label>Quantity<input id="qQuantity" placeholder="e.g. 3 units"></label><label>Location or installation site<input id="qLocation" placeholder="City / region"></label><label>Target date<input id="qDate" placeholder="e.g. this month"></label><label class="full">Additional details<textarea id="qDetails" placeholder="Tell us a little more about the project…"></textarea></label></div><div class="form-actions"><button type="button" id="closeQuote">Cancel</button><button class="send" type="submit">Continue to enquiry ↗</button></div></form></dialog>',
+'<script type="application/json" id="catalogData">'+json+'<'+'/script>',
+'<script>(function(){',
+'const data=JSON.parse(document.getElementById("catalogData").textContent);const grid=document.getElementById("grid");const filters=document.getElementById("filters");const search=document.getElementById("search");const dialog=document.getElementById("quoteDialog");const form=document.getElementById("quoteForm");let active="All";let selected=null;',
+'function el(tag,cls,text){const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;}',
+'function openQuote(product){selected=product;document.getElementById(\"quoteProduct\").textContent=\"Project: \"+product.name+\" · Add any details you already know.\";form.reset();const sel=document.getElementById(\"qChannel\");sel.innerHTML=\"\";if(data.phone&&data.phone.length>=8){const o=el(\"option\",\"\",\"WhatsApp\");o.value=\"whatsapp\";sel.appendChild(o);}if(data.email){const o=el(\"option\",\"\",\"Email\");o.value=\"email\";sel.appendChild(o);}if(data.email&&!data.phone)sel.value=\"email\";dialog.showModal();}',
+'function draw(){const q=search.value.trim().toLowerCase();const categories=["All"].concat(Array.from(new Set(data.products.map(p=>String(p.category||"").trim()).filter(Boolean))));filters.innerHTML="";categories.forEach(cat=>{const b=el("button",cat===active?"active":"",cat);b.type="button";b.addEventListener("click",()=>{active=cat;draw();});filters.appendChild(b);});grid.innerHTML="";const items=data.products.filter(p=>(active==="All"||String(p.category||"").trim()===active)&&[p.name,p.category,p.description,p.price].join(" ").toLowerCase().includes(q));if(!items.length){grid.appendChild(el("div","empty","No results found. Try another search or category."));return;}items.forEach(p=>{const card=el("article","card");const photo=el("div","photo");if(p.image){const img=document.createElement("img");img.src=p.image;img.alt=p.name||"Product photo";photo.appendChild(img);}else photo.appendChild(el("span","",String(p.name||"V").slice(0,1).toUpperCase()));const content=el("div","content");content.appendChild(el("div","category",p.category||"Custom project"));content.appendChild(el("h2","",p.name||"Product"));content.appendChild(el("p","",p.description||"Check available options."));content.appendChild(el("div","price",p.price||"Request a quote"));const button=el("button","quote-btn","Request a quote ↗");button.type="button";button.addEventListener("click",()=>openQuote(p));content.appendChild(button);card.appendChild(photo);card.appendChild(content);grid.appendChild(card);});}',
+'search.addEventListener("input",draw);document.getElementById("closeQuote").addEventListener("click",()=>dialog.close());form.addEventListener("submit",e=>{e.preventDefault();if(!selected)return;const value=id=>document.getElementById(id).value.trim();const parts=["Hello, I would like to request a quote.","Business: "+data.name,"Project: "+selected.name];if(selected.category)parts.push("Category: "+selected.category);if(value("qMeasures"))parts.push("Measurements / specifications: "+value("qMeasures")+" "+value("qUnits"));if(value("qMaterial"))parts.push("Material / finish: "+value("qMaterial"));if(value("qQuantity"))parts.push("Quantity: "+value("qQuantity"));if(value("qLocation"))parts.push("Location / installation: "+value("qLocation"));if(value("qDate"))parts.push("Target date: "+value("qDate"));if(value("qDetails"))parts.push("Additional details: "+value("qDetails"));parts.push("I can share photos or additional references in this conversation.");const message=parts.join(String.fromCharCode(10));if(value("qChannel")==="email"&&data.email){window.location.href="mailto:"+data.email+"?subject="+encodeURIComponent("Quote request: "+selected.name)+"&body="+encodeURIComponent(message);}else if(data.phone){window.open("https://wa.me/"+data.phone+"?text="+encodeURIComponent(message),"_blank","noopener,noreferrer");}dialog.close();});draw();',
+'})();<'+'/script>','</body></html>'
  ];
- return lines.join("\n");
+ return lines.join(String.fromCharCode(10));
 }
 byId("export").addEventListener("click",function(){
  const d=getData();if(byId("export").disabled)return;
  const html=generateHtml(d);const blob=new Blob([html],{type:"text/html;charset=utf-8"});const url=URL.createObjectURL(blob);
- const a=document.createElement("a");a.href=url;const slug=d.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"catalogo";a.download="catalogo-"+slug+".html";document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url)},1000);
+ const a=document.createElement("a");a.href=url;const slug=d.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"catalog";a.download="catalog-"+slug+".html";document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url)},1000);
  status("Catalog downloaded. Open it to review; publish it only with the business owner’s approval.");
 });
 renderProductsForm();renderPreview();validate();

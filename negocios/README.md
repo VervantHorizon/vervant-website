@@ -42,3 +42,42 @@ En el constructor:
 
 ## Publicación
 El constructor y sus ejemplos siguen en desarrollo local. No hacer push ni desplegar el sitio comercial sin autorización expresa.
+
+
+## International English offer
+- English landing: negocios/en/index.html; English catalog builder: negocios/en/builder/index.html.
+- Remote-first service for customers worldwide. English delivery; quotes in USD unless otherwise agreed.
+- First 3 international pilots: USD 199 one-time; expected standard price USD 299.
+- Capability sheet: USD 99 standalone / USD 59 with catalog. Additional language adaptation from USD 149.
+- English catalogs support business WhatsApp and/or email enquiry channels, depending on the contact methods the customer provides.
+- The exported file contains a guided quote form for measurements/specifications, material/finish, quantity, location, target date and additional details. The visitor chooses WhatsApp or email where both are configured.
+- Do not send international cold email into jurisdictions where consent is required unless the contact has a documented lawful basis. Observe opt-outs and retain source/date/role evidence.
+
+
+## International English pages
+- International overview: en/index.html
+- Industry directory: en/industries/index.html
+- Sector pages:
+  - en/industries/furniture-makers/
+  - en/industries/metal-fabrication-cnc/
+  - en/industries/signage-print/
+  - en/industries/packaging-print/
+  - en/industries/commercial-interiors/
+- English catalog builder: en/builder/index.html
+- English capability sheet PDF builder: en/capability-sheet/index.html
+
+## International quote intake
+- The English catalog builder supports business WhatsApp, business enquiry email, or both.
+- At least one valid channel is required before export.
+- Guided enquiry fields include measurements/specifications, measurement unit (mm, cm, m, inches, feet), material/finish, quantity, location, target date and additional details.
+- If only email is configured, the catalog opens a pre-addressed email with the enquiry details. If only WhatsApp is configured, it opens WhatsApp with the details. If both are configured, visitors can choose the channel.
+- The form itself does not submit to a Vervant server or store entries.
+- Do not use placeholder customer details in a real delivery. Only approved names, photos, descriptions, contact details and intellectual property may be published.
+
+## International offer and geographic scope
+- First 3 international pilots: USD 199 one-time; expected standard price USD 299.
+- Capability sheet: USD 99 standalone / USD 59 with a catalog.
+- Additional language adaptation starts at USD 149, after review.
+- Service is remote-first. English delivery; USD pricing unless otherwise agreed in writing.
+- The site is still a local preview and must not be represented as publicly live until it is deployed and checked.
+- Use country-specific outbound compliance rules. Current outbound pilot is limited to verified UK corporate subscribers at role-based company email addresses. See /home/will/Documentos/Vervant-Operations/international-go-to-market.md.
