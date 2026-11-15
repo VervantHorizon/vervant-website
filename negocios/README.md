@@ -1,45 +1,44 @@
-# Vervant Local — Constructor interno
+# Vervant Local — catálogo de cotización
 
-## Estado
-Prototipo local, no publicado, no comercialmente validado. El objetivo es probar una oferta de catálogo/portafolio de cotizaciones para pequeños fabricantes y talleres. No contactar empresas ni publicar catálogos sin autorización expresa.
+## Oferta comercial piloto
+Catálogo móvil hecho por Vervant para fabricantes y negocios que cotizan productos o trabajos a medida.
 
-## Archivos
-- `index.html`: página privada de explicación de la oferta.
-- `constructor/index.html`: constructor de catálogo en español.
-- `en/index.html` y `en/builder/index.html`: versión en inglés para expansión internacional.
-- `capability-sheet/index.html` y `en/capability-sheet/index.html`: generador de ficha comercial A4, imprimible como PDF desde el navegador.
-- El constructor genera un único archivo HTML autocontenido por negocio.
+- Precio piloto: USD 149 pago único para los tres primeros proyectos.
+- Precio regular previsto: USD 249.
+- Alcance: hasta 12 fichas, categorías, búsqueda, fotografías optimizadas, solicitud guiada a WhatsApp y una ronda de cambios.
+- Complemento: ficha de capacidades de una página en PDF por USD 49 con el catálogo.
+- Entrega: HTML autónomo listo para publicarse en el alojamiento del cliente o en un servicio de alojamiento elegido por separado.
+- No incluye dominio, alojamiento de pago, tienda, pagos, inventario, integraciones privadas ni mensualidad de mantenimiento.
+
+## Estado técnico
+- index.html: oferta comercial y landing page en español.
+- constructor/index.html: constructor español. La exportación genera un catálogo autónomo con búsqueda, filtros por categoría y formulario guiado de cotización que prepara un mensaje contextual para WhatsApp.
+- en/index.html y en/builder/index.html: landing y constructor en inglés.
+- capability-sheet/index.html y en/capability-sheet/index.html: generador de ficha de capacidades A4 en español e inglés.
+- El HTML generado no requiere backend, cuenta ni base de datos.
+- Las imágenes se optimizan en el navegador y se incrustan en el archivo.
+- Los campos del formulario de cotización no se guardan; el usuario decide abrir el mensaje preparado en WhatsApp.
 
 ## Cómo probar
 Desde la raíz del repositorio estático:
-```bash
-python3 -m http.server 8081
-```
+    python3 -m http.server 8081
 Abrir:
-- `http://127.0.0.1:8081/negocios/`
-- `http://127.0.0.1:8081/negocios/constructor/`
+- http://127.0.0.1:8081/negocios/
+- http://127.0.0.1:8081/negocios/constructor/
 
 En el constructor:
-1. Pulsa “Cargar ejemplo”.
-2. Escribe un número de prueba propio, con código de país y solo dígitos.
-3. Revisa el catálogo en la vista previa.
-4. Descarga el HTML y ábrelo localmente para comprobarlo.
-5. No uses datos ni fotografías de clientes reales en esta fase.
+1. Pulsa Cargar ejemplo.
+2. Introduce un WhatsApp de prueba propio (solo dígitos y código de país).
+3. Descarga el HTML.
+4. Abre el HTML descargado y prueba búsqueda, filtros y formulario de WhatsApp. No envíes mensajes de prueba a números ajenos.
+5. Sustituye el ejemplo por contenido y fotografías autorizadas antes de entregar a un cliente.
 
-## Qué hace y qué no hace
-- Funciona sin backend, cuenta, base de datos o librería externa.
-- Procesa las fotos en el navegador y las optimiza a JPEG antes de incrustarlas.
-- No sube ni guarda los datos en ningún sitio.
-- Genera enlaces directos `wa.me` con mensaje prellenado para cada producto.
-- No genera todavía QR. No anunciar esa característica hasta implementarla y probarla.
-- No procesa pagos, órdenes, inventario, facturas fiscales o información privada.
-- Requiere que el negocio autorice las fotografías, textos y el número comercial antes de publicar.
-
-## Ficha de capacidades
-- Abre `/negocios/capability-sheet/` (o `/negocios/en/capability-sheet/` en inglés).
-- Completa servicios, sectores, materiales/capacidades y contacto comercial autorizado.
-- Usa “Imprimir / Guardar como PDF” y elige “Guardar como PDF” en el navegador.
-- El diseño está configurado para una sola página A4; probado en Chromium.
+## Privacidad y límites
+- No se transmiten productos o fotografías al servidor del constructor.
+- El mensaje solo se entrega a WhatsApp cuando la persona pulsa el botón de envío del formulario.
+- No procesa pagos, pedidos, inventario, facturación fiscal ni agenda.
+- No garantiza ventas, tráfico, posicionamiento, leads ni SLA.
+- No usar información privada ni publicar datos, imágenes, marcas o testimonios sin autorización expresa.
 
 ## Publicación
-El repositorio está conectado a Render con despliegue automático en `main`. **No hacer push ni desplegar este prototipo sin autorización expresa.** La web pública actual está dirigida a desarrolladores del producto PDF API; no debe mezclarse la navegación de ambas ofertas sin decisión de marca.
+El constructor y sus ejemplos siguen en desarrollo local. No hacer push ni desplegar el sitio comercial sin autorización expresa.

@@ -1,96 +1,37 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#10231e">
-<meta name="description" content="Catálogos móviles para talleres y fabricantes: muestra tus trabajos y recibe solicitudes de cotización por WhatsApp.">
-<title>Vervant Local — Catálogos para cotizar</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#10231e">
+<meta name="description" content="Catálogos de cotización hechos por Vervant para fabricantes, talleres, carpinterías, rotulistas y servicios industriales.">
+<title>Vervant Local | Catálogos que preparan mejores cotizaciones</title>
 <style>
-:root{--ink:#15251f;--muted:#64736c;--paper:#f4f5ef;--card:#fff;--line:#dfe5dc;--green:#1f604a;--mint:#dcebe1;--orange:#d77e4d;--radius:22px}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
-a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
-.top{border-bottom:1px solid var(--line);background:#fbfcf8}.top .wrap{height:58px;display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted)}
-.brand{font-weight:850;letter-spacing:-.04em;color:var(--ink);font-size:19px}.brand em{font-style:normal;color:var(--green)}.tag{border:1px solid #cbd8cd;padding:6px 10px;border-radius:999px;color:var(--green);font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
-.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:58px;align-items:center;padding:86px 0 72px}
-.eyebrow{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
-h1{font-size:clamp(42px,6.2vw,72px);line-height:.99;letter-spacing:-.065em;margin:18px 0 22px;max-width:700px}
-h1 span{color:var(--green)}.lead{font-size:19px;line-height:1.55;color:#53645b;max-width:590px}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin:30px 0 18px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 19px;border-radius:12px;font-weight:750;font-size:14px;transition:.18s}
-.btn.primary{background:var(--green);color:white;box-shadow:0 8px 20px #164c3924}.btn.primary:hover{transform:translateY(-2px);background:#184d3b}
-.btn.light{background:#fff;border:1px solid var(--line)}.micro{font-size:12px;color:#7a8881}
-.mock{background:#dce7d9;border:1px solid #cbd9cd;border-radius:28px;padding:18px;transform:rotate(1deg);box-shadow:0 24px 60px #1b3f2a12}
-.mock-head{display:flex;justify-content:space-between;align-items:center;padding:6px 6px 15px;font-weight:800}.mock-head small{display:block;color:#67796e;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
-.mock-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.mock-card{background:white;border-radius:16px;padding:10px;overflow:hidden}
-.mock-photo{height:116px;border-radius:11px;position:relative;overflow:hidden;background:linear-gradient(135deg,#d4b998,#eadac6)}
-.mock-photo:before{content:"";position:absolute;left:23%;right:23%;bottom:18px;height:48px;background:#815a3b;border-radius:5px;box-shadow:0 -24px 0 -9px #9e7956}
-.mock-photo.two{background:linear-gradient(130deg,#b8c9bf,#e4e9df)}.mock-photo.two:before{left:27%;right:27%;height:68px;background:#4f6658;bottom:17px;box-shadow:0 0 0 6px #d3dfd3 inset}
-.mock-photo.three{background:linear-gradient(130deg,#d7c7b5,#f0e7dd)}.mock-photo.three:before{left:18%;right:18%;height:18px;bottom:38px;background:#866348;box-shadow:0 27px 0 -5px #866348}
-.mock-photo.four{background:linear-gradient(135deg,#c7d4d2,#e7e9e4)}.mock-photo.four:before{left:32%;right:32%;height:70px;bottom:14px;background:#667b75;box-shadow:0 0 0 5px #dde6df inset}
-.mock-card b{display:block;font-size:13px;margin:9px 0 1px}.mock-card small{font-size:11px;color:var(--muted)}
-.mock-foot{display:flex;align-items:center;justify-content:space-between;padding:13px 5px 1px;font-size:11px;color:#597265}.mock-foot strong{background:var(--green);color:#fff;padding:7px 10px;border-radius:8px}
-.proof{border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding:24px 0;margin-bottom:75px}
-.proof div{padding-left:16px;border-left:2px solid #a5bea9}.proof b{display:block;font-size:14px}.proof span{display:block;color:var(--muted);font-size:12px;margin-top:3px}
-.section{padding:4px 0 86px}.section h2{font-size:clamp(30px,4vw,45px);line-height:1.08;letter-spacing:-.05em;max-width:760px;margin:13px 0 18px}.section .intro{color:var(--muted);max-width:660px}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:23px}.num{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:var(--mint);color:var(--green);font-weight:850}.step h3{font-size:18px;margin:15px 0 6px}.step p{margin:0;color:var(--muted);font-size:14px}
-.included{background:#10231e;color:#f8faf5;padding:68px 0}.included .eyebrow{color:#b0d3bb}.included h2{font-size:clamp(30px,4vw,44px);line-height:1.1;letter-spacing:-.05em;margin:12px 0 27px}.include-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 42px}.include-grid p{margin:0;border-top:1px solid #ffffff24;padding:14px 0;color:#d7e2da;font-size:14px}.include-grid b{color:#fff}
-.limits{padding:70px 0}.limits h2{font-size:32px;letter-spacing:-.04em;margin:0 0 10px}.limits p{max-width:780px;color:var(--muted);font-size:14px}
-.cta{background:#e1ecdf;padding:36px;border-radius:22px;display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:80px}.cta h2{font-size:28px;letter-spacing:-.04em;margin:0 0 4px}.cta p{margin:0;color:var(--muted);font-size:14px}
-footer{border-top:1px solid var(--line);padding:23px 0 30px;color:#718078;font-size:12px}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
-@media(max-width:800px){.hero{grid-template-columns:1fr;gap:30px;padding-top:58px}.mock{max-width:550px;width:100%;margin:auto}.steps{grid-template-columns:1fr}.proof{gap:13px}.include-grid{grid-template-columns:1fr}.cta{align-items:flex-start;flex-direction:column}}
-@media(max-width:500px){.wrap{width:min(100% - 28px,1120px)}.top .wrap{height:52px}.top .tag{font-size:9px}.hero{padding-top:45px}h1{font-size:47px}.lead{font-size:16px}.mock{padding:11px}.mock-photo{height:90px}.proof{grid-template-columns:1fr;margin-bottom:55px}.proof div{padding:3px 0 3px 12px}.section{padding-bottom:65px}.included{padding:52px 0}.cta{padding:25px}}
+:root{--ink:#172820;--muted:#617168;--paper:#f4f6f1;--white:#fff;--line:#dfe7de;--green:#205e48;--mint:#e0eee4;--dark:#10231e}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+header{background:#fbfcf8;border-bottom:1px solid var(--line)}header .wrap{height:66px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-weight:900;font-size:20px;letter-spacing:-.05em}.brand span{color:var(--green)}.nav{display:flex;align-items:center;gap:20px;font-size:13px;color:var(--muted)}.nav a:last-child{background:var(--green);color:white;padding:9px 13px;border-radius:9px;font-weight:800}
+.hero{display:grid;grid-template-columns:1.03fr .97fr;gap:54px;align-items:center;padding:82px 0 65px}.eyebrow{font-size:11px;font-weight:850;letter-spacing:.15em;text-transform:uppercase;color:var(--green)}h1{font-size:clamp(42px,6vw,70px);letter-spacing:-.065em;line-height:.99;margin:16px 0 20px;max-width:720px}h1 span{color:var(--green)}.lead{font-size:18px;color:#56675d;max-width:620px}.actions{display:flex;gap:11px;flex-wrap:wrap;margin:27px 0 13px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 17px;border-radius:10px;font-size:13px;font-weight:800}.primary{background:var(--green);color:white;box-shadow:0 8px 20px #164c3924}.secondary{border:1px solid var(--line);background:white}.subnote{font-size:12px;color:#78857d}
+.preview{background:#e2ebe0;border:1px solid #cddbcc;border-radius:24px;padding:17px;box-shadow:0 25px 65px #1b3f2a12}.preview-top{display:flex;justify-content:space-between;align-items:center;padding:5px 5px 14px;font-weight:850;font-size:13px}.preview-top span{font-size:10px;color:#69796f;font-weight:700}.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mini-card{background:#fff;border:1px solid #e3e9e2;border-radius:13px;padding:9px}.art{height:105px;border-radius:9px;background:linear-gradient(135deg,#d6c6b3,#f0e8dd);position:relative;overflow:hidden}.art:before{content:"";position:absolute;left:19%;right:19%;bottom:19px;height:38px;background:#88694d;border-radius:4px;box-shadow:0 -16px 0 -5px #a58768}.art.b{background:linear-gradient(135deg,#b9cbc4,#e9eee8)}.art.b:before{left:29%;right:29%;height:60px;background:#60786a;bottom:12px}.art.c{background:linear-gradient(135deg,#d4d8d2,#eef1eb)}.art.c:before{left:17%;right:17%;height:17px;bottom:38px;background:#6a7772;box-shadow:0 27px 0 -5px #6a7772}.art.d{background:linear-gradient(135deg,#d9cbbb,#f2e7dc)}.art.d:before{left:24%;right:24%;height:48px;bottom:13px;background:#a47b5d}.mini-card b{display:block;font-size:12px;margin:8px 0 1px}.mini-card small{font-size:10px;color:var(--muted)}.mini-cta{margin-top:11px;background:var(--green);color:white;border-radius:9px;text-align:center;padding:9px;font-size:11px;font-weight:800}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;margin-bottom:74px}.trust b{display:block;font-size:14px}.trust span{display:block;color:var(--muted);font-size:12px}
+.section{padding:0 0 82px}.section h2{font-size:clamp(30px,4.4vw,46px);letter-spacing:-.05em;line-height:1.08;margin:12px 0 14px;max-width:780px}.intro{color:var(--muted);max-width:730px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}.feature,.plan{background:white;border:1px solid var(--line);border-radius:16px;padding:22px}.icon{width:34px;height:34px;border-radius:10px;background:var(--mint);display:grid;place-items:center;color:var(--green);font-weight:900}.feature h3{font-size:16px;margin:13px 0 5px}.feature p{font-size:13px;color:var(--muted);margin:0}
+.dark{background:var(--dark);color:#f8faf5;padding:68px 0}.dark .eyebrow{color:#a9cfb4}.dark h2{margin-top:10px}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}.step{border-top:1px solid #ffffff35;padding:17px 0}.step strong{font-size:12px;color:#a9cfb4}.step h3{font-size:17px;margin:6px 0}.step p{font-size:13px;color:#d3ddd6;margin:0}
+.pricing{display:grid;grid-template-columns:1.3fr .7fr;gap:16px;margin-top:27px}.plan{padding:26px}.plan.highlight{background:#edf4ec;border-color:#bdd2be}.price{font-size:43px;font-weight:900;letter-spacing:-.06em;margin:8px 0}.price small{font-size:13px;letter-spacing:0;color:var(--muted);font-weight:600}.plan ul{padding-left:19px;color:#506157;font-size:13px}.plan li{margin:7px 0}.plan-note{font-size:11px;color:var(--muted)}.pill{display:inline-block;background:#dcebe1;color:var(--green);border-radius:99px;padding:5px 9px;font-size:10px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}
+.final-cta{background:#e3ede1;border:1px solid #d0dfd0;border-radius:19px;padding:31px;display:flex;justify-content:space-between;align-items:center;gap:20px;margin:0 0 72px}.final-cta h2{font-size:27px;letter-spacing:-.04em;margin:0 0 3px}.final-cta p{font-size:13px;color:var(--muted);margin:0}footer{border-top:1px solid var(--line);padding:22px 0 30px;color:#738178;font-size:12px}.foot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+@media(max-width:850px){.hero{grid-template-columns:1fr;gap:30px;padding:55px 0}.preview{max-width:560px;width:100%;margin:auto}.grid3{grid-template-columns:1fr 1fr}.pricing{grid-template-columns:1fr}.steps{grid-template-columns:1fr}}@media(max-width:560px){.wrap{width:calc(100% - 28px)}.nav a:not(:last-child){display:none}.hero{padding:42px 0}.lead{font-size:16px}h1{font-size:47px}.trust{grid-template-columns:1fr;gap:12px;margin-bottom:55px}.grid3{grid-template-columns:1fr}.art{height:90px}.section{padding-bottom:60px}.dark{padding:52px 0}.final-cta{padding:23px;display:block}.final-cta .btn{margin-top:15px;width:100%}}
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap"><a class="brand" href="#">vervant<em> local</em></a><span class="tag">prototipo privado · no publicado</span></div></header>
+<header><div class="wrap"><a class="brand" href="#">vervant <span>local</span></a><nav class="nav"><a href="#como-funciona">Proceso</a><a href="#incluye">Qué incluye</a><a href="#precio">Precio</a><a href="mailto:vervant.contact@gmail.com?subject=Quiero%20una%20muestra%20de%20Vervant%20Local">Pedir muestra ↗</a></nav></div></header>
 <main>
 <section class="hero wrap">
-<div>
-<p class="eyebrow">CATÁLOGOS PARA NEGOCIOS QUE FABRICAN</p>
-<h1>Que tus trabajos se conviertan en <span>cotizaciones.</span></h1>
-<p class="lead">Un catálogo digital, rápido y pensado para celular. Tus clientes ven lo que fabricas y te escriben por WhatsApp con el producto que quieren cotizar.</p>
-<div class="actions"><a class="btn primary" href="/negocios/constructor/">Probar el constructor ↗</a><a class="btn light" href="#como-funciona">Cómo funciona</a><a class="btn light" href="/negocios/capability-sheet/">Ficha comercial PDF ↗</a></div>
-<p class="micro">Para carpinterías, talleres de metal, imprentas, muebles a medida y fabricantes pequeños.</p>
-</div>
-<div class="mock" aria-label="Vista ilustrativa de un catálogo móvil">
-<div class="mock-head"><span>taller roble<small>muebles hechos a medida</small></span><span>↗</span></div>
-<div class="mock-grid">
-<div class="mock-card"><div class="mock-photo"></div><b>Comedor a medida</b><small>Diseño personalizado</small></div>
-<div class="mock-card"><div class="mock-photo two"></div><b>Mueble de cocina</b><small>Fabricación por encargo</small></div>
-<div class="mock-card"><div class="mock-photo three"></div><b>Puertas de madera</b><small>Medidas especiales</small></div>
-<div class="mock-card"><div class="mock-photo four"></div><b>Escritorios</b><small>Modelos personalizados</small></div>
-</div>
-<div class="mock-foot"><span>Catálogo de demostración</span><strong>Solicitar cotización →</strong></div>
-</div>
+<div><p class="eyebrow">CATÁLOGOS DE COTIZACIÓN PARA FABRICANTES</p><h1>Menos preguntas sueltas. <span>Mejores solicitudes.</span></h1><p class="lead">Creamos una vitrina digital móvil para tus productos, trabajos y servicios. Cada ficha abre WhatsApp con una solicitud guiada para recoger medidas, materiales, cantidades y detalles del proyecto.</p><div class="actions"><a class="btn primary" href="mailto:vervant.contact@gmail.com?subject=Quiero%20una%20muestra%20de%20Vervant%20Local">Solicitar una muestra ↗</a><a class="btn secondary" href="/negocios/constructor/">Ver el constructor ↗</a></div><p class="subnote">Para carpinterías, fabricantes, rotulistas, imprentas y talleres industriales.</p></div>
+<div class="preview"><div class="preview-top"><b>Ejemplo ilustrativo · Taller Roble</b><span>VISTA MÓVIL</span></div><div class="mini-grid"><article class="mini-card"><div class="art"></div><b>Comedor a medida</b><small>Diseño y acabado por proyecto</small></article><article class="mini-card"><div class="art b"></div><b>Mueble de cocina</b><small>Medidas personalizadas</small></article><article class="mini-card"><div class="art c"></div><b>Escritorios</b><small>Para hogar y oficina</small></article><article class="mini-card"><div class="art d"></div><b>Puertas</b><small>Fabricación por encargo</small></article></div><div class="mini-cta">Cotizar este trabajo ↗</div></div>
 </section>
-<section class="proof wrap">
-<div><b>Sin tienda complicada</b><span>Solo muestras lo que haces y recibes consultas.</span></div>
-<div><b>WhatsApp como canal</b><span>Cada ficha prepara el mensaje de cotización.</span></div>
-<div><b>Sin backend</b><span>Una página estática, sin cuentas ni base de datos.</span></div>
-</section>
-<section id="como-funciona" class="section wrap">
-<p class="eyebrow">UN PROCESO SENCILLO</p><h2>De tus fotografías a un catálogo que trabaja desde el celular.</h2>
-<p class="intro">No intentamos reemplazar tu forma de vender. Ordenamos tus productos y trabajos para que el cliente llegue a la conversación con más contexto.</p>
-<div class="steps">
-<article class="step"><div class="num">01</div><h3>Nos compartes tu material</h3><p>Fotos, nombres, descripciones, ubicación y el número comercial de WhatsApp. La cuenta sigue siendo tuya.</p></article>
-<article class="step"><div class="num">02</div><h3>Armamos tu catálogo</h3><p>Diseñamos una página móvil con hasta 12 fichas, categorías y mensajes de cotización prellenados.</p></article>
-<article class="step"><div class="num">03</div><h3>Compartes un enlace</h3><p>Compartes el enlace en tu perfil, redes y conversaciones con clientes.</p></article>
-</div>
-</section>
-<section class="included"><div class="wrap">
-<p class="eyebrow">ALCANCE DEL PAQUETE PILOTO</p><h2>Lo necesario para mostrar y cotizar.</h2>
-<div class="include-grid">
-<p>✓ <b>Catálogo de hasta 12 productos o trabajos</b></p><p>✓ <b>Diseño adaptado a móviles</b></p>
-<p>✓ <b>Botones de WhatsApp con mensaje por producto</b></p><p>✓ <b>Ficha de contacto y ubicación</b></p>
-<p>✓ <b>Archivos estáticos y guía de actualización</b></p><p>✓ <b>Una ronda de correcciones</b></p>
-</div>
+<section class="trust wrap"><div><b>Hecho por Vervant</b><span>Configuramos tu catálogo contigo; no tienes que aprender otra plataforma.</span></div><div><b>WhatsApp con contexto</b><span>Cada solicitud identifica el trabajo y permite agregar especificaciones.</span></div><div><b>Sin mensualidad obligatoria</b><span>Entrega en HTML autónomo, listo para publicarse en tu alojamiento.</span></div></section>
+<section id="incluye" class="section wrap"><p class="eyebrow">QUÉ RECIBES</p><h2>Una presentación que ayuda al cliente a explicar qué necesita.</h2><p class="intro">No es una tienda electrónica. Es una herramienta comercial para negocios que fabrican por encargo, trabajan con medidas o necesitan aclarar materiales y especificaciones antes de cotizar.</p><div class="grid3">
+<article class="feature"><div class="icon">01</div><h3>Catálogo ordenado</h3><p>Hasta 12 productos, proyectos o servicios con fotografías, descripciones y categorías.</p></article><article class="feature"><div class="icon">02</div><h3>Búsqueda y filtros</h3><p>El cliente encuentra más rápido el tipo de trabajo que le interesa.</p></article><article class="feature"><div class="icon">03</div><h3>Solicitud guiada</h3><p>Medidas, material, cantidad, lugar y detalles se preparan en el mensaje de WhatsApp.</p></article><article class="feature"><div class="icon">04</div><h3>Diseño móvil</h3><p>Una página rápida y adaptable para compartir desde WhatsApp, Instagram o correo.</p></article><article class="feature"><div class="icon">05</div><h3>Entrega autónoma</h3><p>Archivo HTML independiente, sin base de datos ni suscripción a una plataforma de catálogo.</p></article><article class="feature"><div class="icon">06</div><h3>Ficha comercial opcional</h3><p>Una hoja PDF de capacidades para enviar a compradores empresariales y áreas de compras.</p></article>
 </div></section>
-<section class="limits wrap">
-<h2>Sin costos escondidos ni promesas irreales.</h2>
-<p>Este prototipo no es una tienda en línea: no procesa pagos, no administra inventario, no emite facturas fiscales y no garantiza posiciones en Google. El alojamiento gratuito, cuando se use, queda sujeto a los límites del proveedor y no incluye SLA. No se contrata dominio, publicidad ni servicio pagado sin autorización. La página solo muestra información comercial que el negocio autorice publicar.</p>
-</section>
-<section class="wrap"><div class="cta"><div><h2>Una muestra antes de decidir.</h2><p>El constructor funciona localmente; lo que escribas y las imágenes que cargues no se envían a ningún servidor.</p></div><a class="btn primary" href="/negocios/constructor/">Abrir constructor ↗</a></div></section>
+<section class="dark" id="como-funciona"><div class="wrap"><p class="eyebrow">PROCESO</p><h2>De tu material a una vitrina lista para compartir.</h2><div class="steps"><article class="step"><strong>01 · CONTENIDO</strong><h3>Recibimos tus datos autorizados</h3><p>Fotos, lista de productos o servicios, descripciones y WhatsApp comercial. No publicamos información sin tu aprobación.</p></article><article class="step"><strong>02 · CONFIGURACIÓN</strong><h3>Diseñamos y revisamos</h3><p>Organizamos categorías, fichas y campos de cotización. Te compartimos una vista previa y aplicamos una ronda de cambios.</p></article><article class="step"><strong>03 · ENTREGA</strong><h3>Recibes el catálogo</h3><p>Entregamos el HTML autónomo y una guía breve para compartirlo o publicarlo en tu alojamiento.</p></article></div></div></section>
+<section class="section wrap" id="precio"><p class="eyebrow">PRECIO DE LANZAMIENTO</p><h2>Empieza con un piloto de alcance claro.</h2><div class="pricing"><article class="plan highlight"><span class="pill">Primeros 3 proyectos</span><div class="price">US$149 <small>pago único</small></div><p>Catálogo de cotización Vervant Local.</p><ul><li>Hasta 12 fichas de productos, trabajos o servicios.</li><li>Diseño móvil, categorías y búsqueda.</li><li>Formulario guiado que prepara la solicitud por WhatsApp.</li><li>Configuración con tu identidad comercial.</li><li>Una ronda de correcciones.</li><li>Archivo HTML autónomo y guía de publicación.</li></ul><p class="plan-note">Precio regular previsto: US$249. El piloto es una oferta inicial limitada a tres proyectos.</p></article><article class="plan"><span class="pill">Complemento opcional</span><div class="price">US$49 <small>con catálogo</small></div><p>Ficha comercial de una página en PDF.</p><ul><li>Resumen de capacidades y servicios.</li><li>Sectores, materiales y procesos.</li><li>Contacto comercial autorizado.</li></ul><p class="plan-note">Dominio y alojamiento de pago, comercio electrónico, pagos, inventario y mantenimiento mensual no incluidos.</p></article></div></section>
+<section class="wrap"><div class="final-cta"><div><h2>¿Te mostramos cómo se vería en tu rubro?</h2><p>Preparamos una muestra ilustrativa con datos ficticios antes de solicitar tus fotografías o información.</p></div><a class="btn primary" href="mailto:vervant.contact@gmail.com?subject=Quiero%20ver%20una%20muestra%20de%20Vervant%20Local">Pedir muestra por correo ↗</a></div></section>
 </main>
-<footer><div class="wrap foot"><span>Vervant Local · concepto interno</span><span>Nombre y oferta sujetos a validación. No disponible para contratación.</span></div></footer>
-</body>
-</html>
+<footer><div class="wrap foot"><span>Vervant Local · Catálogos de cotización</span><span>Los resultados comerciales dependen de la oferta, el contenido y la gestión del negocio. No se garantizan ventas ni solicitudes.</span></div></footer>
+</body></html>

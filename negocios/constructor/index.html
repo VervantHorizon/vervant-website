@@ -28,7 +28,7 @@ input[type=file]{font-size:12px;padding:8px}textarea{min-height:65px;resize:vert
 .item-box .field{margin-bottom:9px}.item-box textarea{min-height:52px}
 .btn{border:0;cursor:pointer;font:750 13px/1 inherit;border-radius:9px;padding:11px 13px;display:inline-flex;align-items:center;justify-content:center;gap:6px}
 .btn.green{background:var(--green);color:white}.btn.soft{background:var(--mint);color:var(--green)}.btn.outline{background:#fff;border:1px solid var(--line);color:var(--ink)}
-.btn:disabled{opacity:.42;cursor:not-allowed}
+.btn:disabled{opacity:.42;cursor:not-allowed}select.preset{min-width:185px;padding:10px 12px;border:1px solid #d5dfd6;border-radius:9px;background:#fbfcfa;color:var(--ink);font:700 12px system-ui}
 .btn.wide{width:100%}.btn.small{padding:7px 9px;font-size:11px}
 .actions{display:flex;gap:8px;flex-wrap:wrap}.status{font-size:12px;color:var(--muted);margin:9px 0 0;min-height:18px}.status.error{color:var(--red)}
 .preview-wrap{position:sticky;top:14px}.preview-top{padding:16px 18px;background:#e4ece2;border-bottom:1px solid #d2dfd3;display:flex;align-items:center;justify-content:space-between;gap:10px}.preview-top b{font-size:13px}.preview-top span{font-size:11px;color:#61756a}
@@ -68,14 +68,14 @@ input[type=file]{font-size:12px;padding:8px}textarea{min-height:65px;resize:vert
 <div class="divider"></div>
 <div class="section-title"><b>Productos y trabajos</b><span class="count" id="counter">0 / 12</span></div>
 <div id="productList"></div>
-<div class="actions"><button id="addProduct" class="btn soft" type="button">＋ Agregar ficha</button><button id="loadDemo" class="btn outline" type="button">Cargar ejemplo</button></div>
+<div class="actions"><button id="addProduct" class="btn soft" type="button">＋ Agregar ficha</button><select id="demoType" class="preset" aria-label="Tipo de ejemplo"><option value="wood">Ejemplo · Carpintería</option><option value="signage">Ejemplo · Rótulos e impresión</option><option value="industrial">Ejemplo · Metal e industria</option></select><button id="loadDemo" class="btn outline" type="button">Cargar ejemplo</button></div>
 <div class="privacy">Privacidad: esta herramienta no sube fotografías, no transmite los datos y no guarda formularios. El contenido permanece en memoria mientras la página está abierta.</div>
 <button id="export" class="btn green wide" type="button" disabled>Descargar catálogo HTML ↓</button>
 <p id="status" class="status">Agrega al menos un producto y un número válido de WhatsApp para exportar.</p>
 </div>
 </section>
 <section class="panel preview-wrap">
-<div class="preview-top"><b>Vista previa del catálogo</b><span>2 · Así lo verá tu cliente</span></div>
+<div class="preview-top"><b>Vista previa del catálogo</b><span>Muestra parcial · la exportación añade filtros y solicitud guiada</span></div>
 <div class="preview">
 <div class="site">
 <div class="site-hero" id="previewHero">
@@ -179,28 +179,70 @@ byId("addProduct").addEventListener("click",function(){
  state.products.push({name:"",category:"",description:"",price:"Solicitar cotización",image:""});renderProductsForm();renderPreview();validate();
 });
 byId("loadDemo").addEventListener("click",function(){
- byId("businessName").value="Taller Roble";byId("tagline").value="Muebles hechos a medida";byId("category").value="Carpintería";byId("location").value="Santa Tecla, El Salvador";byId("introText").value="Diseñamos y fabricamos muebles personalizados para tu hogar o negocio. Cuéntanos qué necesitas y te ayudamos a cotizar.";
- state.products=[
-  {name:"Comedor a medida",category:"Comedores",description:"Mesa y sillas fabricadas según espacio y acabado elegido.",price:"Cotización según medidas",image:""},
-  {name:"Mueble de cocina",category:"Cocina",description:"Diseño modular, almacenamiento y medidas personalizadas.",price:"Solicitar cotización",image:""},
-  {name:"Puerta de madera",category:"Puertas",description:"Fabricación por encargo con selección de acabado.",price:"Desde cotización",image:""},
-  {name:"Escritorio de trabajo",category:"Oficina",description:"Mueble funcional para hogar u oficina.",price:"Cotización según diseño",image:""}
- ];renderProductsForm();renderPreview();validate();status("Ejemplo cargado. Agrega tu número de WhatsApp para activar la exportación.");
+ const demos={
+ wood:{
+  name:"Taller Roble",tagline:"Muebles hechos a medida",category:"Carpintería",location:"El Salvador",
+  intro:"Diseñamos y fabricamos muebles personalizados para tu hogar o negocio. Cuéntanos qué necesitas y te ayudamos a cotizar.",
+  products:[
+   {name:"Comedor a medida",category:"Comedores",description:"Mesa y sillas fabricadas según espacio y acabado elegido.",price:"Cotización según medidas",image:""},
+   {name:"Mueble de cocina",category:"Cocina",description:"Diseño modular, almacenamiento y medidas personalizadas.",price:"Solicitar cotización",image:""},
+   {name:"Puerta de madera",category:"Puertas",description:"Fabricación por encargo con selección de acabado.",price:"Desde cotización",image:""},
+   {name:"Escritorio de trabajo",category:"Oficina",description:"Mueble funcional para hogar u oficina.",price:"Cotización según diseño",image:""}
+  ]
+ },
+ signage:{
+  name:"Letreros Lumen",tagline:"Rotulación y comunicación visual",category:"Rótulos e impresión",location:"El Salvador",
+  intro:"Diseñamos y fabricamos soluciones de rotulación para comercios y espacios corporativos. Seleccionamos materiales, formatos y acabados según cada instalación.",
+  products:[
+   {name:"Letras recortadas",category:"Letras y fachadas",description:"Fabricación en PVC, acrílico, MDF o lámina según el proyecto.",price:"Cotización por tamaño y material",image:""},
+   {name:"Letras encajueladas",category:"Letras y fachadas",description:"Rótulos tridimensionales con opciones de iluminación frontal o indirecta.",price:"Solicitar cotización",image:""},
+   {name:"Rótulo de bandera",category:"Rótulos exteriores",description:"Señalización perpendicular a fachada para mejorar visibilidad del local.",price:"Cotización según dimensiones",image:""},
+   {name:"Vinil para vitrinas",category:"Impresión y vinil",description:"Gráficos adhesivos para escaparates, vehículos y superficies comerciales.",price:"Cotización por área",image:""},
+   {name:"Cajón luminoso",category:"Rótulos exteriores",description:"Estructura iluminada fabricada según medidas y punto de instalación.",price:"Solicitar cotización",image:""}
+  ]
+ },
+ industrial:{
+  name:"MetalForma",tagline:"Fabricación y transformación de metal",category:"Servicios industriales",location:"El Salvador",
+  intro:"Soluciones de corte, doblez y fabricación para proyectos metálicos. Comparte material, espesor, medidas y cantidad para iniciar la solicitud.",
+  products:[
+   {name:"Corte de lámina",category:"Corte y preparación",description:"Corte de hierro, acero inoxidable o aluminio según espesor y formato.",price:"Cotización según plano y material",image:""},
+   {name:"Doblez de lámina",category:"Corte y preparación",description:"Piezas dobladas según ángulo, longitud, espesor y material especificados.",price:"Solicitar cotización",image:""},
+   {name:"Enrollado de lámina",category:"Conformado",description:"Curvado de láminas para componentes y estructuras según radio requerido.",price:"Cotización por especificación",image:""},
+   {name:"Vigas estructurales",category:"Estructuras",description:"Fabricación de vigas de alma llena o celosía según requerimientos del proyecto.",price:"Cotización por plano",image:""},
+   {name:"Piezas especiales",category:"Fabricación especial",description:"Fabricación de componentes metálicos a medida a partir de medidas o referencia.",price:"Solicitar cotización",image:""}
+  ]
+ }
+ };
+ const demo=demos[byId("demoType").value]||demos.wood;
+ byId("businessName").value=demo.name;
+ byId("tagline").value=demo.tagline;
+ byId("category").value=demo.category;
+ byId("location").value=demo.location;
+ byId("introText").value=demo.intro;
+ state.products=demo.products.map(function(p){return {...p};});
+ renderProductsForm();renderPreview();validate();
+ status("Ejemplo cargado. Reemplaza los textos y añade el WhatsApp comercial autorizado para exportar.",false);
 });
 function generateHtml(d){
  const json=JSON.stringify(d).replace(/</g,"\\u003c").replace(/\u2028/g,"\\u2028").replace(/\u2029/g,"\\u2029");
+ const css=':root{--accent:'+d.accent+';--ink:#17271f;--muted:#65756b;--paper:#f3f6f1;--line:#e0e8df;--card:#fff}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}.wrap{width:min(1080px,calc(100% - 32px));margin:auto}.hero{padding:48px 0 26px}.label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:850;color:var(--accent)}.hero h1{font-size:clamp(34px,6vw,58px);line-height:1;letter-spacing:-.06em;margin:12px 0}.hero p{color:#5d6d63;max-width:700px}.contact,.quote-btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;border:0;border-radius:9px;padding:11px 15px;font-size:13px;font-weight:800;cursor:pointer}.toolbar{padding:12px 0 26px}.search{padding:12px 14px;border:1px solid #dce4dc;border-radius:10px;width:100%;max-width:400px;font:inherit;background:white}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.filters button{border:1px solid var(--line);background:#fff;color:#53645a;border-radius:999px;padding:7px 12px;font:700 12px system-ui;cursor:pointer}.filters button.active{background:var(--accent);border-color:var(--accent);color:#fff}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;padding-bottom:45px}.card{background:var(--card);border:1px solid var(--line);border-radius:15px;overflow:hidden;min-width:0}.photo{height:190px;background:#e4ece4;display:grid;place-items:center;color:var(--accent);font-weight:850;font-size:40px}.photo img{width:100%;height:100%;object-fit:cover}.content{padding:15px}.category{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:850}.content h2{font-size:17px;line-height:1.25;margin:6px 0}.content p{font-size:13px;color:var(--muted);min-height:40px;margin:0 0 12px}.price{font-weight:850;font-size:12px;color:var(--accent);margin-bottom:13px}.quote-btn{display:block;text-align:center;width:100%}.foot{border-top:1px solid #dfe6dd;padding:18px 0 32px;color:#6d7b71;font-size:12px}.notice{font-size:11px;color:#78857c;padding:0 0 24px}.empty{grid-column:1/-1;padding:40px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}dialog{width:min(520px,calc(100% - 24px));border:0;border-radius:18px;padding:0;box-shadow:0 22px 80px #10231e40}dialog::backdrop{background:#10231e99}.form{padding:24px}.form h2{font-size:25px;letter-spacing:-.04em;margin:0 0 5px}.form .sub{color:var(--muted);font-size:13px;margin:0 0 18px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:11px}.fields label{font-size:11px;color:#52645a;font-weight:800}.fields input,.fields textarea{width:100%;font:14px system-ui;border:1px solid #d5dfd6;border-radius:8px;padding:10px;margin-top:5px}.fields .full{grid-column:1/-1}.fields textarea{min-height:75px}.form-actions{display:flex;gap:9px;margin-top:17px;justify-content:flex-end}.form-actions button{border:1px solid var(--line);background:#fff;padding:10px 13px;border-radius:9px;font-weight:750;cursor:pointer}.form-actions .send{background:var(--accent);border-color:var(--accent);color:#fff}@media(max-width:560px){.hero{padding-top:30px}.photo{height:155px}.fields{grid-template-columns:1fr}.fields .full{grid-column:auto}.form{padding:18px}}';
  const lines=[
-'<!doctype html>',
-'<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3EV%3C/text%3E%3C/svg%3E"><meta name="theme-color" content="'+esc(d.accent)+'"><title>'+esc(d.name)+' — Catálogo</title>',
-'<style>*{box-sizing:border-box}body{margin:0;background:#f3f5f0;color:#182820;font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}.wrap{width:min(1050px,calc(100% - 30px));margin:auto}.hero{padding:48px 0 30px}.label{font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:850;color:'+esc(d.accent)+'}.hero h1{font-size:clamp(34px,6vw,58px);line-height:1;letter-spacing:-.06em;margin:11px 0}.hero p{color:#5d6d63;max-width:640px}.contact,.card a{display:inline-block;background:'+esc(d.accent)+';color:white;text-decoration:none;border-radius:9px;padding:11px 15px;font-size:13px;font-weight:800}.search{margin:25px 0 16px;padding:12px 14px;border:1px solid #dce4dc;border-radius:10px;width:100%;max-width:350px;font:inherit;background:white}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;padding-bottom:45px}.card{background:white;border:1px solid #e0e7df;border-radius:14px;overflow:hidden}.photo{height:190px;background:#e3ece3;display:grid;place-items:center;color:'+esc(d.accent)+';font-weight:850;font-size:40px}.photo img{width:100%;height:100%;object-fit:cover}.content{padding:14px}.content h2{font-size:17px;line-height:1.2;margin:0 0 7px}.content p{font-size:13px;color:#69776e;min-height:40px;margin:0 0 10px}.price{font-weight:850;font-size:12px;color:'+esc(d.accent)+';margin-bottom:13px}.card a{display:block;text-align:center}.foot{border-top:1px solid #dfe6dd;padding:18px 0 30px;color:#6d7b71;font-size:12px}@media(max-width:520px){.hero{padding-top:32px}.photo{height:160px}}</style></head><body>',
+'<!doctype html>','<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="'+esc(d.accent)+'"><meta name="description" content="'+esc(d.intro)+'"><title>'+esc(d.name)+' — Catálogo y cotizaciones</title><style>'+css+'</style></head><body>',
 '<header class="wrap hero"><div class="label">'+esc([d.category,d.location].filter(Boolean).join(" · ").toUpperCase())+'</div><h1>'+esc(d.name)+'</h1><p><b>'+esc(d.tagline)+'</b></p><p>'+esc(d.intro)+'</p><a class="contact" href="https://wa.me/'+digits(d.phone)+'?text='+encodeURIComponent("Hola, vi su catálogo y me gustaría recibir información.")+'" target="_blank" rel="noopener">Contactar por WhatsApp ↗</a></header>',
-'<main class="wrap"><input id="search" class="search" placeholder="Buscar en el catálogo…" aria-label="Buscar en el catálogo"><section class="grid" id="grid"></section></main>',
-'<footer class="wrap foot">'+esc(d.location||"Contáctanos para conocer más")+' · '+esc(d.name)+' · Catálogo digital</footer>',
-'<script type="application/json" id="site-data">'+json+'<'+'/script>',
-'<script>(function(){const d=JSON.parse(document.getElementById("site-data").textContent);const esc=function(s){return String(s||"").replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",\'"\':"&quot;"}[c]})};const grid=document.getElementById("grid");function draw(q){grid.innerHTML="";d.products.filter(function(p){return (p.name+" "+p.category+" "+p.description).toLowerCase().includes(q.toLowerCase())}).forEach(function(p){const card=document.createElement("article");card.className="card";const photo=p.image?\'<img src="\'+p.image+\'" alt="\'+esc(p.name)+\'">\':\'<span>\'+esc((p.name||"V").slice(0,1).toUpperCase())+\'</span>\';const msg="Hola, me interesa cotizar: "+p.name+". ¿Me pueden brindar información?";card.innerHTML=\'<div class="photo">\'+photo+\'</div><div class="content"><h2>\'+esc(p.name)+\'</h2><p>\'+esc(p.description)+\'</p><div class="price">\'+esc(p.price||"Solicitar cotización")+\'</div><a href="https://wa.me/\'+d.phone+\'?text=\'+encodeURIComponent(msg)+\'" target="_blank" rel="noopener">Solicitar cotización ↗</a></div>\';grid.appendChild(card)})}document.getElementById("search").addEventListener("input",function(e){draw(e.target.value)});draw("")})();<\/script>',
-'</body></html>'
+'<main class="wrap"><div class="toolbar"><input id="search" class="search" placeholder="Buscar productos, servicios o materiales…" aria-label="Buscar en el catálogo"><nav class="filters" id="filters" aria-label="Filtrar por categoría"></nav></div><section class="grid" id="grid" aria-live="polite"></section></main>',
+'<footer class="wrap foot">'+esc(d.location||"Contáctanos para conocer más")+' · '+esc(d.name)+'</footer>',
+'<p class="wrap notice">Las solicitudes se preparan en este navegador y se abren en WhatsApp. No se procesan pagos ni se guardan los datos del formulario.</p>',
+'<dialog id="quoteDialog" aria-labelledby="quoteTitle"><form id="quoteForm" class="form"><h2 id="quoteTitle">Solicitar cotización</h2><p class="sub" id="quoteProduct">Completa los detalles que ya conoces. Puedes dejar campos en blanco.</p><div class="fields"><label class="full">Medidas o especificaciones<input id="qMeasures" placeholder="Ej. 2.4 m × 1.2 m, espesor, plano…"></label><label>Material o acabado<input id="qMaterial" placeholder="Ej. acero, MDF, acrílico…"></label><label>Cantidad<input id="qQuantity" placeholder="Ej. 3 unidades"></label><label>Zona o lugar de instalación<input id="qLocation" placeholder="Ciudad / municipio"></label><label>Fecha estimada<input id="qDate" placeholder="Ej. este mes"></label><label class="full">Detalles adicionales<textarea id="qDetails" placeholder="Cuéntanos algo más sobre lo que necesitas…"></textarea></label></div><div class="form-actions"><button type="button" id="closeQuote">Cancelar</button><button class="send" type="submit">Continuar en WhatsApp ↗</button></div></form></dialog>',
+'<script type="application/json" id="catalogData">'+json+'<'+'/script>',
+'<script>(function(){',
+'const data=JSON.parse(document.getElementById("catalogData").textContent);const grid=document.getElementById("grid");const filters=document.getElementById("filters");const search=document.getElementById("search");const dialog=document.getElementById("quoteDialog");const form=document.getElementById("quoteForm");let active="Todos";let selected=null;',
+'function el(tag,cls,text){const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;}',
+'function openQuote(product){selected=product;document.getElementById("quoteProduct").textContent="Trabajo: "+product.name+" · Completa solo lo que ya sabes.";form.reset();dialog.showModal();}',
+'function draw(){const q=search.value.trim().toLowerCase();const categories=["Todos"].concat(Array.from(new Set(data.products.map(p=>String(p.category||"").trim()).filter(Boolean))));filters.innerHTML="";categories.forEach(cat=>{const b=el("button",cat===active?"active":"",cat);b.type="button";b.addEventListener("click",()=>{active=cat;draw();});filters.appendChild(b);});grid.innerHTML="";const items=data.products.filter(p=>(active==="Todos"||String(p.category||"").trim()===active)&&[p.name,p.category,p.description,p.price].join(" ").toLowerCase().includes(q));if(!items.length){grid.appendChild(el("div","empty","No encontramos resultados. Prueba otra búsqueda o categoría."));return;}items.forEach(p=>{const card=el("article","card");const photo=el("div","photo");if(p.image){const img=document.createElement("img");img.src=p.image;img.alt=p.name||"Fotografía del producto";photo.appendChild(img);}else photo.appendChild(el("span","",String(p.name||"V").slice(0,1).toUpperCase()));const content=el("div","content");content.appendChild(el("div","category",p.category||"Trabajo a medida"));content.appendChild(el("h2","",p.name||"Producto"));content.appendChild(el("p","",p.description||"Consulta las opciones disponibles."));content.appendChild(el("div","price",p.price||"Solicitar cotización"));const button=el("button","quote-btn","Cotizar este trabajo ↗");button.type="button";button.addEventListener("click",()=>openQuote(p));content.appendChild(button);card.appendChild(photo);card.appendChild(content);grid.appendChild(card);});}',
+'search.addEventListener("input",draw);document.getElementById("closeQuote").addEventListener("click",()=>dialog.close());form.addEventListener("submit",e=>{e.preventDefault();if(!selected)return;const value=id=>document.getElementById(id).value.trim();const parts=["Hola, me interesa solicitar una cotización.","Negocio: "+data.name,"Trabajo: "+selected.name];if(selected.category)parts.push("Categoría: "+selected.category);if(value("qMeasures"))parts.push("Medidas / especificaciones: "+value("qMeasures"));if(value("qMaterial"))parts.push("Material / acabado: "+value("qMaterial"));if(value("qQuantity"))parts.push("Cantidad: "+value("qQuantity"));if(value("qLocation"))parts.push("Zona / instalación: "+value("qLocation"));if(value("qDate"))parts.push("Fecha estimada: "+value("qDate"));if(value("qDetails"))parts.push("Detalles: "+value("qDetails"));parts.push("Puedo compartir fotografías o referencias adicionales por este chat.");const url="https://wa.me/"+data.phone+"?text="+encodeURIComponent(parts.join(String.fromCharCode(10)));window.open(url,"_blank","noopener,noreferrer");dialog.close();});draw();',
+'})();<'+'/script>','</body></html>'
  ];
- return lines.join("\n");
+ return lines.join(String.fromCharCode(10));
 }
 byId("export").addEventListener("click",function(){
  const d=getData();if(byId("export").disabled)return;
