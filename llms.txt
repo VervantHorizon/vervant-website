@@ -24,7 +24,7 @@ Verified prototype functionality includes:
 
 ## Important security limitation
 
-The current runtime launches Chromium with --no-sandbox because its constrained Linux environment cannot start the built-in sandbox. Disabling page JavaScript and blocking page network requests reduce attack surface but do not provide process isolation. The hosted API is not publicly available. Do not send production, personal, confidential or sensitive customer documents. The prototype has not received an independent security audit or certification.
+The local prototype now launches Chromium inside an outer Bubblewrap boundary with isolated user, network, PID, IPC and UTS namespaces, dropped capabilities, a read-only root filesystem, masked home/application/data paths and a per-render temporary profile. The browser uses a debugging pipe and receives no API secret environment. A regression test confirms that Chromium cannot reach a host localhost service. Chromium's own --no-sandbox flag remains enabled inside the outer boundary. The target hosting container has not been built or tested; its seccomp/runtime policy may restrict namespace creation. The hosted API is still offline. Do not send production, personal, confidential or sensitive customer documents. The prototype has not received an independent security audit or certification.
 
 ## Public resources
 
