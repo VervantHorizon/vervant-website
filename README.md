@@ -14,3 +14,5 @@ The public site is live on Render as a static site. The hosted Vervant API is st
 The invoice preview runs entirely in your browser. It doesn't upload or store what you enter, and it uses your browser's print dialog to save a PDF. It's a layout example, not the hosted API or accounting/tax software.
 
 We're building Vervant for SaaS teams that want an easier way to create consistent PDFs from HTML. Thanks for stopping by and taking a look.
+
+- [Vervant Local — international catalogue offer](https://vervant-public-site.onrender.com/negocios/en/)

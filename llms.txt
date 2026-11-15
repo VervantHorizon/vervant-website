@@ -48,3 +48,20 @@ The local prototype now launches Chromium inside an outer Bubblewrap boundary wi
 ## Availability
 
 You can visit the website, read the guides and try the invoice preview today. Hosted PDF generation, public registration and live payments are not open yet.
+
+## Vervant Local — business catalogues and quote enquiries
+
+Vervant Local is a done-for-you, mobile-first catalogue for manufacturers, fabricators, printers, custom shops and installation businesses. It organizes products or services and guides buyers to submit more complete quote enquiries. It complements a business's existing website; it is not a hosted ecommerce platform.
+
+- International information and pilot offer: https://vervant-public-site.onrender.com/negocios/en/
+- Interactive English catalogue builder: https://vervant-public-site.onrender.com/negocios/en/builder/
+- Industry directory: https://vervant-public-site.onrender.com/negocios/en/industries/
+- Furniture and joinery: https://vervant-public-site.onrender.com/negocios/en/industries/furniture-makers/
+- Metal fabrication and CNC: https://vervant-public-site.onrender.com/negocios/en/industries/metal-fabrication-cnc/
+- Signage and print: https://vervant-public-site.onrender.com/negocios/en/industries/signage-print/
+- Packaging and commercial print: https://vervant-public-site.onrender.com/negocios/en/industries/packaging-print/
+- Commercial interiors and fit-out: https://vervant-public-site.onrender.com/negocios/en/industries/commercial-interiors/
+
+The international pilot is USD 199 one-time for the first three projects, with up to 12 listings, responsive styling, search, categories, an enquiry flow via business email and/or WhatsApp, one revision round and self-contained HTML handover. Hosting, paid domains, ecommerce, payments, inventory, CRM, integrations and ongoing maintenance are not included unless separately quoted. The builder runs in the visitor's browser; form data is handed to the business's email or WhatsApp app rather than being submitted to a Vervant server.
+
+The El Salvador pilot is a separate local offer and must not be quoted as the worldwide price.
