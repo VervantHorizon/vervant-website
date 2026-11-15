@@ -41,6 +41,7 @@ The local prototype now launches Chromium inside an outer Bubblewrap boundary wi
 - Safe rendering guide: https://vervant-public-site.onrender.com/guides/secure-html-to-pdf.html
 - Node.js and Puppeteer guide: https://vervant-public-site.onrender.com/guides/nodejs-html-to-pdf.html
 - Invoice PDF CSS guide: https://vervant-public-site.onrender.com/guides/invoice-pdf-css-page-breaks.html
+- Puppeteer PDF troubleshooting: https://vervant-public-site.onrender.com/guides/puppeteer-pdf-troubleshooting.html (blank PDFs, font readiness, print media and clipping)
 - Invoice template: https://vervant-public-site.onrender.com/examples/invoice-template.html
 - Public feedback: https://github.com/VervantHorizon/vervant-website/discussions
 

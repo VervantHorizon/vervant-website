@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Fix blank, clipped or inconsistent PDFs from Puppeteer. Check print media, page readiness, fonts, images, CSS page size and output options.">
+  <link rel="canonical" href="https://vervant-public-site.onrender.com/guides/puppeteer-pdf-troubleshooting.html">
+  <link rel="stylesheet" href="/assets/site.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Troubleshoot Puppeteer PDFs: blank pages, fonts and clipping">
+  <meta property="og:description" content="A practical checklist for reliable Puppeteer PDF output: print CSS, readiness, images, fonts and page sizing.">
+  <meta property="og:url" content="https://vervant-public-site.onrender.com/guides/puppeteer-pdf-troubleshooting.html">
+  <title>Troubleshoot Puppeteer PDFs: blank pages, fonts and clipping — Vervant</title>
+</head>
+<body>
+<header class="nav wrap"><a class="brand" href="/"><b>V</b> vervant <small>/ pdf api</small></a><nav><a href="/">Home</a><a href="/guides/">Guides</a></nav></header>
+<main class="section wrap article">
+  <p class="eyebrow">PUPPETEER · PDF DEBUGGING</p>
+  <h1>How to troubleshoot Puppeteer PDFs that are blank, clipped or inconsistent</h1>
+  <p class="lede">A PDF can be technically valid and still be wrong: a chart is missing, a custom font falls back, a background disappears or the last rows of a table are clipped. Work through the rendering pipeline in order instead of adding arbitrary sleeps.</p>
+
+  <h2>1. Confirm which CSS media type you are printing</h2>
+  <p><code>page.pdf()</code> uses the print CSS media type. That means rules inside <code>@media print</code> apply, while screen-only layout rules may not. If the page looks right in a normal browser tab but wrong in the PDF, inspect print styles first.</p>
+  <pre><code>@page {
+  size: A4;
+  margin: 12mm;
+}
+
+@media print {
+  .screen-only,
+  .no-print {
+    display: none !important;
+  }
+
+  .keep-together {
+    break-inside: avoid;
+  }
+
+  .new-page {
+    break-before: page;
+  }
+}</code></pre>
+  <p>Use <code>page.emulateMediaType('screen')</code> only when you deliberately want screen styles in the PDF. It disables print media styles, which can also disable your print pagination rules. Usually, leaving Puppeteer's default print media is the safer starting point.</p>
+
+  <h2>2. Wait for the document, not an arbitrary number of seconds</h2>
+  <p><code>networkidle0</code> can help when a document loads assets over the network, but it is not a universal “page is ready” signal. A chart may render after an API call, a client-side template may finish later, or a font may still be loading. Prefer an explicit readiness marker that your own page controls.</p>
+  <pre><code>await page.setContent(html, {
+  waitUntil: 'networkidle0',
+  timeout: 20_000,
+});
+
+// Your app sets this after its data and charts are ready.
+await page.waitForSelector('[data-pdf-ready="true"]', {
+  timeout: 10_000,
+});
+
+await page.evaluate(async () => {
+  await document.fonts.ready;
+
+  await Promise.all(
+    Array.from(document.images, image => image.decode()),
+  );
+});</code></pre>
+  <p>If you own the page, set <code>data-pdf-ready="true"</code> only after asynchronous data, charts and other visual components have finished. A fixed delay can hide a race on your laptop and fail again under load.</p>
+
+  <h2>3. Make page size and background choices explicit</h2>
+  <p>Choose one source of truth for paper dimensions. When your HTML owns page sizing through <code>@page</code>, set <code>preferCSSPageSize: true</code>. Otherwise, pass a format such as A4 or Letter directly. Also remember that background graphics are not printed unless you request them.</p>
+  <pre><code>const pdf = await page.pdf({
+  printBackground: true,
+  preferCSSPageSize: true,
+  // The CSS @page rule above owns paper size and margins.
+  waitForFonts: true,
+  timeout: 30_000,
+});</code></pre>
+  <p>When using CSS page size, avoid also setting a conflicting <code>format</code>, <code>width</code>, <code>height</code> or PDFOptions margin. Alternatively, let Puppeteer own the paper settings with <code>format: 'A4'</code> and a margin object, and remove the corresponding size and margin declarations from <code>@page</code>. For exact colors, add <code>-webkit-print-color-adjust: exact</code> to the elements that need them and test the result in the PDF viewer your customers actually use.</p>
+
+  <h2>4. Check fonts and image failures separately</h2>
+  <p>A successful PDF response does not prove that every asset loaded. For each font, confirm that the file URL resolves, the browser is allowed to request it and the declared family/weight matches the CSS. For images, check their HTTP status, MIME type, dimensions and whether they have finished decoding.</p>
+  <p>For a repeatable production render, prefer bundled, versioned assets over arbitrary third-party URLs. If users can supply HTML, do not let the browser fetch any URL by default; remote resources can change output and create server-side request risks. See <a href="/guides/secure-html-to-pdf.html">the HTML-to-PDF security guide</a>.</p>
+
+  <h2>5. Find layout overflow before changing the scale</h2>
+  <p>Clipped content often comes from a fixed height, <code>overflow: hidden</code>, a wide table or an oversized image—not from Puppeteer itself. Inspect elements that cross the printable width, test long text and use real multi-page fixtures. Avoid shrinking the whole document with <code>scale</code> until you know what is overflowing; it can make small text unreadable.</p>
+  <pre><code>@media print {
+  html,
+  body {
+    height: auto;
+    overflow: visible;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    break-inside: avoid;
+  }
+}</code></pre>
+  <p><code>break-inside: avoid</code> is a hint, not a guarantee. A row or image taller than the printable page may still need to split or be redesigned.</p>
+
+  <h2>6. Keep a small regression fixture</h2>
+  <p>Test more than a one-line title. Keep a sample document that includes a long address, a multi-page table, non-ASCII text, a missing optional image, long descriptions, a final total and a page footer. Check the page count and inspect the actual pages after every Chromium or CSS change.</p>
+  <ul>
+    <li>Compare the rendered PDF, not only the HTTP status.</li>
+    <li>Record the Chromium and Puppeteer versions used for the test.</li>
+    <li>Set bounded navigation, font and PDF-generation timeouts.</li>
+    <li>Log a request ID and safe error category; do not log full customer HTML or PDF contents.</li>
+  </ul>
+
+  <h2>What Vervant can help with</h2>
+  <p>We are building a developer-first PDF workflow for SaaS teams that already have HTML and application data. The hosted API is not open yet, so this guide is independent advice—not a claim that a production endpoint is available.</p>
+  <p>Try the <a href="/tools/invoice-preview/">browser-only invoice preview</a> to experiment with a sample layout, or use the <a href="/tools/workflow-brief/">PDF workflow planner</a> to organize your requirements. Both run locally in your browser. Please do not enter confidential customer data.</p>
+  <p>If you build a SaaS product, <a href="https://github.com/VervantHorizon/vervant-website/discussions/1">tell us what your PDF workflow looks like</a>. A short description of your document types, volume and current renderer helps us validate what to build next. Please keep secrets and real customer documents out of the public discussion.</p>
+
+  <h2>Further reading</h2>
+  <ul>
+    <li><a href="https://pptr.dev/api/puppeteer.page.pdf">Puppeteer Page.pdf() API</a></li>
+    <li><a href="https://pptr.dev/api/puppeteer.pdfoptions">Puppeteer PDFOptions reference</a></li>
+    <li><a href="/guides/invoice-pdf-css-page-breaks.html">CSS page size and breaks for invoice PDFs</a></li>
+    <li><a href="/guides/nodejs-html-to-pdf.html">HTML to PDF in Node.js with Puppeteer</a></li>
+  </ul>
+</main>
+<footer class="footer"><div class="wrap"><a href="/">Home</a> · <a href="/guides/">Guides</a> · <a href="/privacy.html">Privacy</a></div></footer>
+<style>
+.article{max-width:780px}
+.article h1{line-height:1.15;max-width:760px}
+.article h2{margin:35px 0 10px;font-size:23px}
+.article p,.article li{color:#56687a;line-height:1.8;font-size:15px}
+.article pre{overflow:auto;padding:20px;background:#0b1928;color:#dbe8f2;border-radius:12px;font:12px/1.8 ui-monospace,monospace}
+.article code:not(pre code){padding:2px 5px;border-radius:4px;background:#eef2f5;color:#203449}
+.article li{margin:6px 0}
+</style>
+</body>
+</html>
