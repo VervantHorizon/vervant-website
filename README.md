@@ -1,15 +1,15 @@
-# Vervant public product site
+# Vervant's public website and developer guides
 
-- Live website: https://vervant-pdf-api.deed.page/
-- Interactive invoice preview: https://vervant-pdf-api.deed.page/tools/invoice-preview/
-- Developer guides: https://vervant-pdf-api.deed.page/guides/
-- Secure rendering guide: https://vervant-pdf-api.deed.page/guides/secure-html-to-pdf.html
-- Node.js + Puppeteer guide: https://vervant-pdf-api.deed.page/guides/nodejs-html-to-pdf.html
-- Invoice PDF CSS guide: https://vervant-pdf-api.deed.page/guides/invoice-pdf-css-page-breaks.html
-- Printable invoice starter: https://vervant-pdf-api.deed.page/examples/invoice-template.html
+Welcome! This repository holds the public home for Vervant: the product website, practical PDF guides, invoice examples and a small demo you can try in your browser.
 
-This repository contains the source for the public static marketing and developer-resource site. The live static site is hosted at deed.page Free ($0). The hosted Vervant API is still in private-beta preparation and is not publicly available; do not send production, personal or confidential documents.
+- [Visit Vervant](https://vervant-pdf-api.deed.page/)
+- [Try the invoice preview](https://vervant-pdf-api.deed.page/tools/invoice-preview/)
+- [Browse the developer guides](https://vervant-pdf-api.deed.page/guides/)
+- [Read the rendering and security guide](https://vervant-pdf-api.deed.page/guides/secure-html-to-pdf.html)
+- [Share a question or idea](https://github.com/VervantHorizon/vervant-website/discussions/1)
 
-The invoice preview demo runs entirely in the browser and does not upload or store visitor input. It is a template demonstration and not the hosted API or tax/accounting software.
+The public site is hosted on deed.page Free. The hosted Vervant API is still being prepared and is not open for public use, so please don't send personal, confidential or production customer documents.
 
-Vervant is building a focused HTML-to-PDF API for SaaS backends, with reusable templates, API keys, usage quotas and restricted browser rendering. See llms.txt for a compact product summary.
+The invoice preview runs entirely in your browser. It doesn't upload or store what you enter, and it uses your browser's print dialog to save a PDF. It's a layout example, not the hosted API or accounting/tax software.
+
+We're building Vervant for SaaS teams that want an easier way to create consistent PDFs from HTML. Thanks for stopping by and taking a look.

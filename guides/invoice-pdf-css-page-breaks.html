@@ -13,7 +13,7 @@
 <main class="section wrap article">
   <p class="eyebrow">CSS PRINT LAYOUT · DEVELOPER GUIDE</p>
   <h1>CSS for invoice PDFs: page size, margins and page breaks</h1>
-  <p class="lede">A browser can render excellent invoices, but screen-first CSS often breaks when a document spans multiple printed pages. Start with the paper, define predictable breaks, and test with realistic data.</p>
+  <p class="lede">A browser can make a great-looking invoice, but a layout designed for a screen can become messy when it spills onto paper. Start with the page size, plan your breaks and test with the kind of data your customers really use.</p>
 
   <h2>1. Choose the paper size deliberately</h2>
   <p>A4 and US Letter are not interchangeable. Select one format based on the document's intended audience and let your application pass that choice explicitly to the PDF renderer. CSS <code>@page</code> controls the printed page box; Puppeteer's <code>preferCSSPageSize</code> option gives a declared CSS page size priority over its format, width or height options.</p>
@@ -95,7 +95,7 @@ tr {
   <p>A one-line invoice is not a pagination test. Include a long customer address, a 40-row invoice, a very long product description, a discount, tax lines, a multi-page report and non-ASCII characters. Check both page count and visual output. Make sure the final total is not stranded by itself on a new page.</p>
 
   <h2>Where Vervant fits</h2>
-  <p>Vervant is building an HTML-to-PDF API for SaaS backends. Its prototype supports A4, Letter, Legal and Tabloid, explicit margins, background printing and landscape output. The hosted API is in private-beta preparation and is not publicly available yet. These guides are educational examples, not accounting or tax advice.</p>
+  <p>We’re building Vervant to help SaaS teams turn their existing HTML into consistent PDFs. The local prototype supports A4, Letter, Legal and Tabloid, custom margins, background printing and landscape pages. The hosted API isn’t open yet. These examples are here to help with layout—not to provide accounting or tax advice.</p>
 
   <h2>References</h2>
   <ul>

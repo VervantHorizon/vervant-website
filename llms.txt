@@ -1,10 +1,12 @@
 # Vervant PDF API
 
-> Developer-first HTML-to-PDF API for SaaS backends; hosted service is currently in private-beta preparation and not publicly available.
+> Vervant is being built to help SaaS developers turn their HTML into consistent PDFs. The hosted API is still being prepared; the public site, guides and browser-only invoice preview are available now.
 
 ## Product
 
-Vervant is building an HTTP API that converts caller-supplied HTML or reusable templates into PDF documents for invoices, receipts, statements and reports.
+The goal is simple: make PDF generation one less piece of infrastructure for a SaaS team to maintain.
+
+Vervant is building an HTTP API for developers who need invoices, receipts, statements and reports from their own HTML or reusable templates.
 
 Verified prototype functionality includes:
 - HTML-to-PDF generation.
@@ -16,15 +18,15 @@ Verified prototype functionality includes:
 - A4, Letter, Legal and Tabloid output, margins, background printing and landscape output.
 - HTML limited to 1 MB, CSS limited to 256 KB, request body limited to 2 MB, and bounded rendering concurrency.
 
-## Interactive local demo
+## Try a sample invoice
 
 - Invoice preview builder: https://vervant-pdf-api.deed.page/tools/invoice-preview/
 - Runs in the visitor's browser. It does not upload, store or transmit invoice information.
 - It uses browser print-to-PDF and is a layout demonstration, not the hosted Vervant API or tax/accounting software.
 
-## Important security limitation
+## A note on security and availability
 
-The local prototype now launches Chromium inside an outer Bubblewrap boundary with isolated user, network, PID, IPC and UTS namespaces, dropped capabilities, a read-only root filesystem, masked home/application/data paths and a per-render temporary profile. The browser uses a debugging pipe and receives no API secret environment. A regression test confirms that Chromium cannot reach a host localhost service. Chromium's own --no-sandbox flag remains enabled inside the outer boundary. The target hosting container has not been built or tested; its seccomp/runtime policy may restrict namespace creation. The hosted API is still offline. Do not send production, personal, confidential or sensitive customer documents. The prototype has not received an independent security audit or certification.
+The local prototype now launches Chromium inside an outer Bubblewrap boundary with isolated user, network, PID, IPC and UTS namespaces, dropped capabilities, a read-only root filesystem, masked home/application/data paths and a per-render temporary profile. The browser uses a debugging pipe and receives no API secrets. A local test confirms that Chromium cannot reach a service on the host’s localhost address. Chromium's own --no-sandbox flag remains enabled inside the outer boundary. The production image builds, but GitHub Actions confirms that its default container policy blocks the unprivileged user namespaces Bubblewrap needs. Chromium closes before Puppeteer connects. We need a hosting environment that permits these namespaces or a different renderer architecture; the service remains offline. We will not disable container protections to make the check pass. The hosted API is still offline while the production container is being checked. Please do not send production, personal, confidential or sensitive customer documents. The prototype has not received an independent security audit or certification.
 
 ## Public resources
 
@@ -38,4 +40,4 @@ The local prototype now launches Chromium inside an outer Bubblewrap boundary wi
 
 ## Availability
 
-The static product website, guides and local invoice-preview demo are public. The hosted API, public registration and live payments are not open.
+You can visit the website, read the guides and try the invoice preview today. Hosted PDF generation, public registration and live payments are not open yet.
