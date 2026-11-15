@@ -4,6 +4,7 @@ Welcome! This repository holds the public home for Vervant: the product website,
 
 - [Visit Vervant](https://vervant-pdf-api.deed.page/)
 - [Try the invoice preview](https://vervant-pdf-api.deed.page/tools/invoice-preview/)
+- [Plan a PDF workflow](https://vervant-pdf-api.deed.page/tools/workflow-brief/)
 - [Browse the developer guides](https://vervant-pdf-api.deed.page/guides/)
 - [Read the rendering and security guide](https://vervant-pdf-api.deed.page/guides/secure-html-to-pdf.html)
 - [Share a question or idea](https://github.com/VervantHorizon/vervant-website/discussions/1)

@@ -18,6 +18,12 @@ Verified prototype functionality includes:
 - A4, Letter, Legal and Tabloid output, margins, background printing and landscape output.
 - HTML limited to 1 MB, CSS limited to 256 KB, request body limited to 2 MB, and bounded rendering concurrency.
 
+## Plan your PDF workflow
+
+- Workflow brief planner: https://vervant-pdf-api.deed.page/tools/workflow-brief/
+- Helps developers summarize document types, volume, backend stack, current approach, pain points and template needs.
+- Runs entirely in the browser; answers are not uploaded, stored or sent to Vervant. The summary can be copied and shared manually.
+
 ## Try a sample invoice
 
 - Invoice preview builder: https://vervant-pdf-api.deed.page/tools/invoice-preview/
