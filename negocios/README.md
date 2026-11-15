@@ -5,7 +5,9 @@ Prototipo local, no publicado, no comercialmente validado. El objetivo es probar
 
 ## Archivos
 - `index.html`: página privada de explicación de la oferta.
-- `constructor/index.html`: constructor en el navegador.
+- `constructor/index.html`: constructor de catálogo en español.
+- `en/index.html` y `en/builder/index.html`: versión en inglés para expansión internacional.
+- `capability-sheet/index.html` y `en/capability-sheet/index.html`: generador de ficha comercial A4, imprimible como PDF desde el navegador.
 - El constructor genera un único archivo HTML autocontenido por negocio.
 
 ## Cómo probar
@@ -32,6 +34,12 @@ En el constructor:
 - No genera todavía QR. No anunciar esa característica hasta implementarla y probarla.
 - No procesa pagos, órdenes, inventario, facturas fiscales o información privada.
 - Requiere que el negocio autorice las fotografías, textos y el número comercial antes de publicar.
+
+## Ficha de capacidades
+- Abre `/negocios/capability-sheet/` (o `/negocios/en/capability-sheet/` en inglés).
+- Completa servicios, sectores, materiales/capacidades y contacto comercial autorizado.
+- Usa “Imprimir / Guardar como PDF” y elige “Guardar como PDF” en el navegador.
+- El diseño está configurado para una sola página A4; probado en Chromium.
 
 ## Publicación
 El repositorio está conectado a Render con despliegue automático en `main`. **No hacer push ni desplegar este prototipo sin autorización expresa.** La web pública actual está dirigida a desarrolladores del producto PDF API; no debe mezclarse la navegación de ambas ofertas sin decisión de marca.
