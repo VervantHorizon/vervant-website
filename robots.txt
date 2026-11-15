@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vervant-pdf-api.deed.page/sitemap.xml
+Sitemap: https://vervant-public-site.onrender.com/sitemap.xml

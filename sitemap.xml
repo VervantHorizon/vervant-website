@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://vervant-pdf-api.deed.page/</loc><priority>1.0</priority></url>
-<url><loc>https://vervant-pdf-api.deed.page/guides/</loc><priority>0.8</priority></url>
-<url><loc>https://vervant-pdf-api.deed.page/tools/invoice-preview/</loc><priority>0.9</priority></url>
-<url><loc>https://vervant-pdf-api.deed.page/tools/workflow-brief/</loc><priority>0.9</priority></url>
-<url><loc>https://vervant-pdf-api.deed.page/guides/secure-html-to-pdf.html</loc><priority>0.8</priority></url>
-<url><loc>https://vervant-pdf-api.deed.page/guides/nodejs-html-to-pdf.html</loc><priority>0.8</priority></url>
-<url><loc>https://vervant-pdf-api.deed.page/examples/invoice-template.html</loc><priority>0.7</priority></url>
-<url><loc>https://vervant-pdf-api.deed.page/guides/invoice-pdf-css-page-breaks.html</loc><priority>0.8</priority></url>
-<url><loc>https://vervant-pdf-api.deed.page/llms.txt</loc><priority>0.5</priority></url>
-<url><loc>https://vervant-pdf-api.deed.page/privacy.html</loc><priority>0.3</priority></url>
+<url><loc>https://vervant-public-site.onrender.com/</loc><priority>1.0</priority></url>
+<url><loc>https://vervant-public-site.onrender.com/guides/</loc><priority>0.8</priority></url>
+<url><loc>https://vervant-public-site.onrender.com/tools/invoice-preview/</loc><priority>0.9</priority></url>
+<url><loc>https://vervant-public-site.onrender.com/tools/workflow-brief/</loc><priority>0.9</priority></url>
+<url><loc>https://vervant-public-site.onrender.com/guides/secure-html-to-pdf.html</loc><priority>0.8</priority></url>
+<url><loc>https://vervant-public-site.onrender.com/guides/nodejs-html-to-pdf.html</loc><priority>0.8</priority></url>
+<url><loc>https://vervant-public-site.onrender.com/examples/invoice-template.html</loc><priority>0.7</priority></url>
+<url><loc>https://vervant-public-site.onrender.com/guides/invoice-pdf-css-page-breaks.html</loc><priority>0.8</priority></url>
+<url><loc>https://vervant-public-site.onrender.com/llms.txt</loc><priority>0.5</priority></url>
+<url><loc>https://vervant-public-site.onrender.com/privacy.html</loc><priority>0.3</priority></url>
 </urlset>

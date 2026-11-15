@@ -20,7 +20,7 @@ Render's static-site tier is listed as free. Do not add a paid plan or create a 
 4. Before applying, confirm the summary has no paid resources, no web service, no database and no disk. Stop if anything else appears.
 5. Apply the Blueprint and wait for the static-site deploy to finish.
 6. Verify the homepage, guides, privacy page, invoice preview and workflow planner return HTTP 200.
-7. Keep the existing deed.page address as a secondary link until the new Render URL is verified and the site owner has decided whether to switch the canonical address.
+7. The Render URL is now the canonical public address. Keep the previous deed.page deployment available as a temporary fallback until all links and search references have been checked.
 
 ## Important separation
 

@@ -20,13 +20,13 @@ Verified prototype functionality includes:
 
 ## Plan your PDF workflow
 
-- Workflow brief planner: https://vervant-pdf-api.deed.page/tools/workflow-brief/
+- Workflow brief planner: https://vervant-public-site.onrender.com/tools/workflow-brief/
 - Helps developers summarize document types, volume, backend stack, current approach, pain points and template needs.
 - Runs entirely in the browser; answers are not uploaded, stored or sent to Vervant. The summary can be copied and shared manually.
 
 ## Try a sample invoice
 
-- Invoice preview builder: https://vervant-pdf-api.deed.page/tools/invoice-preview/
+- Invoice preview builder: https://vervant-public-site.onrender.com/tools/invoice-preview/
 - Runs in the visitor's browser. It does not upload, store or transmit invoice information.
 - It uses browser print-to-PDF and is a layout demonstration, not the hosted Vervant API or tax/accounting software.
 
@@ -36,12 +36,12 @@ The local prototype now launches Chromium inside an outer Bubblewrap boundary wi
 
 ## Public resources
 
-- Product site: https://vervant-pdf-api.deed.page/
-- Developer guides: https://vervant-pdf-api.deed.page/guides/
-- Safe rendering guide: https://vervant-pdf-api.deed.page/guides/secure-html-to-pdf.html
-- Node.js and Puppeteer guide: https://vervant-pdf-api.deed.page/guides/nodejs-html-to-pdf.html
-- Invoice PDF CSS guide: https://vervant-pdf-api.deed.page/guides/invoice-pdf-css-page-breaks.html
-- Invoice template: https://vervant-pdf-api.deed.page/examples/invoice-template.html
+- Product site: https://vervant-public-site.onrender.com/
+- Developer guides: https://vervant-public-site.onrender.com/guides/
+- Safe rendering guide: https://vervant-public-site.onrender.com/guides/secure-html-to-pdf.html
+- Node.js and Puppeteer guide: https://vervant-public-site.onrender.com/guides/nodejs-html-to-pdf.html
+- Invoice PDF CSS guide: https://vervant-public-site.onrender.com/guides/invoice-pdf-css-page-breaks.html
+- Invoice template: https://vervant-public-site.onrender.com/examples/invoice-template.html
 - Public feedback: https://github.com/VervantHorizon/vervant-website/discussions
 
 ## Availability
