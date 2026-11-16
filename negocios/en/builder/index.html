@@ -92,12 +92,73 @@ input[type=file]{font-size:12px;padding:8px}textarea{min-height:65px;resize:vert
 
 @media(max-width:980px){.layout{grid-template-columns:1fr}.preview-wrap{position:static}.cards{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){main{width:calc(100% - 22px);margin-top:19px}.intro{display:block}.badge{display:inline-block;margin-top:13px}.formbody{padding:13px}.preview{padding:10px}.site h2{font-size:26px}.site-hero{padding:19px}.products{padding:13px}.cards{gap:8px}.photo{height:90px}.row{gap:8px}.site-footer{display:block}.site-footer span{display:block;margin:3px 0}}
+
+/* Brand studio: optional assets and art direction */
+.custom-details{margin:12px 0;border:1px solid #e1e8e1;border-radius:11px;background:#fbfcfa;overflow:hidden}
+.custom-details summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 13px;font-size:12px;font-weight:800;color:#24382e}
+.custom-details summary::-webkit-details-marker{display:none}
+.custom-details summary:after{content:"＋";font-size:17px;color:#718277}
+.custom-details[open] summary:after{content:"−"}
+.custom-details summary small{font-size:10px;font-weight:650;color:#7a897f;background:#edf2ed;padding:4px 7px;border-radius:999px;white-space:nowrap}
+.details-body{padding:13px;border-top:1px solid #e8eee8}
+.details-body .field{margin-bottom:10px}
+.asset-line{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:6px;font-size:11px;color:#68786d}
+.asset-remove{border:1px solid #dce4dc;background:#fff;color:#5d6d62;border-radius:7px;padding:5px 8px;font:700 10px system-ui;cursor:pointer}
+.asset-remove[hidden]{display:none}
+.site{--image-fit:cover;--image-focus:center}
+.site .site-hero{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(190px,.88fr);align-items:center;gap:24px;min-height:245px;padding:30px;background-color:var(--hero)!important;background-image:none!important;color:var(--ink)}
+.site .hero-copy{min-width:0}
+.site .brand-logo{display:flex;align-items:center;justify-content:flex-start;min-height:42px;margin-bottom:15px}
+.site .brand-logo-fallback{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--accent);color:var(--accent-contrast);font-size:13px;font-weight:900;letter-spacing:.04em}
+.site .brand-logo img{display:block;max-width:146px;max-height:58px;width:auto;height:auto;object-fit:contain}.site .brand-logo img[hidden],.site .brand-logo-fallback[hidden]{display:none!important}
+.site .site-hero-media{min-width:0;min-height:180px;aspect-ratio:4/3;border-radius:calc(var(--radius) + 4px);overflow:hidden;background:linear-gradient(135deg,var(--surface),var(--hero));box-shadow:0 12px 32px #17272012}
+.site .site-hero-media[hidden]{display:none!important}
+.site .site-hero-media img{width:100%;height:100%;min-height:180px;display:block;object-fit:cover;object-position:var(--image-focus)}
+.site .site-hero .site-label{margin-bottom:7px}
+.site .site-hero h2{font-size:clamp(25px,4vw,40px);line-height:1.02;overflow-wrap:anywhere}
+.site .site-hero .tagline{font-weight:750;font-size:14px}
+.site .site-hero .intro-copy{max-width:660px;font-size:12px;line-height:1.6}
+.site .site-contact{display:inline-flex;align-items:center;gap:7px;padding:10px 14px}
+.site .products{padding:19px 22px 24px;background:var(--page);color:var(--ink)}
+.site .cards{gap:13px}
+.site .photo{height:auto;aspect-ratio:4/3;overflow:hidden;display:grid;place-items:center}.site .photo.placeholder{position:relative;isolation:isolate;background:linear-gradient(145deg,var(--hero),var(--page))}.site .photo.placeholder:before{content:"";position:absolute;width:64%;height:48%;border:1px solid var(--accent);border-radius:45% 45% 9px 9px;opacity:.22;transform:rotate(-8deg)}.site .photo.placeholder span{z-index:1;display:grid;place-items:center;width:42px;height:42px;background:var(--surface);border:1px solid var(--line);border-radius:50%;font-size:14px}
+.site .photo img{width:100%;height:100%;object-fit:var(--image-fit);object-position:var(--image-focus);display:block}
+.site[data-image-ratio="square"] .photo{aspect-ratio:1/1}
+.site[data-image-ratio="portrait"] .photo{aspect-ratio:3/4}
+.site[data-image-ratio="landscape"] .photo{aspect-ratio:4/3}
+.site[data-image-fit="contain"] .photo{background:var(--surface)}
+.site[data-image-fit="contain"] .photo img{padding:8px}
+.site[data-card-style="soft"] .card{border-color:transparent;box-shadow:0 9px 24px #14271b12}
+.site[data-card-style="bordered"] .card{border:1.5px solid var(--line);box-shadow:none}
+.site[data-card-style="minimal"] .card{background:transparent;border:0;border-radius:0;box-shadow:none}
+.site[data-card-style="minimal"] .card-content{padding:10px 2px}
+.site[data-card-style="minimal"] .photo{border-radius:calc(var(--radius) + 2px)}
+.site[data-button-shape="rounded"] .site-contact,.site[data-button-shape="rounded"] .card a{border-radius:var(--radius)}
+.site[data-button-shape="pill"] .site-contact,.site[data-button-shape="pill"] .card a{border-radius:999px}
+.site[data-button-shape="square"] .site-contact,.site[data-button-shape="square"] .card a{border-radius:4px}
+.site[data-hero-layout="centered"] .site-hero{display:flex;flex-direction:column;text-align:center;justify-content:center;padding:32px}
+.site[data-hero-layout="centered"] .hero-copy{width:100%;max-width:620px}
+.site[data-hero-layout="centered"] .brand-logo{justify-content:center}
+.site[data-hero-layout="centered"] .site-hero-media{width:min(100%,560px);min-height:170px;aspect-ratio:16/7}
+.site[data-hero-layout="cover"][data-has-hero-image="true"] .site-hero{display:block;position:relative;min-height:360px;padding:0;background-image:linear-gradient(90deg,#101915f2 0%,#101915d6 58%,#10191570 100%),var(--hero-image)!important;background-size:cover!important;background-position:var(--image-focus)!important;color:#fff}
+.site[data-hero-layout="cover"][data-has-hero-image="true"] .hero-copy{max-width:570px;padding:38px}.site[data-hero-layout="cover"][data-has-hero-image="true"] .intro-copy{max-width:500px;text-shadow:0 1px 8px #0005}
+.site[data-hero-layout="cover"][data-has-hero-image="true"] .site-label,.site[data-hero-layout="cover"][data-has-hero-image="true"] .site-sub{color:#fff}
+.site[data-hero-layout="cover"] .site-hero-media{display:none!important}
+.site .site-footer{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.site .footer-links{display:flex;gap:12px;flex-wrap:wrap}
+.site .footer-links a{color:var(--accent);font-weight:750;text-decoration:none}
+.site .footer-links a[hidden]{display:none}
+.site[data-layout="list"] .photo{height:100%;min-height:140px;aspect-ratio:auto}
+.site[data-layout="compact"] .photo{height:auto}
+@media(max-width:980px){.site .site-hero{gap:16px}.site .cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.site .site-hero{display:flex;flex-direction:column;align-items:stretch;gap:17px;padding:20px}.site[data-hero-layout="centered"] .site-hero{align-items:center}.site[data-hero-layout="cover"][data-has-hero-image="true"] .site-hero{min-height:320px;padding:0}.site[data-hero-layout="cover"][data-has-hero-image="true"] .hero-copy{padding:23px;max-width:570px}.site .site-hero-media{min-height:150px;aspect-ratio:16/9}.site .products{padding:14px 12px 18px}.site .cards{gap:9px}.site .photo{aspect-ratio:4/3}.site[data-layout="list"] .photo{height:100%;min-height:112px}.site .site-footer{display:block}.site .footer-links{margin:7px 0}.custom-details summary{padding:11px}.details-body{padding:11px}}
+
 </style>
 </head>
 <body>
 <header class="top"><div class="brand">vervant <span>local</span> / constructor</div><a href="/negocios/en/">← Back to the overview</a></header>
 <main>
-<div class="intro"><div><h1>Build a catalog that turns views into quote requests.</h1><p>Add the business details and products. The preview updates instantly; when you are ready, download a self-contained HTML file — no account or server required.</p></div><span class="badge">100% in your browser</span></div>
+<div class="intro"><div><h1>Build a catalog that turns views into quote requests.</h1><p>Build a catalog that feels like your brand. Choose a visual direction, add your logo and photography, tune the layout, then download a self-contained HTML file.</p></div><span class="badge">100% in your browser</span></div>
 <div class="layout">
 <section class="panel">
 <div class="panel-head"><b>Business details</b><span>1 · Brand and contact</span></div>
@@ -129,34 +190,57 @@ input[type=file]{font-size:12px;padding:8px}textarea{min-height:65px;resize:vert
 <div class="field"><label for="textColor">Text color</label><input id="textColor" type="color" value="#29251f"></div>
 </div>
 <div class="row">
-<div class="field"><label for="fontChoice">Typography</label><select id="fontChoice"><option value="sans">Sans · modern</option><option value="serif" selected>Serif · editorial</option><option value="mono">Mono · technical</option></select></div>
+<div class="field"><label for="fontChoice">Heading typography</label><select id="fontChoice"><option value="sans">Sans · modern</option><option value="serif" selected>Serif · editorial</option><option value="mono">Mono · technical</option></select></div>
 <div class="field"><label for="layout">Catalog layout</label><select id="layout"><option value="grid" selected>Grid</option><option value="list">Project list</option><option value="compact">Compact grid</option></select></div>
 </div>
+
+<details class="custom-details">
+<summary><span>Logo, cover image and brand links</span><small>Optional</small></summary>
+<div class="details-body">
+<div class="field"><label for="logoFile">Business logo</label><input id="logoFile" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml"><div class="asset-line"><span id="logoStatus" aria-live="polite">No logo selected</span><button id="removeLogo" type="button" class="asset-remove" hidden>Remove</button></div><p class="hint">A transparent PNG or WebP works best. It will be embedded in the downloaded catalog.</p></div>
+<div class="field"><label for="heroFile">Cover / hero photo</label><input id="heroFile" type="file" accept="image/*"><div class="asset-line"><span id="heroStatus" aria-live="polite">No cover photo selected</span><button id="removeHero" type="button" class="asset-remove" hidden>Remove</button></div><p class="hint">Use a real product, workshop or completed-project photo. Wide images work especially well.</p></div>
+<div class="row"><div class="field"><label for="websiteUrl">Website</label><input id="websiteUrl" type="url" placeholder="https://yourbusiness.com"></div><div class="field"><label for="instagramUrl">Instagram</label><input id="instagramUrl" type="url" placeholder="https://instagram.com/yourbrand"></div></div>
+</div>
+</details>
+<details class="custom-details">
+<summary><span>Art direction and image presentation</span><small>Fine-tune</small></summary>
+<div class="details-body">
+<div class="row"><div class="field"><label for="heroLayout">Header composition</label><select id="heroLayout"><option value="split">Image alongside text</option><option value="cover">Full-bleed photo</option><option value="centered">Centered / gallery</option></select></div><div class="field"><label for="bodyFontChoice">Body typography</label><select id="bodyFontChoice"><option value="sans">Sans · clean</option><option value="serif">Serif · editorial</option><option value="mono">Mono · technical</option></select></div></div>
+<div class="row"><div class="field"><label for="imageRatio">Product photo shape</label><select id="imageRatio"><option value="landscape">Landscape · 4:3</option><option value="square">Square · 1:1</option><option value="portrait">Portrait · 3:4</option></select></div><div class="field"><label for="imageFit">Photo display</label><select id="imageFit"><option value="cover">Fill the frame</option><option value="contain">Show the entire product</option></select></div></div>
+<div class="row"><div class="field"><label for="imageFocus">Photo crop position</label><select id="imageFocus"><option value="center">Center</option><option value="top">Top</option><option value="bottom">Bottom</option><option value="left">Left</option><option value="right">Right</option></select></div><div class="field"><label for="cardStyle">Product card style</label><select id="cardStyle"><option value="soft">Soft · elevated</option><option value="bordered">Structured · bordered</option><option value="minimal">Minimal · open</option></select></div></div>
+<div class="field"><label for="buttonShape">Button shape</label><select id="buttonShape"><option value="rounded">Rounded</option><option value="pill">Pill</option><option value="square">Square</option></select></div>
+<p class="hint">You can return to a theme at any time. These controls change the way the catalog is art-directed, not just its colors.</p>
+</div>
+</details>
 <div class="divider"></div>
 <div class="section-title"><b>Products and projects</b><span class="count" id="counter">0 / 12</span></div>
 <div id="productList"></div>
 <div class="actions"><button id="addProduct" class="btn soft" type="button">＋ Add product</button><select id="demoType" class="preset" aria-label="Choose a sample"><option value="wood">Sample · Furniture</option><option value="signage">Sample · Signage and print</option><option value="industrial">Sample · Metal fabrication</option></select><button id="loadDemo" class="btn outline" type="button">Load sample</button></div>
-<div class="privacy">Privacy: this tool does not upload photos, transmit form data or save entries. Your content stays in browser memory while this page is open.</div>
+<div class="privacy">Privacy: images are resized in your browser and embedded in the downloaded file. Nothing is sent to Vervant and no form data is stored.</div>
 <button id="export" class="btn green wide" type="button" disabled>Download catalog HTML ↓</button>
-<p id="status" class="status">Add at least one product and a valid WhatsApp number to export.</p>
+<p id="status" class="status">Add a product and at least one valid contact method to export.</p>
 </div>
 </section>
 <section class="panel preview-wrap">
-<div class="preview-top"><b>Catalog preview</b><span>Live preview · the export keeps your theme, palette and layout</span></div>
+<div class="preview-top"><b>Catalog preview</b><span>Live preview · matches the downloaded design</span></div>
 <div class="preview">
-<div class="site" id="sitePreview" data-theme="atelier" data-layout="grid">
-<div class="site-hero" id="previewHero">
+<div class="site" id="sitePreview" data-theme="atelier" data-layout="grid" data-hero-layout="split" data-image-ratio="landscape" data-image-fit="cover" data-image-focus="center" data-card-style="soft" data-button-shape="rounded" data-has-hero-image="false">
+<header class="site-hero" id="previewHero">
+<div class="hero-copy">
+<div class="brand-logo" id="previewLogo"><span class="brand-logo-fallback" id="previewLogoFallback">OW</span><img id="previewLogoImage" alt="Business logo" hidden></div>
 <div class="site-label" id="previewCategory">FURNITURE · YOUR SERVICE AREA</div>
 <h2 id="previewName">Oak Workshop</h2>
-<p class="site-sub" id="previewTagline">Custom-made furniture</p>
-<p class="site-sub" id="previewIntro">We design and build custom pieces for homes and businesses.</p>
+<p class="site-sub tagline" id="previewTagline">Custom-made furniture</p>
+<p class="site-sub intro-copy" id="previewIntro">We design and build custom pieces for homes and businesses.</p>
 <a class="site-contact" id="previewContact" href="#" aria-disabled="true">Add WhatsApp or email to enable enquiries</a>
 </div>
+<div class="site-hero-media" id="previewHeroMedia" hidden><img id="previewHeroImage" alt="Business cover image"></div>
+</header>
 <div class="products">
 <div class="products-head"><b>Products and projects</b><input placeholder="Search…" disabled></div>
 <div class="cards" id="previewCards"><div class="empty">Your products will appear here.</div></div>
 </div>
-<div class="site-footer"><span id="previewLocation">Your city or service area</span><span>Sample catalog</span></div>
+<div class="site-footer"><span id="previewLocation">Your city or service area</span><span class="footer-links"><a id="previewWebsite" href="#" target="_blank" rel="noopener" hidden>Website ↗</a><a id="previewInstagram" href="#" target="_blank" rel="noopener" hidden>Instagram ↗</a></span><span>Product catalog</span></div>
 </div>
 </div>
 </section>
@@ -166,30 +250,40 @@ input[type=file]{font-size:12px;padding:8px}textarea{min-height:65px;resize:vert
 (function(){
 "use strict";
 const byId = function(id){return document.getElementById(id);};
-const state = {products:[]};
-const inputs = ["businessName","tagline","category","location","whatsapp","introText","accent","pageColor","surfaceColor","textColor","fontChoice","layout","email"];
+const state = {products:[],logo:"",heroImage:""};
+const inputs = ["businessName","tagline","category","location","whatsapp","introText","accent","pageColor","surfaceColor","textColor","fontChoice","layout","bodyFontChoice","heroLayout","imageRatio","imageFit","imageFocus","cardStyle","buttonShape","websiteUrl","instagramUrl","email"];
 const esc = function(value){return String(value == null ? "" : value).replace(/[&<>"']/g,function(ch){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch];});};
 const digits = function(value){return String(value || "").replace(/\D/g,"");};
 const validNumber = function(value){const n=digits(value);return n.length>=8 && n.length<=15;};
+function safeExternalUrl(value){
+ const raw=String(value||"").trim();if(!raw)return "";
+ try{const candidate=/^https?:\/\//i.test(raw)?raw:"https://"+raw;const parsed=new URL(candidate);return (parsed.protocol==="https:"||parsed.protocol==="http:")?parsed.href:"";}catch(e){return "";}
+}
 const getData = function(){return {
- name:byId("businessName").value.trim() || "My business",
+ lang:'en',
+ name:byId("businessName").value.trim() || 'My business',
  tagline:byId("tagline").value.trim(),
  category:byId("category").value.trim(),
  location:byId("location").value.trim(),
  phone:digits(byId("whatsapp").value),
  email:byId("email").value.trim(),
  intro:byId("introText").value.trim(),
- theme:byId("theme").value,accent:byId("accent").value,pageColor:byId("pageColor").value,surfaceColor:byId("surfaceColor").value,textColor:byId("textColor").value,fontChoice:byId("fontChoice").value,layout:byId("layout").value,products:state.products
+ theme:byId("theme").value,accent:byId("accent").value,pageColor:byId("pageColor").value,surfaceColor:byId("surfaceColor").value,textColor:byId("textColor").value,
+ fontChoice:byId("fontChoice").value,bodyFontChoice:byId("bodyFontChoice").value,layout:byId("layout").value,
+ heroLayout:byId("heroLayout").value,imageRatio:byId("imageRatio").value,imageFit:byId("imageFit").value,imageFocus:byId("imageFocus").value,
+ cardStyle:byId("cardStyle").value,buttonShape:byId("buttonShape").value,
+ websiteUrl:safeExternalUrl(byId("websiteUrl").value),instagramUrl:safeExternalUrl(byId("instagramUrl").value),
+ logo:state.logo,heroImage:state.heroImage,products:state.products
 };};
 const THEMES={
- atelier:{accent:"#a65d43",page:"#f3eadc",surface:"#fffaf2",hero:"#ebe0d0",ink:"#29251f",muted:"#71675d",line:"#e4d8ca",radius:"18px",font:"serif",layout:"grid"},
- modern:{accent:"#315fbd",page:"#f2f5fa",surface:"#ffffff",hero:"#ffffff",ink:"#182231",muted:"#657184",line:"#e2e8f0",radius:"10px",font:"sans",layout:"grid"},
- editorial:{accent:"#c39a5c",page:"#171b19",surface:"#252c28",hero:"#202722",ink:"#f2eee5",muted:"#b8b2a5",line:"#3c4540",radius:"5px",font:"serif",layout:"grid"},
- industrial:{accent:"#c66a38",page:"#eaf0f3",surface:"#ffffff",hero:"#e1e8ed",ink:"#202a32",muted:"#63717d",line:"#d7dee4",radius:"4px",font:"sans",layout:"compact"},
- vibrant:{accent:"#7654c7",page:"#f3efff",surface:"#ffffff",hero:"#eee6ff",ink:"#271b3a",muted:"#685f78",line:"#e5ddf5",radius:"22px",font:"sans",layout:"grid"}
+ atelier:{accent:"#a65d43",page:"#f3eadc",surface:"#fffaf2",hero:"#ebe0d0",ink:"#29251f",muted:"#71675d",line:"#e4d8ca",radius:"18px",font:"serif",bodyFont:"sans",layout:"grid",heroLayout:"split",imageRatio:"landscape",imageFit:"cover",imageFocus:"center",cardStyle:"soft",buttonShape:"rounded"},
+ modern:{accent:"#315fbd",page:"#f2f5fa",surface:"#ffffff",hero:"#ffffff",ink:"#182231",muted:"#657184",line:"#e2e8f0",radius:"10px",font:"sans",bodyFont:"sans",layout:"grid",heroLayout:"split",imageRatio:"landscape",imageFit:"cover",imageFocus:"center",cardStyle:"bordered",buttonShape:"rounded"},
+ editorial:{accent:"#c39a5c",page:"#171b19",surface:"#252c28",hero:"#202722",ink:"#f2eee5",muted:"#b8b2a5",line:"#3c4540",radius:"5px",font:"serif",bodyFont:"sans",layout:"grid",heroLayout:"cover",imageRatio:"portrait",imageFit:"cover",imageFocus:"center",cardStyle:"minimal",buttonShape:"square"},
+ industrial:{accent:"#c66a38",page:"#eaf0f3",surface:"#ffffff",hero:"#e1e8ed",ink:"#202a32",muted:"#63717d",line:"#d7dee4",radius:"4px",font:"sans",bodyFont:"mono",layout:"compact",heroLayout:"split",imageRatio:"landscape",imageFit:"contain",imageFocus:"center",cardStyle:"bordered",buttonShape:"square"},
+ vibrant:{accent:"#7654c7",page:"#f3efff",surface:"#ffffff",hero:"#eee6ff",ink:"#271b3a",muted:"#685f78",line:"#e5ddf5",radius:"22px",font:"sans",bodyFont:"sans",layout:"grid",heroLayout:"centered",imageRatio:"square",imageFit:"cover",imageFocus:"center",cardStyle:"soft",buttonShape:"pill"}
 };
 const FONT_STACKS={sans:'Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif',serif:'Georgia,"Times New Roman",serif',mono:'"SFMono-Regular",Consolas,"Liberation Mono",monospace'};
-const customized={accent:false,pageColor:false,surfaceColor:false,textColor:false,fontChoice:false,layout:false};
+const customized={accent:false,pageColor:false,surfaceColor:false,textColor:false,fontChoice:false,layout:false,bodyFontChoice:false,heroLayout:false,imageRatio:false,imageFit:false,imageFocus:false,cardStyle:false,buttonShape:false};
 function validHex(value,fallback){return /^#[0-9a-fA-F]{6}$/.test(String(value||""))?value:fallback;}
 function readableOn(color){
  const hex=String(color||"#000000").replace("#","");
@@ -201,7 +295,7 @@ function readableOn(color){
 function getDesign(d){
  const t=THEMES[d.theme]||THEMES.atelier;
  const accent=validHex(d.accent,t.accent);
- return {accent:accent,accentContrast:readableOn(accent),page:validHex(d.pageColor,t.page),surface:validHex(d.surfaceColor,t.surface),hero:t.hero,ink:validHex(d.textColor,t.ink),muted:t.muted,line:t.line,radius:t.radius,headingFont:FONT_STACKS[d.fontChoice]||FONT_STACKS[t.font],bodyFont:FONT_STACKS[d.fontChoice]||FONT_STACKS[t.font]};
+ return {accent:accent,accentContrast:readableOn(accent),page:validHex(d.pageColor,t.page),surface:validHex(d.surfaceColor,t.surface),hero:t.hero,ink:validHex(d.textColor,t.ink),muted:t.muted,line:t.line,radius:t.radius,headingFont:FONT_STACKS[d.fontChoice]||FONT_STACKS[t.font],bodyFont:FONT_STACKS[d.bodyFontChoice]||FONT_STACKS[t.bodyFont||"sans"]};
 }
 function cssVariables(d){
  const x=getDesign(d);
@@ -215,14 +309,15 @@ function chooseTheme(name){
  if(!customized.surfaceColor)byId("surfaceColor").value=t.surface;
  if(!customized.textColor)byId("textColor").value=t.ink;
  if(!customized.fontChoice)byId("fontChoice").value=t.font;
+ if(!customized.bodyFontChoice)byId("bodyFontChoice").value=t.bodyFont||"sans";
  if(!customized.layout)byId("layout").value=t.layout;
+ ["heroLayout","imageRatio","imageFit","imageFocus","cardStyle","buttonShape"].forEach(function(id){if(!customized[id])byId(id).value=t[id];});
  byId("themeChoices").querySelectorAll("[data-theme-choice]").forEach(function(button){
   const active=button.dataset.themeChoice===name;
   button.classList.toggle("active",active);button.setAttribute("aria-pressed",String(active));
  });
  renderPreview();validate();
 }
-
 
 const waUrl = function(phone, message){return "https://wa.me/"+digits(phone)+"?text="+encodeURIComponent(message);};
 const status = function(message,error){byId("status").textContent=message;byId("status").className="status"+(error?" error":"");};
@@ -244,43 +339,61 @@ function renderProductsForm(){
  root.querySelectorAll("[data-field]").forEach(function(input){input.addEventListener("input",function(){const index=Number(input.dataset.index);state.products[index][input.dataset.field]=input.value;renderPreview();validate();});});
  root.querySelectorAll("[data-photo]").forEach(function(input){input.addEventListener("change",async function(){const file=input.files && input.files[0];if(!file)return;if(file.size>12*1024*1024){status("The image is larger than 12 MB. Please choose a smaller file.",true);input.value="";return;}try{state.products[Number(input.dataset.photo)].image=await compressImage(file);renderProductsForm();renderPreview();validate();status("Photo optimized locally.");}catch(e){status("We could not read that image. Try JPG, PNG or WebP.",true);}});});
 }
-function compressImage(file){
+function compressImage(file,preserveAlpha,maxSize){
  return new Promise(function(resolve,reject){
   const url=URL.createObjectURL(file);const image=new Image();
   image.onload=function(){try{
-   const max=1100;const scale=Math.min(1,max/Math.max(image.width,image.height));
+   const max=maxSize||1100;const scale=Math.min(1,max/Math.max(image.width,image.height));
    const canvas=document.createElement("canvas");canvas.width=Math.max(1,Math.round(image.width*scale));canvas.height=Math.max(1,Math.round(image.height*scale));
    const ctx=canvas.getContext("2d");ctx.drawImage(image,0,0,canvas.width,canvas.height);
-   const data=canvas.toDataURL("image/jpeg",0.78);URL.revokeObjectURL(url);resolve(data);
+   let data;
+   if(preserveAlpha){data=canvas.toDataURL("image/webp",0.86);if(!data.startsWith("data:image/webp"))data=canvas.toDataURL("image/png");}
+   else{data=canvas.toDataURL("image/jpeg",0.78);}
+   URL.revokeObjectURL(url);resolve(data);
   }catch(e){URL.revokeObjectURL(url);reject(e);}};
   image.onerror=function(){URL.revokeObjectURL(url);reject(new Error("invalid image"));};image.src=url;
  });
 }
 function renderPreview(){
  const d=getData();byId("previewName").textContent=d.name;byId("previewTagline").textContent=d.tagline;byId("previewIntro").textContent=d.intro;
- byId("previewCategory").textContent=[d.category,d.location].filter(Boolean).join(" · ").toUpperCase() || "CATALOG";
- byId("previewLocation").textContent=d.location || "City / service area to be confirmed";
+ byId("previewCategory").textContent=[d.category,d.location].filter(Boolean).join(" · ").toUpperCase() || (d.lang==="en"?"CATALOG":"CATÁLOGO");
+ byId("previewLocation").textContent=d.location || (d.lang==="en"?"Location / service area to be confirmed":"Ubicación por confirmar");
  const preview=byId("sitePreview");const design=getDesign(d);
-  preview.dataset.theme=d.theme;preview.dataset.layout=d.layout;
-  preview.style.setProperty("--accent",design.accent);preview.style.setProperty("--accent-contrast",design.accentContrast);
-  preview.style.setProperty("--page",design.page);preview.style.setProperty("--surface",design.surface);
-  preview.style.setProperty("--hero",design.hero);preview.style.setProperty("--ink",design.ink);
-  preview.style.setProperty("--muted",design.muted);preview.style.setProperty("--line",design.line);
-  preview.style.setProperty("--radius",design.radius);preview.style.setProperty("--heading-font",design.headingFont);
-  preview.style.setProperty("--body-font",design.bodyFont);
+ preview.dataset.theme=d.theme;preview.dataset.layout=d.layout;preview.dataset.heroLayout=d.heroLayout;preview.dataset.imageRatio=d.imageRatio;preview.dataset.imageFit=d.imageFit;preview.dataset.imageFocus=d.imageFocus;preview.dataset.cardStyle=d.cardStyle;preview.dataset.buttonShape=d.buttonShape;preview.dataset.hasHeroImage=d.heroImage?"true":"false";
+ preview.style.setProperty("--accent",design.accent);preview.style.setProperty("--accent-contrast",design.accentContrast);
+ preview.style.setProperty("--page",design.page);preview.style.setProperty("--surface",design.surface);preview.style.setProperty("--hero",design.hero);
+ preview.style.setProperty("--ink",design.ink);preview.style.setProperty("--muted",design.muted);preview.style.setProperty("--line",design.line);
+ preview.style.setProperty("--radius",design.radius);preview.style.setProperty("--heading-font",design.headingFont);preview.style.setProperty("--body-font",design.bodyFont);
+ preview.style.setProperty("--image-fit",d.imageFit);preview.style.setProperty("--image-focus",d.imageFocus);
+ const logo=byId("previewLogoImage"),fallback=byId("previewLogoFallback");
+ logo.hidden=!d.logo;fallback.hidden=!!d.logo;
+ if(d.logo){logo.src=d.logo;logo.alt=(d.lang==="en"?"Logo for ":"Logotipo de ")+d.name;}else{logo.removeAttribute("src");fallback.textContent=(d.name.split(/\s+/).filter(Boolean).slice(0,2).map(function(w){return w[0];}).join("")||"V").toUpperCase();}
+ const hero=byId("previewHero"),heroMedia=byId("previewHeroMedia"),heroImage=byId("previewHeroImage");
+ heroMedia.hidden=!d.heroImage || d.heroLayout==="cover";
+ hero.classList.toggle("has-hero-image",!!d.heroImage);
+ if(d.heroImage){heroImage.src=d.heroImage;hero.style.setProperty("--hero-image",'url("'+d.heroImage+'")');}else{heroImage.removeAttribute("src");hero.style.removeProperty("--hero-image");}
+ hero.style.setProperty("--image-focus",d.imageFocus);
+ const logoStatus=byId("logoStatus"),heroStatus=byId("heroStatus");
+ if(logoStatus)logoStatus.textContent=d.logo?(d.lang==="en"?"Logo added and embedded":"Logotipo añadido e incrustado"):(d.lang==="en"?"No logo selected":"No has añadido un logotipo");
+ if(heroStatus)heroStatus.textContent=d.heroImage?(d.lang==="en"?"Cover photo added and embedded":"Fotografía de portada añadida e incrustada"):(d.lang==="en"?"No cover photo selected":"No has añadido una fotografía de portada");
+ byId("removeLogo").hidden=!d.logo;byId("removeHero").hidden=!d.heroImage;
  const contact=byId("previewContact");
- if(validNumber(d.phone)){contact.href=waUrl(d.phone,"Hello, I saw your catalog and would like more information.");contact.textContent="Contact on WhatsApp ↗";contact.removeAttribute("aria-disabled");}
- else if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)){contact.href="mailto:"+d.email+"?subject="+encodeURIComponent("Product enquiry for "+d.name);contact.textContent="Email the business ↗";contact.removeAttribute("aria-disabled");}
- else{contact.href="#";contact.textContent="Add WhatsApp or email to enable enquiries";contact.setAttribute("aria-disabled","true");}
+ if(validNumber(d.phone)){contact.href=waUrl(d.phone,d.lang==="en"?"Hello, I saw your catalog and would like more information.":"Hola, vi su catálogo y me gustaría recibir información.");contact.textContent=d.lang==="en"?"Contact on WhatsApp ↗":"Contactar por WhatsApp ↗";contact.removeAttribute("aria-disabled");}
+ else if(d.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)){contact.href="mailto:"+d.email+"?subject="+encodeURIComponent("Product enquiry for "+d.name);contact.textContent="Email the business ↗";contact.removeAttribute("aria-disabled");}
+ else{contact.href="#";contact.textContent=d.lang==="en"?"Add WhatsApp or email to enable enquiries":"WhatsApp · número pendiente";contact.setAttribute("aria-disabled","true");}
+ const website=byId("previewWebsite"),instagram=byId("previewInstagram");
+ website.hidden=!d.websiteUrl;if(d.websiteUrl){website.href=d.websiteUrl;website.textContent=d.lang==="en"?"Website ↗":"Sitio web ↗";}
+ instagram.hidden=!d.instagramUrl;if(d.instagramUrl){instagram.href=d.instagramUrl;instagram.textContent="Instagram ↗";}
  const cards=byId("previewCards");cards.innerHTML="";
- if(!d.products.length){cards.innerHTML='<div class="empty">Your products will appear here.</div>';return;}
+ if(!d.products.length){cards.innerHTML='<div class="empty">'+(d.lang==="en"?"Your products will appear here.":"Tus productos aparecerán aquí.")+'</div>';return;}
  d.products.forEach(function(p){
   const el=document.createElement("article");el.className="card";
   const photo=p.image?'<img src="'+p.image+'" alt="'+esc(p.name)+'">':'<span>'+esc((p.name||"V").slice(0,1).toUpperCase())+'</span>';
-  const message="Hello, I would like a quote for: "+p.name+". Could you share more details?";
-  const active=validNumber(d.phone)||/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email);
+  const message=(d.lang==="en"?"Hello, I would like a quote for: ":"Hola, me interesa cotizar: ")+p.name;
+  const active=validNumber(d.phone)||!!(d.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email));
   const quoteHref=validNumber(d.phone)?waUrl(d.phone,message):(d.email?"mailto:"+d.email+"?subject="+encodeURIComponent("Quote request: "+p.name)+"&body="+encodeURIComponent(message):"#");
-  el.innerHTML='<div class="photo">'+photo+'</div><div class="card-content"><h3>'+esc(p.name||"Untitled product")+'</h3><p>'+esc(p.description||"Description coming soon.")+'</p><small>'+esc(p.price||"Request a quote")+'</small><a href="'+quoteHref+'" '+(active?'target="_blank" rel="noopener"':'aria-disabled="true"')+'>Request a quote</a></div>';
+  const buttonText=d.lang==="en"?"Request a quote":"Cotizar por WhatsApp";
+  el.innerHTML='<div class="photo'+(p.image?'':' placeholder')+'">'+photo+'</div><div class="card-content"><h3>'+esc(p.name|| (d.lang==="en"?"Untitled product":"Producto sin nombre"))+'</h3><p>'+esc(p.description||(d.lang==="en"?"Description coming soon.":"Descripción pendiente."))+'</p><small>'+esc(p.price||(d.lang==="en"?"Request a quote":"Solicitar cotización"))+'</small><a href="'+quoteHref+'" '+(active?'target="_blank" rel="noopener"':'aria-disabled="true"')+'>'+buttonText+'</a></div>';
   cards.appendChild(el);
  });
 }
@@ -297,7 +410,18 @@ inputs.forEach(function(id){byId(id).addEventListener("input",function(){
   if(Object.prototype.hasOwnProperty.call(customized,id))customized[id]=true;
   renderPreview();validate();
  });});
- ["fontChoice","layout"].forEach(function(id){byId(id).addEventListener("change",function(){customized[id]=true;renderPreview();validate();});});
+ ["fontChoice","bodyFontChoice","layout","heroLayout","imageRatio","imageFit","imageFocus","cardStyle","buttonShape"].forEach(function(id){byId(id).addEventListener("change",function(){customized[id]=true;renderPreview();validate();});});
+ function bindAsset(inputId,removeId,stateKey,preserveAlpha,maxSize){
+  byId(inputId).addEventListener("change",async function(){const file=this.files&&this.files[0];if(!file)return;
+   if(file.size>12*1024*1024){status(d.lang==="en"?"The image is larger than 12 MB. Choose a smaller file.":"La imagen supera 12 MB. Elige un archivo más pequeño.",true);this.value="";return;}
+   try{state[stateKey]=await compressImage(file,preserveAlpha,maxSize);this.value="";renderPreview();validate();status(d.lang==="en"?"Image optimized and embedded locally.":"Imagen optimizada e incrustada localmente.");}
+   catch(e){status(d.lang==="en"?"We could not read that image. Try PNG, JPG or WebP.":"No pudimos leer esa imagen. Prueba PNG, JPG o WebP.",true);}
+  });
+  byId(removeId).addEventListener("click",function(){state[stateKey]="";byId(inputId).value="";renderPreview();validate();});
+ }
+ const d=getData();
+ bindAsset("logoFile","removeLogo","logo",true,720);
+ bindAsset("heroFile","removeHero","heroImage",false,1800);
  byId("themeChoices").querySelectorAll("[data-theme-choice]").forEach(function(button){button.addEventListener("click",function(){chooseTheme(button.dataset.themeChoice);});});
 byId("addProduct").addEventListener("click",function(){
  if(state.products.length>=12){status("The pilot package supports up to 12 product cards.",true);return;}
@@ -349,25 +473,27 @@ byId("loadDemo").addEventListener("click",function(){
 });
 function generateHtml(d){
  const json=JSON.stringify(d).replace(/</g,"\\u003c").replace(/\u2028/g,"\\u2028").replace(/\u2029/g,"\\u2029");
-const design=getDesign(d);
-  const css=':root{'+cssVariables(d)+'}*{box-sizing:border-box}body{margin:0;background:var(--page);color:var(--ink);font:16px/1.6 var(--body-font)}.wrap{width:min(1080px,calc(100% - 32px));margin:auto}.hero{padding:50px 0 30px;background:var(--hero);border-bottom:1px solid var(--line)}.label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:850;color:var(--accent)}.hero h1{font:700 clamp(36px,6vw,62px)/1.02 var(--heading-font);letter-spacing:-.055em;margin:13px 0}.hero p{color:var(--muted);max-width:720px}.contact,.quote-btn{display:inline-block;background:var(--accent);color:var(--accent-contrast);text-decoration:none;border:0;border-radius:var(--radius);padding:12px 16px;font-size:13px;font-weight:800;cursor:pointer}.toolbar{padding:16px 0 28px}.search{padding:12px 14px;border:1px solid var(--line);border-radius:var(--radius);width:100%;max-width:420px;font:inherit;background:var(--surface);color:var(--ink)}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.filters button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:8px 13px;font:700 12px var(--body-font);cursor:pointer}.filters button.active{background:var(--accent);border-color:var(--accent);color:var(--accent-contrast)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;padding-bottom:46px}.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;min-width:0;color:var(--ink)}.photo{height:190px;background:var(--hero);display:grid;place-items:center;color:var(--accent);font-weight:850;font-size:40px}.photo img{width:100%;height:100%;object-fit:cover}.content{padding:15px}.category{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:850}.content h2{font:700 18px/1.25 var(--heading-font);margin:7px 0}.content p{font-size:13px;color:var(--muted);min-height:40px;margin:0 0 12px}.price{font-weight:850;font-size:12px;color:var(--accent);margin-bottom:13px}.quote-btn{display:block;text-align:center;width:100%}.foot{border-top:1px solid var(--line);padding:18px 0 32px;color:var(--muted);font-size:12px}.notice{font-size:11px;color:var(--muted);padding:0 0 24px}.empty{grid-column:1/-1;padding:40px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:var(--radius)}dialog{width:min(520px,calc(100% - 24px));border:1px solid var(--line);border-radius:calc(var(--radius) + 4px);padding:0;background:var(--surface);color:var(--ink);box-shadow:0 22px 80px #10231e40}dialog::backdrop{background:#10231e99}.form{padding:24px}.form h2{font:700 27px/1.1 var(--heading-font);letter-spacing:-.04em;margin:0 0 5px}.form .sub{color:var(--muted);font-size:13px;margin:0 0 18px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:11px}.fields label{font-size:11px;color:var(--muted);font-weight:800}.fields input,.fields textarea{width:100%;font:14px var(--body-font);border:1px solid var(--line);border-radius:8px;padding:10px;margin-top:5px;background:var(--page);color:var(--ink)}.fields .full{grid-column:1/-1}.fields textarea{min-height:75px}.form-actions{display:flex;gap:9px;margin-top:17px;justify-content:flex-end}.form-actions button{border:1px solid var(--line);background:var(--page);color:var(--ink);padding:10px 13px;border-radius:var(--radius);font-weight:750;cursor:pointer}.form-actions .send{background:var(--accent);border-color:var(--accent);color:var(--accent-contrast)}body[data-theme="atelier"] .hero{background:linear-gradient(135deg,var(--hero),var(--page));border-radius:0 0 calc(var(--radius) + 8px) calc(var(--radius) + 8px)}body[data-theme="atelier"] .card{box-shadow:0 8px 22px #49331a10}body[data-theme="modern"] .hero{border-bottom:1px solid var(--line)}body[data-theme="modern"] .card{box-shadow:0 3px 12px #182b3c09}body[data-theme="editorial"] .hero{padding-top:65px;padding-bottom:52px}body[data-theme="editorial"] .label{letter-spacing:.22em}body[data-theme="industrial"] .card{border-top:3px solid var(--accent);border-radius:4px}body[data-theme="industrial"] .label{letter-spacing:.18em;font-family:ui-monospace,SFMono-Regular,Consolas,monospace}body[data-theme="industrial"] .category{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}body[data-theme="vibrant"] .card{box-shadow:0 10px 25px #523a8b16}body[data-theme="vibrant"] .contact,body[data-theme="vibrant"] .quote-btn{border-radius:999px}body[data-layout="list"] .grid{grid-template-columns:1fr}body[data-layout="list"] .card{display:grid;grid-template-columns:minmax(150px,30%) minmax(0,1fr);align-items:stretch}body[data-layout="list"] .photo{height:100%;min-height:160px}body[data-layout="compact"] .grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}body[data-layout="compact"] .photo{height:130px}body[data-layout="compact"] .content{padding:11px}@media(max-width:560px){.hero{padding-top:32px}.photo{height:155px}body[data-layout="compact"] .grid{grid-template-columns:repeat(2,minmax(0,1fr))}body[data-layout="list"] .card{grid-template-columns:100px minmax(0,1fr)}.fields{grid-template-columns:1fr}.fields .full{grid-column:auto}.form{padding:18px}}';
- const lines=[
-'<!doctype html>','<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="'+esc(design.page)+'"><meta name="description" content="'+esc(d.intro)+'"><title>'+esc(d.name)+' — Product catalog and quote requests</title><style>'+css+'</style></head><body data-theme="'+esc(d.theme)+'" data-layout="'+esc(d.layout)+'">',
-'<header class="wrap hero"><div class="label">'+esc([d.category,d.location].filter(Boolean).join(" · ").toUpperCase())+'</div><h1>'+esc(d.name)+'</h1><p><b>'+esc(d.tagline)+'</b></p><p>'+esc(d.intro)+'</p><a class=\"contact\" href=\"'+(validNumber(d.phone)?("https://wa.me/"+digits(d.phone)+"?text="+encodeURIComponent("Hello, I saw your catalog and would like more information.")):("mailto:"+encodeURIComponent(d.email||"")+"?subject="+encodeURIComponent("Product enquiry for "+d.name)))+'\" target=\"_blank\" rel=\"noopener\">Contact the business ↗</a></header>',
-'<main class="wrap"><div class="toolbar"><input id="search" class="search" placeholder="Search products, services or materials…" aria-label="Search the catalog"><nav class="filters" id="filters" aria-label="Filter by category"></nav></div><section class="grid" id="grid" aria-live="polite"></section></main>',
-'<footer class="wrap foot">'+esc(d.location||"Contact us to learn more")+' · '+esc(d.name)+'</footer>',
-'<p class="wrap notice">Quote requests are prepared in this browser and opened in WhatsApp or your email app. No payments are processed and form entries are not stored.</p>',
-'<dialog id="quoteDialog" aria-labelledby="quoteTitle"><form id="quoteForm" class="form"><h2 id="quoteTitle">Request a quote</h2><p class="sub" id="quoteProduct">Add the details you already know. You can leave any field blank.</p><div class="fields"><label class="full">Send enquiry via<select id="qChannel"></select></label><label class="full">Measurements or specifications<input id="qMeasures" placeholder="e.g. 2400 × 1200, wall thickness, drawing reference…"></label><label>Measurement units<select id="qUnits"><option value="mm">Millimetres (mm)</option><option value="cm">Centimetres (cm)</option><option value="m">Metres (m)</option><option value="in">Inches (in)</option><option value="ft">Feet (ft)</option><option value="not specified">Not specified</option></select></label><label>Material or finish<input id="qMaterial" placeholder="e.g. steel, MDF, acrylic…"></label><label>Quantity<input id="qQuantity" placeholder="e.g. 3 units"></label><label>Location or installation site<input id="qLocation" placeholder="City / region"></label><label>Target date<input id="qDate" placeholder="e.g. this month"></label><label class="full">Additional details<textarea id="qDetails" placeholder="Tell us a little more about the project…"></textarea></label></div><div class="form-actions"><button type="button" id="closeQuote">Cancel</button><button class="send" type="submit">Continue to enquiry ↗</button></div></form></dialog>',
-'<script type="application/json" id="catalogData">'+json+'<'+'/script>',
-'<script>(function(){',
-'const data=JSON.parse(document.getElementById("catalogData").textContent);const grid=document.getElementById("grid");const filters=document.getElementById("filters");const search=document.getElementById("search");const dialog=document.getElementById("quoteDialog");const form=document.getElementById("quoteForm");let active="All";let selected=null;',
-'function el(tag,cls,text){const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;}',
-'function openQuote(product){selected=product;document.getElementById(\"quoteProduct\").textContent=\"Project: \"+product.name+\" · Add any details you already know.\";form.reset();const sel=document.getElementById(\"qChannel\");sel.innerHTML=\"\";if(data.phone&&data.phone.length>=8){const o=el(\"option\",\"\",\"WhatsApp\");o.value=\"whatsapp\";sel.appendChild(o);}if(data.email){const o=el(\"option\",\"\",\"Email\");o.value=\"email\";sel.appendChild(o);}if(data.email&&!data.phone)sel.value=\"email\";dialog.showModal();}',
-'function draw(){const q=search.value.trim().toLowerCase();const categories=["All"].concat(Array.from(new Set(data.products.map(p=>String(p.category||"").trim()).filter(Boolean))));filters.innerHTML="";categories.forEach(cat=>{const b=el("button",cat===active?"active":"",cat);b.type="button";b.addEventListener("click",()=>{active=cat;draw();});filters.appendChild(b);});grid.innerHTML="";const items=data.products.filter(p=>(active==="All"||String(p.category||"").trim()===active)&&[p.name,p.category,p.description,p.price].join(" ").toLowerCase().includes(q));if(!items.length){grid.appendChild(el("div","empty","No results found. Try another search or category."));return;}items.forEach(p=>{const card=el("article","card");const photo=el("div","photo");if(p.image){const img=document.createElement("img");img.src=p.image;img.alt=p.name||"Product photo";photo.appendChild(img);}else photo.appendChild(el("span","",String(p.name||"V").slice(0,1).toUpperCase()));const content=el("div","content");content.appendChild(el("div","category",p.category||"Custom project"));content.appendChild(el("h2","",p.name||"Product"));content.appendChild(el("p","",p.description||"Check available options."));content.appendChild(el("div","price",p.price||"Request a quote"));const button=el("button","quote-btn","Request a quote ↗");button.type="button";button.addEventListener("click",()=>openQuote(p));content.appendChild(button);card.appendChild(photo);card.appendChild(content);grid.appendChild(card);});}',
-'search.addEventListener("input",draw);document.getElementById("closeQuote").addEventListener("click",()=>dialog.close());form.addEventListener("submit",e=>{e.preventDefault();if(!selected)return;const value=id=>document.getElementById(id).value.trim();const parts=["Hello, I would like to request a quote.","Business: "+data.name,"Project: "+selected.name];if(selected.category)parts.push("Category: "+selected.category);if(value("qMeasures"))parts.push("Measurements / specifications: "+value("qMeasures")+" "+value("qUnits"));if(value("qMaterial"))parts.push("Material / finish: "+value("qMaterial"));if(value("qQuantity"))parts.push("Quantity: "+value("qQuantity"));if(value("qLocation"))parts.push("Location / installation: "+value("qLocation"));if(value("qDate"))parts.push("Target date: "+value("qDate"));if(value("qDetails"))parts.push("Additional details: "+value("qDetails"));parts.push("I can share photos or additional references in this conversation.");const message=parts.join(String.fromCharCode(10));if(value("qChannel")==="email"&&data.email){window.location.href="mailto:"+data.email+"?subject="+encodeURIComponent("Quote request: "+selected.name)+"&body="+encodeURIComponent(message);}else if(data.phone){window.open("https://wa.me/"+data.phone+"?text="+encodeURIComponent(message),"_blank","noopener,noreferrer");}dialog.close();});draw();',
-'})();<'+'/script>','</body></html>'
- ];
- return lines.join(String.fromCharCode(10));
+ const design=getDesign(d);const en=d.lang==="en";
+ const title=en?d.name+" — Product catalog and quote requests":d.name+" — Catálogo y cotizaciones";
+ const contactMessage=en?"Hello, I saw your catalog and would like more information.":"Hola, vi su catálogo y me gustaría recibir información.";
+ const contactHref=validNumber(d.phone)?waUrl(d.phone,contactMessage):("mailto:"+encodeURIComponent(d.email||"")+"?subject="+encodeURIComponent("Product enquiry for "+d.name));
+ const contactLabel=validNumber(d.phone)?(en?"Contact on WhatsApp ↗":"Contactar por WhatsApp ↗"):(en?"Email the business ↗":"Contactar por correo ↗");
+ const fallback=(d.name.split(/\s+/).filter(Boolean).slice(0,2).map(function(w){return w[0];}).join("")||"V").toUpperCase();
+ const logo=d.logo?'<img class="brand-logo-img" src="'+d.logo+'" alt="'+esc((en?"Logo for ":"Logotipo de ")+d.name)+'">':'<span class="brand-logo-fallback">'+esc(fallback)+'</span>';
+ const heroMedia=d.heroImage && d.heroLayout!=="cover"?'<div class="site-hero-media"><img src="'+d.heroImage+'" alt="'+esc(en?"Cover image for "+d.name:"Fotografía de portada de "+d.name)+'"></div>':"";
+ const heroStyle=d.heroImage && d.heroLayout==="cover"?' style="--hero-image:url(&quot;'+esc(d.heroImage)+'&quot;)"':"";
+ const websiteLabel=en?"Website ↗":"Sitio web ↗";const footLinks=(d.websiteUrl?'<a href="'+esc(d.websiteUrl)+'" target="_blank" rel="noopener">'+websiteLabel+'</a>':"")+(d.instagramUrl?'<a href="'+esc(d.instagramUrl)+'" target="_blank" rel="noopener">Instagram ↗</a>':"");
+ const css=':root{'+cssVariables(d)+';--image-fit:'+d.imageFit+';--image-focus:'+d.imageFocus+'}*{box-sizing:border-box}body{margin:0;padding:24px 0;background:var(--page);color:var(--ink);font:16px/1.6 var(--body-font)}.site{width:min(1080px,calc(100% - 32px));margin:0 auto;background:var(--page);color:var(--ink);border:1px solid var(--line);border-radius:16px;overflow:hidden;font-family:var(--body-font)}.site-hero{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(220px,.88fr);align-items:center;gap:28px;min-height:270px;padding:42px;background:var(--hero);border-bottom:1px solid var(--line)}.hero-copy{min-width:0}.brand-logo{display:flex;align-items:center;min-height:46px;margin-bottom:17px}.brand-logo-img{display:block;max-width:170px;max-height:64px;width:auto;height:auto;object-fit:contain}.brand-logo-fallback{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--accent);color:var(--accent-contrast);font-size:13px;font-weight:900;letter-spacing:.04em}.site-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;font-weight:850;color:var(--accent);margin-bottom:8px}.site-hero h1{font:700 clamp(34px,5.5vw,62px)/1.02 var(--heading-font);letter-spacing:-.055em;margin:7px 0 10px;overflow-wrap:anywhere}.site-sub{color:var(--muted);margin:0 0 13px;font-size:14px}.site-sub.tagline{font-weight:750}.intro-copy{max-width:680px;line-height:1.65}.site-contact,.quote-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;background:var(--accent);color:var(--accent-contrast);text-decoration:none;border:0;border-radius:var(--radius);padding:11px 16px;font-size:13px;font-weight:800;cursor:pointer}.site-contact[aria-disabled=true]{opacity:.7;pointer-events:none}.site-hero-media{min-width:0;min-height:190px;aspect-ratio:4/3;border-radius:calc(var(--radius) + 4px);overflow:hidden;background:var(--surface);box-shadow:0 12px 32px #17272012}.site-hero-media img{display:block;width:100%;height:100%;min-height:190px;object-fit:cover;object-position:var(--image-focus)}.products{padding:24px 30px 30px;background:var(--page)}.products-head{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:15px}.products-head b{font-size:16px}.search{padding:10px 13px;border:1px solid var(--line);border-radius:var(--radius);width:100%;max-width:270px;font:inherit;background:var(--surface);color:var(--ink)}.filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}.filters button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 12px;font:700 11px var(--body-font);cursor:pointer}.filters button.active{background:var(--accent);border-color:var(--accent);color:var(--accent-contrast)}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;min-width:0;color:var(--ink)}.photo{aspect-ratio:4/3;background:var(--hero);display:grid;place-items:center;color:var(--accent);font-weight:850;font-size:36px;overflow:hidden}.photo.placeholder{position:relative;isolation:isolate;background:linear-gradient(145deg,var(--hero),var(--page))}.photo.placeholder:before{content:"";position:absolute;width:64%;height:48%;border:1px solid var(--accent);border-radius:45% 45% 9px 9px;opacity:.22;transform:rotate(-8deg)}.photo.placeholder span{z-index:1;display:grid;place-items:center;width:42px;height:42px;background:var(--surface);border:1px solid var(--line);border-radius:50%;font-size:14px}.photo img{width:100%;height:100%;display:block;object-fit:var(--image-fit);object-position:var(--image-focus)}.card-content{padding:15px}.category{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:850}.card h2{font:700 18px/1.25 var(--heading-font);margin:7px 0}.card p{font-size:13px;color:var(--muted);min-height:40px;margin:0 0 12px}.price{font-weight:850;font-size:12px;color:var(--accent);margin-bottom:13px}.quote-btn{display:flex;width:100%;text-align:center}.empty{grid-column:1/-1;padding:40px 15px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:var(--radius)}.site-footer{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;border-top:1px solid var(--line);padding:17px 30px 22px;color:var(--muted);font-size:11px}.footer-links{display:flex;gap:13px;flex-wrap:wrap}.footer-links a{color:var(--accent);font-weight:750;text-decoration:none}.site[data-theme=atelier] .site-hero{background:linear-gradient(135deg,var(--hero),var(--page))}.site[data-theme=atelier] .card{box-shadow:0 8px 22px #49331a10}.site[data-theme=modern] .card{box-shadow:0 3px 12px #182b3c09}.site[data-theme=editorial] .site-hero{padding-top:48px;padding-bottom:42px}.site[data-theme=industrial] .card{border-top:3px solid var(--accent);border-radius:4px}.site[data-theme=industrial] .site-label,.site[data-theme=industrial] .category{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.site[data-theme=vibrant] .card{box-shadow:0 10px 25px #523a8b16}.site[data-card-style=soft] .card{border-color:transparent;box-shadow:0 9px 24px #14271b12}.site[data-card-style=bordered] .card{border:1.5px solid var(--line);box-shadow:none}.site[data-card-style=minimal] .card{background:transparent;border:0;border-radius:0;box-shadow:none}.site[data-card-style=minimal] .card-content{padding:10px 2px}.site[data-button-shape=rounded] .site-contact,.site[data-button-shape=rounded] .quote-btn{border-radius:var(--radius)}.site[data-button-shape=pill] .site-contact,.site[data-button-shape=pill] .quote-btn{border-radius:999px}.site[data-button-shape=square] .site-contact,.site[data-button-shape=square] .quote-btn{border-radius:4px}.site[data-image-ratio=square] .photo{aspect-ratio:1/1}.site[data-image-ratio=portrait] .photo{aspect-ratio:3/4}.site[data-image-ratio=landscape] .photo{aspect-ratio:4/3}.site[data-image-fit=contain] .photo img{padding:8px}.site[data-hero-layout=centered] .site-hero{display:flex;flex-direction:column;text-align:center;justify-content:center}.site[data-hero-layout=centered] .brand-logo{justify-content:center}.site[data-hero-layout=centered] .site-hero-media{width:min(100%,650px);aspect-ratio:16/7}.site[data-hero-layout=cover][data-has-hero-image=true] .site-hero{display:block;min-height:390px;padding:0;background-image:linear-gradient(90deg,#101915f2 0%,#101915d6 58%,#10191570 100%),var(--hero-image);background-size:cover;background-position:var(--image-focus);color:#fff}.site[data-hero-layout=cover][data-has-hero-image=true] .hero-copy{max-width:570px;padding:50px}.site[data-hero-layout=cover][data-has-hero-image=true] .intro-copy{max-width:500px;text-shadow:0 1px 8px #0005}.site[data-hero-layout=cover][data-has-hero-image=true] .site-label,.site[data-hero-layout=cover][data-has-hero-image=true] .site-sub{color:#fff}.site[data-hero-layout=cover] .site-hero-media{display:none}.site[data-layout=list] .cards{grid-template-columns:1fr}.site[data-layout=list] .card{display:grid;grid-template-columns:minmax(150px,30%) minmax(0,1fr)}.site[data-layout=list] .photo{height:100%;min-height:150px;aspect-ratio:auto}.site[data-layout=compact] .cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.site[data-layout=compact] .photo{aspect-ratio:4/3}.site[data-layout=compact] .card-content{padding:11px}.toolbar{padding:16px 0 26px}.notice{padding:0 30px 20px;color:var(--muted);font-size:11px}dialog{width:min(560px,calc(100% - 24px));border:1px solid var(--line);border-radius:calc(var(--radius) + 4px);padding:0;background:var(--surface);color:var(--ink);box-shadow:0 22px 80px #10231e40}dialog::backdrop{background:#10231e99}.form{padding:24px}.form h2{font:700 27px/1.1 var(--heading-font);margin:0 0 6px}.form .sub{color:var(--muted);font-size:13px;margin:0 0 18px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:11px}.fields label{font-size:11px;color:var(--muted);font-weight:800}.fields input,.fields textarea,.fields select{width:100%;font:14px var(--body-font);border:1px solid var(--line);border-radius:8px;padding:10px;margin-top:5px;background:var(--page);color:var(--ink)}.fields .full{grid-column:1/-1}.fields textarea{min-height:75px}.form-actions{display:flex;gap:9px;margin-top:17px;justify-content:flex-end}.form-actions button{border:1px solid var(--line);background:var(--page);color:var(--ink);padding:10px 13px;border-radius:var(--radius);font-weight:750;cursor:pointer}.form-actions .send{background:var(--accent);border-color:var(--accent);color:var(--accent-contrast)}@media(max-width:700px){body{padding:10px 0}.site{width:calc(100% - 18px)}.site-hero{grid-template-columns:1fr;padding:24px}.site-hero-media{aspect-ratio:16/9}.products{padding:17px 14px 22px}.products-head{align-items:flex-start;flex-direction:column}.search{max-width:none}.site-footer{padding:15px}.site[data-layout=compact] .cards{grid-template-columns:repeat(2,minmax(0,1fr))}.site[data-layout=list] .card{grid-template-columns:100px minmax(0,1fr)}.fields{grid-template-columns:1fr}.fields .full{grid-column:auto}.form{padding:18px}.site[data-hero-layout=cover][data-has-hero-image=true] .hero-copy{padding:26px}.site[data-hero-layout=centered] .site-hero-media{aspect-ratio:16/9}}';
+ const htmlLang=en?"en":"es";
+ const category=[d.category,d.location].filter(Boolean).join(" · ").toUpperCase();
+ const heroHeader='<header class="site-hero" id="catalogHero"'+heroStyle+'><div class="hero-copy"><div class="brand-logo">'+logo+'</div><div class="site-label">'+esc(category|| (en?"CATALOG":"CATÁLOGO"))+'</div><h1>'+esc(d.name)+'</h1><p class="site-sub tagline">'+esc(d.tagline)+'</p><p class="site-sub intro-copy">'+esc(d.intro)+'</p><a class="site-contact" href="'+contactHref+'" target="_blank" rel="noopener">'+contactLabel+'</a></div>'+heroMedia+'</header>';
+ const footer='<footer class="site-footer"><span>'+esc(d.location|| (en?"Contact us to learn more":"Contáctanos para conocer más"))+' · '+esc(d.name)+'</span><span class="footer-links">'+footLinks+'</span></footer>';
+ const notice=en?"Quote requests are prepared in this browser and opened in WhatsApp or your email app. No payments are processed and form entries are not stored.":"Las solicitudes se preparan en este navegador y se abren en WhatsApp o correo. No se procesan pagos ni se guardan los datos del formulario.";
+ const quoteDialog=en?'<dialog id="quoteDialog" aria-labelledby="quoteTitle"><form id="quoteForm" class="form"><h2 id="quoteTitle">Request a quote</h2><p class="sub" id="quoteProduct">Add the details you already know. You can leave any field blank.</p><div class="fields"><label class="full">Send enquiry via<select id="qChannel"></select></label><label class="full">Measurements or specifications<input id="qMeasures" placeholder="e.g. 2400 × 1200, wall thickness, drawing reference…"></label><label>Measurement units<select id="qUnits"><option value="mm">Millimetres (mm)</option><option value="cm">Centimetres (cm)</option><option value="m">Metres (m)</option><option value="in">Inches (in)</option><option value="ft">Feet (ft)</option><option value="not specified">Not specified</option></select></label><label>Material or finish<input id="qMaterial" placeholder="e.g. steel, MDF, acrylic…"></label><label>Quantity<input id="qQuantity" placeholder="e.g. 3 units"></label><label>Location or installation site<input id="qLocation" placeholder="City / region"></label><label>Target date<input id="qDate" placeholder="e.g. this month"></label><label class="full">Additional details<textarea id="qDetails" placeholder="Tell us a little more about the project…"></textarea></label></div><div class="form-actions"><button type="button" id="closeQuote">Cancel</button><button class="send" type="submit">Continue to enquiry ↗</button></div></form></dialog>':'<dialog id="quoteDialog" aria-labelledby="quoteTitle"><form id="quoteForm" class="form"><h2 id="quoteTitle">Solicitar cotización</h2><p class="sub" id="quoteProduct">Completa los detalles que ya conoces. Puedes dejar campos en blanco.</p><div class="fields"><label class="full">Medidas o especificaciones<input id="qMeasures" placeholder="Ej. 2.4 m × 1.2 m, espesor, plano…"></label><label>Material o acabado<input id="qMaterial" placeholder="Ej. acero, MDF, acrílico…"></label><label>Cantidad<input id="qQuantity" placeholder="Ej. 3 unidades"></label><label>Zona o lugar de instalación<input id="qLocation" placeholder="Ciudad / municipio"></label><label>Fecha estimada<input id="qDate" placeholder="Ej. este mes"></label><label class="full">Detalles adicionales<textarea id="qDetails" placeholder="Cuéntanos algo más sobre lo que necesitas…"></textarea></label></div><div class="form-actions"><button type="button" id="closeQuote">Cancelar</button><button class="send" type="submit">Continuar en WhatsApp ↗</button></div></form></dialog>';
+ const labels=en?{all:"All",search:"Search products, services or materials…",empty:"No results found. Try another search or category.",category:"Custom project",untitled:"Untitled product",description:"Description coming soon.",price:"Request a quote",button:"Request a quote ↗",project:"Project: ",hello:"Hello, I would like to request a quote.",business:"Business: ",measure:"Measurements / specifications: ",material:"Material / finish: ",quantity:"Quantity: ",location:"Location / installation: ",date:"Target date: ",details:"Additional details: ",share:"I can share photos or additional references in this conversation.",close:"Cancel"}:{all:"Todos",search:"Buscar productos, servicios o materiales…",empty:"No encontramos resultados. Prueba otra búsqueda o categoría.",category:"Trabajo a medida",untitled:"Producto",description:"Descripción pendiente.",price:"Solicitar cotización",button:"Cotizar este trabajo ↗",project:"Trabajo: ",hello:"Hola, me interesa solicitar una cotización.",business:"Negocio: ",measure:"Medidas / especificaciones: ",material:"Material / acabado: ",quantity:"Cantidad: ",location:"Zona / instalación: ",date:"Fecha estimada: ",details:"Detalles adicionales: ",share:"Puedo compartir fotografías o referencias adicionales por este chat.",close:"Cancelar"};
+ const js = '(function(){const data=JSON.parse(document.getElementById("catalogData").textContent);const grid=document.getElementById("grid"),filters=document.getElementById("filters"),search=document.getElementById("search"),dialog=document.getElementById("quoteDialog"),form=document.getElementById("quoteForm");let active='+JSON.stringify(labels.all)+',selected=null;function el(t,c,x){const n=document.createElement(t);if(c)n.className=c;if(x!==undefined)n.textContent=x;return n;}function openQuote(p){selected=p;document.getElementById("quoteProduct").textContent='+JSON.stringify(labels.project)+'+p.name;form.reset();'+(en?'const sel=document.getElementById("qChannel");sel.innerHTML="";if(data.phone){const o=el("option","","WhatsApp");o.value="whatsapp";sel.appendChild(o);}if(data.email){const o=el("option","","Email");o.value="email";sel.appendChild(o);}if(data.email&&!data.phone)sel.value="email";':'')+'dialog.showModal();}function draw(){const q=search.value.trim().toLowerCase(),cats=['+JSON.stringify(labels.all)+'].concat(Array.from(new Set(data.products.map(p=>String(p.category||"").trim()).filter(Boolean))));filters.innerHTML="";cats.forEach(c=>{const b=el("button",c===active?"active":"",c);b.type="button";b.addEventListener("click",()=>{active=c;draw();});filters.appendChild(b);});grid.innerHTML="";const items=data.products.filter(p=>(active==='+JSON.stringify(labels.all)+'||String(p.category||"").trim()===active)&&[p.name,p.category,p.description,p.price].join(" ").toLowerCase().includes(q));if(!items.length){grid.appendChild(el("div","empty",'+JSON.stringify(labels.empty)+'));return;}items.forEach(p=>{const card=el("article","card"),photo=el("div","photo");if(p.image){const img=document.createElement("img");img.src=p.image;img.alt=p.name||"Product photo";photo.appendChild(img);}else{photo.classList.add("placeholder");photo.appendChild(el("span","",String(p.name||"V").slice(0,1).toUpperCase()));}const content=el("div","card-content");content.appendChild(el("div","category",p.category||'+JSON.stringify(labels.category)+'));content.appendChild(el("h2","",p.name||'+JSON.stringify(labels.untitled)+'));content.appendChild(el("p","",p.description||'+JSON.stringify(labels.description)+'));content.appendChild(el("div","price",p.price||'+JSON.stringify(labels.price)+'));const btn=el("button","quote-btn",'+JSON.stringify(labels.button)+');btn.type="button";btn.addEventListener("click",()=>openQuote(p));content.appendChild(btn);card.appendChild(photo);card.appendChild(content);grid.appendChild(card);});}search.addEventListener("input",draw);document.getElementById("closeQuote").addEventListener("click",()=>dialog.close());form.addEventListener("submit",e=>{e.preventDefault();if(!selected)return;const v=id=>document.getElementById(id).value.trim(),parts=['+JSON.stringify(labels.hello)+','+JSON.stringify(labels.business)+'+data.name,'+JSON.stringify(labels.project)+'+selected.name];if(selected.category)parts.push("Category: "+selected.category);if(v("qMeasures"))parts.push('+JSON.stringify(labels.measure)+'+v("qMeasures")'+(en?'+" "+v("qUnits")':'')+');if(v("qMaterial"))parts.push('+JSON.stringify(labels.material)+'+v("qMaterial"));if(v("qQuantity"))parts.push('+JSON.stringify(labels.quantity)+'+v("qQuantity"));if(v("qLocation"))parts.push('+JSON.stringify(labels.location)+'+v("qLocation"));if(v("qDate"))parts.push('+JSON.stringify(labels.date)+'+v("qDate"));if(v("qDetails"))parts.push('+JSON.stringify(labels.details)+'+v("qDetails"));parts.push('+JSON.stringify(labels.share)+');const message=parts.join(String.fromCharCode(10));'+(en?'if(v("qChannel")==="email"&&data.email){window.location.href="mailto:"+data.email+"?subject="+encodeURIComponent("Quote request: "+selected.name)+"&body="+encodeURIComponent(message);}else if(data.phone){window.open("https://wa.me/"+data.phone+"?text="+encodeURIComponent(message),"_blank","noopener,noreferrer");}':'if(data.phone){window.open("https://wa.me/"+data.phone+"?text="+encodeURIComponent(message),"_blank","noopener,noreferrer");}')+'dialog.close();});draw();})();';
+ const html=['<!doctype html>','<html lang="'+htmlLang+'"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="'+esc(design.page)+'"><meta name="description" content="'+esc(d.intro)+'"><title>'+esc(title)+'</title><style>'+css+'</style></head><body>','<div class="site" data-theme="'+esc(d.theme)+'" data-layout="'+esc(d.layout)+'" data-hero-layout="'+esc(d.heroLayout)+'" data-image-ratio="'+esc(d.imageRatio)+'" data-image-fit="'+esc(d.imageFit)+'" data-image-focus="'+esc(d.imageFocus)+'" data-card-style="'+esc(d.cardStyle)+'" data-button-shape="'+esc(d.buttonShape)+'" data-has-hero-image="'+(d.heroImage?"true":"false")+'">',heroHeader,'<main class="products"><div class="products-head"><b>'+(en?"Products and projects":"Productos y trabajos")+'</b><input id="search" class="search" placeholder="'+labels.search+'" aria-label="'+labels.search+'"></div><nav class="filters" id="filters" aria-label="'+(en?"Filter by category":"Filtrar por categoría")+'"></nav><section class="cards" id="grid" aria-live="polite"></section></main>',footer,'<p class="notice">'+notice+'</p>','</div>',quoteDialog,'<script type="application/json" id="catalogData">'+json+'<'+'/script>','<script>'+js+'<'+'/script>','</body></html>'];
+ return html.join(String.fromCharCode(10));
 }
 byId("export").addEventListener("click",function(){
  const d=getData();if(byId("export").disabled)return;
