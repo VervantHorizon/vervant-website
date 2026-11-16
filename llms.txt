@@ -65,3 +65,8 @@ Vervant Local is a done-for-you, mobile-first catalogue for manufacturers, fabri
 The international pilot is USD 199 one-time for the first three projects, with up to 12 listings, responsive styling, search, categories, an enquiry flow via business email and/or WhatsApp, one revision round and self-contained HTML handover. Hosting, paid domains, ecommerce, payments, inventory, CRM, integrations and ongoing maintenance are not included unless separately quoted. The builder runs in the visitor's browser; form data is handed to the business's email or WhatsApp app rather than being submitted to a Vervant server.
 
 The El Salvador pilot is a separate local offer and must not be quoted as the worldwide price.
+
+## Vervant Local — Spanish sector pages
+- Carpinterías y muebles a medida: https://vervant-public-site.onrender.com/negocios/industrias/carpinterias/
+- Fabricación metálica y CNC: https://vervant-public-site.onrender.com/negocios/industrias/fabricacion-metalica/
+- Rótulos, impresión y señalética: https://vervant-public-site.onrender.com/negocios/industrias/rotulacion-impresion/

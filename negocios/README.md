@@ -41,7 +41,7 @@ En el constructor:
 - No usar información privada ni publicar datos, imágenes, marcas o testimonios sin autorización expresa.
 
 ## Publicación
-El constructor y sus ejemplos siguen en desarrollo local. No hacer push ni desplegar el sitio comercial sin autorización expresa.
+Nota histórica supersedida el 15-11-2026: el constructor y los ejemplos español/inglés ya están publicados en Render. El repositorio vervant-website despliega automáticamente los commits de main. Mantener ejemplos ficticios claramente identificados y no publicar material de clientes sin autorización.
 
 
 ## International English offer
@@ -79,5 +79,12 @@ El constructor y sus ejemplos siguen en desarrollo local. No hacer push ni despl
 - Capability sheet: USD 99 standalone / USD 59 with a catalog.
 - Additional language adaptation starts at USD 149, after review.
 - Service is remote-first. English delivery; USD pricing unless otherwise agreed in writing.
-- The site is still a local preview and must not be represented as publicly live until it is deployed and checked.
+- Superseded 15 Nov 2026: the English landing, builder and sector pages are published at https://vervant-public-site.onrender.com/negocios/en/; the Render static site auto-deploys commits to main.
 - Use country-specific outbound compliance rules. Current outbound pilot is limited to verified UK corporate subscribers at role-based company email addresses. See /home/will/Documentos/Vervant-Operations/international-go-to-market.md.
+
+## Spanish sector pages
+- /negocios/industrias/: directory.
+- /negocios/industrias/carpinterias/: custom furniture and joinery.
+- /negocios/industrias/fabricacion-metalica/: metal fabrication and CNC.
+- /negocios/industrias/rotulacion-impresion/: signage and print.
+The Spanish pages use the El Salvador pilot price. English sector pages retain the international price and currency.
