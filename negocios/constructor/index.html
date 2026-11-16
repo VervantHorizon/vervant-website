@@ -44,6 +44,52 @@ input[type=file]{font-size:12px;padding:8px}textarea{min-height:65px;resize:vert
 .site-footer{border-top:1px solid #e6ebe5;padding:12px 20px;color:#758178;font-size:10px;display:flex;justify-content:space-between;gap:10px}
 .empty{padding:40px 15px;text-align:center;color:var(--muted);font-size:12px;border:1px dashed #cbd8cc;border-radius:10px;grid-column:1/-1}
 .privacy{background:#eaf2e9;border:1px solid #cfdfd0;padding:13px 14px;border-radius:11px;margin:15px 0;color:#4f6b58;font-size:11px}
+
+.theme-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.theme-choice{min-width:0;text-align:left;background:#fbfcfa;border:1px solid #dce4dc;border-radius:10px;padding:9px;cursor:pointer;color:#24342b;font:inherit;transition:border-color .16s,box-shadow .16s,transform .16s}
+.theme-choice:hover{border-color:#8ea996;transform:translateY(-1px)}
+.theme-choice.active{border:2px solid #315fbd;padding:8px;box-shadow:0 0 0 3px #315fbd16;background:#fff}
+.theme-choice b{display:block;font-size:11px;margin-top:6px}
+.theme-choice small{display:block;font-size:10px;color:#6b786f;margin-top:1px}
+.theme-swatches{display:flex;gap:4px}.theme-swatches i{display:block;width:22px;height:22px;border-radius:6px;border:1px solid #00000012}
+.custom-colors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.custom-colors .field{margin:0 0 11px}
+.custom-colors input[type=color]{width:100%;height:38px;padding:3px;border:1px solid #d5dfd6;border-radius:8px;background:#fff;cursor:pointer}
+.theme-field{margin-bottom:11px}
+.site{--accent:#a65d43;--accent-contrast:#fff;--page:#f3eadc;--surface:#fffaf2;--hero:#ebe0d0;--ink:#29251f;--muted:#71675d;--line:#e4d8ca;--radius:18px;--heading-font:Georgia,serif;--body-font:Inter,system-ui,sans-serif;background:var(--page);color:var(--ink);font-family:var(--body-font);transition:background .18s,color .18s}
+.site .site-hero{background:var(--hero)!important;color:var(--ink);border-bottom:1px solid var(--line)}
+.site .site-label,.site .card small{color:var(--accent)}
+.site h2{font-family:var(--heading-font)}
+.site .site-sub,.site .card p{color:var(--muted)}
+.site .site-contact,.site .card a{background:var(--accent);color:var(--accent-contrast)}
+.site .products{background:var(--page);color:var(--ink)}
+.site .products-head input{background:var(--surface);color:var(--ink);border-color:var(--line)}
+.site .card{background:var(--surface);border-color:var(--line);border-radius:var(--radius);color:var(--ink)}
+.site .photo{background:var(--hero);color:var(--accent)}
+.site .site-footer{background:var(--surface);border-color:var(--line);color:var(--muted)}
+.site[data-theme="atelier"] .site-hero{background:linear-gradient(135deg,var(--hero),var(--page))!important}
+.site[data-theme="atelier"] .card{box-shadow:0 8px 22px #49331a10}
+.site[data-theme="modern"] .site-hero{border-bottom:1px solid var(--line)}
+.site[data-theme="modern"] .card{box-shadow:0 3px 12px #182b3c09}
+.site[data-theme="editorial"] .site-hero{padding-top:34px;padding-bottom:30px}
+.site[data-theme="editorial"] .site-label{letter-spacing:.22em}
+.site[data-theme="editorial"] .card{border-width:1px}
+.site[data-theme="industrial"] .card{border-top:3px solid var(--accent);border-radius:4px}
+.site[data-theme="industrial"] .site-label{letter-spacing:.18em;font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+.site[data-theme="vibrant"] .card{box-shadow:0 10px 25px #523a8b16}
+.site[data-theme="vibrant"] .site-contact,.site[data-theme="vibrant"] .card a{border-radius:999px}
+.site[data-layout="list"] .cards{grid-template-columns:1fr}
+.site[data-layout="list"] .card{display:grid;grid-template-columns:112px minmax(0,1fr);align-items:stretch}
+.site[data-layout="list"] .photo{height:100%;min-height:112px}
+.site[data-layout="compact"] .cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.site[data-layout="compact"] .photo{height:90px}
+.site[data-layout="compact"] .card-content{padding:8px}
+.site[data-layout="compact"] .card h3{font-size:11px}
+.site .site-contact,.site .card a{text-decoration:none}
+.site .site-contact[aria-disabled="true"]{pointer-events:none;opacity:.78}
+@media(max-width:600px){.site[data-layout="compact"] .cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.theme-choice{padding:7px}.theme-choice.active{padding:6px}.custom-colors{gap:7px}}
+
 @media(max-width:980px){.layout{grid-template-columns:1fr}.preview-wrap{position:static}.cards{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){main{width:calc(100% - 22px);margin-top:19px}.intro{display:block}.badge{display:inline-block;margin-top:13px}.formbody{padding:13px}.preview{padding:10px}.site h2{font-size:26px}.site-hero{padding:19px}.products{padding:13px}.cards{gap:8px}.photo{height:90px}.row{gap:8px}.site-footer{display:block}.site-footer span{display:block;margin:3px 0}}
 </style>
@@ -51,7 +97,7 @@ input[type=file]{font-size:12px;padding:8px}textarea{min-height:65px;resize:vert
 <body>
 <header class="top"><div class="brand">vervant <span>local</span> / constructor</div><a href="/negocios/">← Volver a la propuesta</a></header>
 <main>
-<div class="intro"><div><h1>Construye un catálogo que recibe cotizaciones.</h1><p>Completa los datos del negocio y sus productos. La vista previa cambia al instante; al final podrás descargar un HTML autónomo, sin cuentas ni servidor.</p></div><span class="badge">100 % en tu navegador</span></div>
+<div class="intro"><div><h1>Construye un catálogo que recibe cotizaciones.</h1><p>Elige uno de cinco estilos visuales, adapta colores, tipografía y presentación, y agrega tus productos. La vista previa refleja el diseño final; después descargas un HTML autónomo, sin cuentas ni servidor.</p></div><span class="badge">100 % en tu navegador</span></div>
 <div class="layout">
 <section class="panel">
 <div class="panel-head"><b>Datos del negocio</b><span>1 · Identidad y contacto</span></div>
@@ -64,7 +110,28 @@ input[type=file]{font-size:12px;padding:8px}textarea{min-height:65px;resize:vert
 </div>
 <div class="field"><label for="whatsapp">WhatsApp comercial *</label><input id="whatsapp" inputmode="numeric" placeholder="503XXXXXXXX"><p class="hint">Solo dígitos, con código de país. Ejemplo de El Salvador: 503 + número. No uses un número ajeno.</p></div>
 <div class="field"><label for="introText">Texto de presentación</label><textarea id="introText">Diseñamos y fabricamos muebles personalizados para tu hogar o negocio. Cuéntanos qué necesitas y te ayudamos a cotizar.</textarea></div>
-<div class="field"><label for="accent">Color principal</label><div class="row"><input id="accent" type="color" value="#205e48" style="height:42px;padding:4px"><p class="hint">Se usa en los botones del catálogo.</p></div></div>
+<div class="field theme-field">
+<label>Estilo visual del catálogo</label>
+<div class="theme-grid" id="themeChoices" role="group" aria-label="Estilos visuales">
+<button class="theme-choice active" type="button" data-theme-choice="atelier" aria-pressed="true"><span class="theme-swatches"><i style="background:#a65d43"></i><i style="background:#f3eadc"></i><i style="background:#fffaf2"></i></span><b>Atelier</b><small>Cálido · artesanal</small></button>
+<button class="theme-choice" type="button" data-theme-choice="modern" aria-pressed="false"><span class="theme-swatches"><i style="background:#315fbd"></i><i style="background:#f2f5fa"></i><i style="background:#fff"></i></span><b>Modern</b><small>Limpio · minimalista</small></button>
+<button class="theme-choice" type="button" data-theme-choice="editorial" aria-pressed="false"><span class="theme-swatches"><i style="background:#c39a5c"></i><i style="background:#171b19"></i><i style="background:#252c28"></i></span><b>Editorial</b><small>Oscuro · premium</small></button>
+<button class="theme-choice" type="button" data-theme-choice="industrial" aria-pressed="false"><span class="theme-swatches"><i style="background:#c66a38"></i><i style="background:#eaf0f3"></i><i style="background:#fff"></i></span><b>Industrial</b><small>Técnico · preciso</small></button>
+<button class="theme-choice" type="button" data-theme-choice="vibrant" aria-pressed="false"><span class="theme-swatches"><i style="background:#7654c7"></i><i style="background:#f3efff"></i><i style="background:#fff"></i></span><b>Vibrant</b><small>Expresivo · cercano</small></button>
+</div>
+<input id="theme" type="hidden" value="atelier">
+<p class="hint">Cada estilo cambia la composición, tipografía, superficies y personalidad del catálogo. Después puedes ajustar sus colores.</p>
+</div>
+<div class="custom-colors">
+<div class="field"><label for="accent">Color de marca</label><input id="accent" type="color" value="#a65d43"></div>
+<div class="field"><label for="pageColor">Fondo de página</label><input id="pageColor" type="color" value="#f3eadc"></div>
+<div class="field"><label for="surfaceColor">Tarjetas y paneles</label><input id="surfaceColor" type="color" value="#fffaf2"></div>
+<div class="field"><label for="textColor">Color del texto</label><input id="textColor" type="color" value="#29251f"></div>
+</div>
+<div class="row">
+<div class="field"><label for="fontChoice">Tipografía</label><select id="fontChoice"><option value="sans">Sans · moderna</option><option value="serif" selected>Serif · editorial</option><option value="mono">Mono · técnica</option></select></div>
+<div class="field"><label for="layout">Presentación</label><select id="layout"><option value="grid" selected>Cuadrícula</option><option value="list">Lista de proyectos</option><option value="compact">Cuadrícula compacta</option></select></div>
+</div>
 <div class="divider"></div>
 <div class="section-title"><b>Productos y trabajos</b><span class="count" id="counter">0 / 12</span></div>
 <div id="productList"></div>
@@ -75,9 +142,9 @@ input[type=file]{font-size:12px;padding:8px}textarea{min-height:65px;resize:vert
 </div>
 </section>
 <section class="panel preview-wrap">
-<div class="preview-top"><b>Vista previa del catálogo</b><span>Muestra parcial · la exportación añade filtros y solicitud guiada</span></div>
+<div class="preview-top"><b>Vista previa del catálogo</b><span>Vista en vivo · el archivo conserva el tema, los colores y la distribución elegidos</span></div>
 <div class="preview">
-<div class="site">
+<div class="site" id="sitePreview" data-theme="atelier" data-layout="grid">
 <div class="site-hero" id="previewHero">
 <div class="site-label" id="previewCategory">CARPINTERÍA · SANTA TECLA</div>
 <h2 id="previewName">Taller Roble</h2>
@@ -100,7 +167,7 @@ input[type=file]{font-size:12px;padding:8px}textarea{min-height:65px;resize:vert
 "use strict";
 const byId = function(id){return document.getElementById(id);};
 const state = {products:[]};
-const inputs = ["businessName","tagline","category","location","whatsapp","introText","accent"];
+const inputs = ["businessName","tagline","category","location","whatsapp","introText","accent","pageColor","surfaceColor","textColor","fontChoice","layout"];
 const esc = function(value){return String(value == null ? "" : value).replace(/[&<>"']/g,function(ch){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch];});};
 const digits = function(value){return String(value || "").replace(/\D/g,"");};
 const validNumber = function(value){const n=digits(value);return n.length>=8 && n.length<=15;};
@@ -111,9 +178,51 @@ const getData = function(){return {
  location:byId("location").value.trim(),
  phone:digits(byId("whatsapp").value),
  intro:byId("introText").value.trim(),
- accent:byId("accent").value,
- products:state.products
+ theme:byId("theme").value,accent:byId("accent").value,pageColor:byId("pageColor").value,surfaceColor:byId("surfaceColor").value,textColor:byId("textColor").value,fontChoice:byId("fontChoice").value,layout:byId("layout").value,products:state.products
 };};
+const THEMES={
+ atelier:{accent:"#a65d43",page:"#f3eadc",surface:"#fffaf2",hero:"#ebe0d0",ink:"#29251f",muted:"#71675d",line:"#e4d8ca",radius:"18px",font:"serif",layout:"grid"},
+ modern:{accent:"#315fbd",page:"#f2f5fa",surface:"#ffffff",hero:"#ffffff",ink:"#182231",muted:"#657184",line:"#e2e8f0",radius:"10px",font:"sans",layout:"grid"},
+ editorial:{accent:"#c39a5c",page:"#171b19",surface:"#252c28",hero:"#202722",ink:"#f2eee5",muted:"#b8b2a5",line:"#3c4540",radius:"5px",font:"serif",layout:"grid"},
+ industrial:{accent:"#c66a38",page:"#eaf0f3",surface:"#ffffff",hero:"#e1e8ed",ink:"#202a32",muted:"#63717d",line:"#d7dee4",radius:"4px",font:"sans",layout:"compact"},
+ vibrant:{accent:"#7654c7",page:"#f3efff",surface:"#ffffff",hero:"#eee6ff",ink:"#271b3a",muted:"#685f78",line:"#e5ddf5",radius:"22px",font:"sans",layout:"grid"}
+};
+const FONT_STACKS={sans:'Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif',serif:'Georgia,"Times New Roman",serif',mono:'"SFMono-Regular",Consolas,"Liberation Mono",monospace'};
+const customized={accent:false,pageColor:false,surfaceColor:false,textColor:false,fontChoice:false,layout:false};
+function validHex(value,fallback){return /^#[0-9a-fA-F]{6}$/.test(String(value||""))?value:fallback;}
+function readableOn(color){
+ const hex=String(color||"#000000").replace("#","");
+ const rgb=[0,2,4].map(i=>parseInt(hex.slice(i,i+2),16)/255).map(v=>v<=0.04045?v/12.92:Math.pow((v+0.055)/1.055,2.4));
+ const lum=0.2126*rgb[0]+0.7152*rgb[1]+0.0722*rgb[2];
+ const white=1.05/(lum+0.05),dark=(lum+0.05)/0.05;
+ return white>=dark?"#ffffff":"#17202a";
+}
+function getDesign(d){
+ const t=THEMES[d.theme]||THEMES.atelier;
+ const accent=validHex(d.accent,t.accent);
+ return {accent:accent,accentContrast:readableOn(accent),page:validHex(d.pageColor,t.page),surface:validHex(d.surfaceColor,t.surface),hero:t.hero,ink:validHex(d.textColor,t.ink),muted:t.muted,line:t.line,radius:t.radius,headingFont:FONT_STACKS[d.fontChoice]||FONT_STACKS[t.font],bodyFont:FONT_STACKS[d.fontChoice]||FONT_STACKS[t.font]};
+}
+function cssVariables(d){
+ const x=getDesign(d);
+ return "--accent:"+x.accent+";--accent-contrast:"+x.accentContrast+";--page:"+x.page+";--surface:"+x.surface+";--hero:"+x.hero+";--ink:"+x.ink+";--muted:"+x.muted+";--line:"+x.line+";--radius:"+x.radius+";--heading-font:"+x.headingFont+";--body-font:"+x.bodyFont;
+}
+function chooseTheme(name){
+ const t=THEMES[name]||THEMES.atelier;
+ byId("theme").value=name;
+ if(!customized.accent)byId("accent").value=t.accent;
+ if(!customized.pageColor)byId("pageColor").value=t.page;
+ if(!customized.surfaceColor)byId("surfaceColor").value=t.surface;
+ if(!customized.textColor)byId("textColor").value=t.ink;
+ if(!customized.fontChoice)byId("fontChoice").value=t.font;
+ if(!customized.layout)byId("layout").value=t.layout;
+ byId("themeChoices").querySelectorAll("[data-theme-choice]").forEach(function(button){
+  const active=button.dataset.themeChoice===name;
+  button.classList.toggle("active",active);button.setAttribute("aria-pressed",String(active));
+ });
+ renderPreview();validate();
+}
+
+
 const waUrl = function(phone, message){return "https://wa.me/"+digits(phone)+"?text="+encodeURIComponent(message);};
 const status = function(message,error){byId("status").textContent=message;byId("status").className="status"+(error?" error":"");};
 function renderProductsForm(){
@@ -129,7 +238,8 @@ function renderProductsForm(){
   root.appendChild(box);
  });
  byId("counter").textContent=state.products.length+" / 12";
- root.querySelectorAll("[data-remove]").forEach(function(button){button.addEventListener("click",function(){state.products.splice(Number(button.dataset.remove),1);renderProductsForm();renderPreview();validate();});});
+ root.querySelectorAll("[data-remove]").forEach(function(button){button.addEventListener("click",function(){state.products.splice(Number(button.dataset.remove),1);byId("themeChoices").querySelectorAll("[data-theme-choice]").forEach(function(button){const active=button.dataset.themeChoice===byId("theme").value;button.classList.toggle("active",active);button.setAttribute("aria-pressed",String(active));});
+ renderProductsForm();renderPreview();validate();});});
  root.querySelectorAll("[data-field]").forEach(function(input){input.addEventListener("input",function(){const index=Number(input.dataset.index);state.products[index][input.dataset.field]=input.value;renderPreview();validate();});});
  root.querySelectorAll("[data-photo]").forEach(function(input){input.addEventListener("change",async function(){const file=input.files && input.files[0];if(!file)return;if(file.size>12*1024*1024){status("La fotografía supera 12 MB. Elige otra más pequeña.",true);input.value="";return;}try{state.products[Number(input.dataset.photo)].image=await compressImage(file);renderProductsForm();renderPreview();validate();status("Fotografía optimizada localmente.");}catch(e){status("No pudimos leer esa imagen. Prueba con JPG, PNG o WebP.",true);}});});
 }
@@ -149,7 +259,14 @@ function renderPreview(){
  const d=getData();byId("previewName").textContent=d.name;byId("previewTagline").textContent=d.tagline;byId("previewIntro").textContent=d.intro;
  byId("previewCategory").textContent=[d.category,d.location].filter(Boolean).join(" · ").toUpperCase() || "CATÁLOGO";
  byId("previewLocation").textContent=d.location || "Ubicación por confirmar";
- byId("previewHero").style.background="#e6efe6";
+ const preview=byId("sitePreview");const design=getDesign(d);
+  preview.dataset.theme=d.theme;preview.dataset.layout=d.layout;
+  preview.style.setProperty("--accent",design.accent);preview.style.setProperty("--accent-contrast",design.accentContrast);
+  preview.style.setProperty("--page",design.page);preview.style.setProperty("--surface",design.surface);
+  preview.style.setProperty("--hero",design.hero);preview.style.setProperty("--ink",design.ink);
+  preview.style.setProperty("--muted",design.muted);preview.style.setProperty("--line",design.line);
+  preview.style.setProperty("--radius",design.radius);preview.style.setProperty("--heading-font",design.headingFont);
+  preview.style.setProperty("--body-font",design.bodyFont);
  const contact=byId("previewContact");
  if(validNumber(d.phone)){contact.href=waUrl(d.phone,"Hola, vi su catálogo y me gustaría recibir información.");contact.textContent="Contactar por WhatsApp ↗";contact.removeAttribute("aria-disabled");}
  else{contact.href="#";contact.textContent="WhatsApp · número pendiente";contact.setAttribute("aria-disabled","true");}
@@ -173,7 +290,12 @@ function validate(){
  else if(!hasProduct){status("Completa el nombre de cada producto.");}
  else{status("Listo para generar. Revisa los datos y descarga el HTML.");}
 }
-inputs.forEach(function(id){byId(id).addEventListener("input",function(){renderPreview();validate();});});
+inputs.forEach(function(id){byId(id).addEventListener("input",function(){
+  if(Object.prototype.hasOwnProperty.call(customized,id))customized[id]=true;
+  renderPreview();validate();
+ });});
+ ["fontChoice","layout"].forEach(function(id){byId(id).addEventListener("change",function(){customized[id]=true;renderPreview();validate();});});
+ byId("themeChoices").querySelectorAll("[data-theme-choice]").forEach(function(button){button.addEventListener("click",function(){chooseTheme(button.dataset.themeChoice);});});
 byId("addProduct").addEventListener("click",function(){
  if(state.products.length>=12){status("El paquete piloto permite hasta 12 fichas.",true);return;}
  state.products.push({name:"",category:"",description:"",price:"Solicitar cotización",image:""});renderProductsForm();renderPreview();validate();
@@ -213,7 +335,9 @@ byId("loadDemo").addEventListener("click",function(){
   ]
  }
  };
- const demo=demos[byId("demoType").value]||demos.wood;
+ const demoType=byId("demoType").value;
+  const demo=demos[demoType]||demos.wood;
+  chooseTheme(({wood:"atelier",signage:"vibrant",industrial:"industrial"})[demoType]||"atelier");
  byId("businessName").value=demo.name;
  byId("tagline").value=demo.tagline;
  byId("category").value=demo.category;
@@ -225,9 +349,10 @@ byId("loadDemo").addEventListener("click",function(){
 });
 function generateHtml(d){
  const json=JSON.stringify(d).replace(/</g,"\\u003c").replace(/\u2028/g,"\\u2028").replace(/\u2029/g,"\\u2029");
- const css=':root{--accent:'+d.accent+';--ink:#17271f;--muted:#65756b;--paper:#f3f6f1;--line:#e0e8df;--card:#fff}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}.wrap{width:min(1080px,calc(100% - 32px));margin:auto}.hero{padding:48px 0 26px}.label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:850;color:var(--accent)}.hero h1{font-size:clamp(34px,6vw,58px);line-height:1;letter-spacing:-.06em;margin:12px 0}.hero p{color:#5d6d63;max-width:700px}.contact,.quote-btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;border:0;border-radius:9px;padding:11px 15px;font-size:13px;font-weight:800;cursor:pointer}.toolbar{padding:12px 0 26px}.search{padding:12px 14px;border:1px solid #dce4dc;border-radius:10px;width:100%;max-width:400px;font:inherit;background:white}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.filters button{border:1px solid var(--line);background:#fff;color:#53645a;border-radius:999px;padding:7px 12px;font:700 12px system-ui;cursor:pointer}.filters button.active{background:var(--accent);border-color:var(--accent);color:#fff}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;padding-bottom:45px}.card{background:var(--card);border:1px solid var(--line);border-radius:15px;overflow:hidden;min-width:0}.photo{height:190px;background:#e4ece4;display:grid;place-items:center;color:var(--accent);font-weight:850;font-size:40px}.photo img{width:100%;height:100%;object-fit:cover}.content{padding:15px}.category{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:850}.content h2{font-size:17px;line-height:1.25;margin:6px 0}.content p{font-size:13px;color:var(--muted);min-height:40px;margin:0 0 12px}.price{font-weight:850;font-size:12px;color:var(--accent);margin-bottom:13px}.quote-btn{display:block;text-align:center;width:100%}.foot{border-top:1px solid #dfe6dd;padding:18px 0 32px;color:#6d7b71;font-size:12px}.notice{font-size:11px;color:#78857c;padding:0 0 24px}.empty{grid-column:1/-1;padding:40px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}dialog{width:min(520px,calc(100% - 24px));border:0;border-radius:18px;padding:0;box-shadow:0 22px 80px #10231e40}dialog::backdrop{background:#10231e99}.form{padding:24px}.form h2{font-size:25px;letter-spacing:-.04em;margin:0 0 5px}.form .sub{color:var(--muted);font-size:13px;margin:0 0 18px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:11px}.fields label{font-size:11px;color:#52645a;font-weight:800}.fields input,.fields textarea{width:100%;font:14px system-ui;border:1px solid #d5dfd6;border-radius:8px;padding:10px;margin-top:5px}.fields .full{grid-column:1/-1}.fields textarea{min-height:75px}.form-actions{display:flex;gap:9px;margin-top:17px;justify-content:flex-end}.form-actions button{border:1px solid var(--line);background:#fff;padding:10px 13px;border-radius:9px;font-weight:750;cursor:pointer}.form-actions .send{background:var(--accent);border-color:var(--accent);color:#fff}@media(max-width:560px){.hero{padding-top:30px}.photo{height:155px}.fields{grid-template-columns:1fr}.fields .full{grid-column:auto}.form{padding:18px}}';
+const design=getDesign(d);
+  const css=':root{'+cssVariables(d)+'}*{box-sizing:border-box}body{margin:0;background:var(--page);color:var(--ink);font:16px/1.6 var(--body-font)}.wrap{width:min(1080px,calc(100% - 32px));margin:auto}.hero{padding:50px 0 30px;background:var(--hero);border-bottom:1px solid var(--line)}.label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:850;color:var(--accent)}.hero h1{font:700 clamp(36px,6vw,62px)/1.02 var(--heading-font);letter-spacing:-.055em;margin:13px 0}.hero p{color:var(--muted);max-width:720px}.contact,.quote-btn{display:inline-block;background:var(--accent);color:var(--accent-contrast);text-decoration:none;border:0;border-radius:var(--radius);padding:12px 16px;font-size:13px;font-weight:800;cursor:pointer}.toolbar{padding:16px 0 28px}.search{padding:12px 14px;border:1px solid var(--line);border-radius:var(--radius);width:100%;max-width:420px;font:inherit;background:var(--surface);color:var(--ink)}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.filters button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:8px 13px;font:700 12px var(--body-font);cursor:pointer}.filters button.active{background:var(--accent);border-color:var(--accent);color:var(--accent-contrast)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;padding-bottom:46px}.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;min-width:0;color:var(--ink)}.photo{height:190px;background:var(--hero);display:grid;place-items:center;color:var(--accent);font-weight:850;font-size:40px}.photo img{width:100%;height:100%;object-fit:cover}.content{padding:15px}.category{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:850}.content h2{font:700 18px/1.25 var(--heading-font);margin:7px 0}.content p{font-size:13px;color:var(--muted);min-height:40px;margin:0 0 12px}.price{font-weight:850;font-size:12px;color:var(--accent);margin-bottom:13px}.quote-btn{display:block;text-align:center;width:100%}.foot{border-top:1px solid var(--line);padding:18px 0 32px;color:var(--muted);font-size:12px}.notice{font-size:11px;color:var(--muted);padding:0 0 24px}.empty{grid-column:1/-1;padding:40px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:var(--radius)}dialog{width:min(520px,calc(100% - 24px));border:1px solid var(--line);border-radius:calc(var(--radius) + 4px);padding:0;background:var(--surface);color:var(--ink);box-shadow:0 22px 80px #10231e40}dialog::backdrop{background:#10231e99}.form{padding:24px}.form h2{font:700 27px/1.1 var(--heading-font);letter-spacing:-.04em;margin:0 0 5px}.form .sub{color:var(--muted);font-size:13px;margin:0 0 18px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:11px}.fields label{font-size:11px;color:var(--muted);font-weight:800}.fields input,.fields textarea{width:100%;font:14px var(--body-font);border:1px solid var(--line);border-radius:8px;padding:10px;margin-top:5px;background:var(--page);color:var(--ink)}.fields .full{grid-column:1/-1}.fields textarea{min-height:75px}.form-actions{display:flex;gap:9px;margin-top:17px;justify-content:flex-end}.form-actions button{border:1px solid var(--line);background:var(--page);color:var(--ink);padding:10px 13px;border-radius:var(--radius);font-weight:750;cursor:pointer}.form-actions .send{background:var(--accent);border-color:var(--accent);color:var(--accent-contrast)}body[data-theme="atelier"] .hero{background:linear-gradient(135deg,var(--hero),var(--page));border-radius:0 0 calc(var(--radius) + 8px) calc(var(--radius) + 8px)}body[data-theme="atelier"] .card{box-shadow:0 8px 22px #49331a10}body[data-theme="modern"] .hero{border-bottom:1px solid var(--line)}body[data-theme="modern"] .card{box-shadow:0 3px 12px #182b3c09}body[data-theme="editorial"] .hero{padding-top:65px;padding-bottom:52px}body[data-theme="editorial"] .label{letter-spacing:.22em}body[data-theme="industrial"] .card{border-top:3px solid var(--accent);border-radius:4px}body[data-theme="industrial"] .label{letter-spacing:.18em;font-family:ui-monospace,SFMono-Regular,Consolas,monospace}body[data-theme="industrial"] .category{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}body[data-theme="vibrant"] .card{box-shadow:0 10px 25px #523a8b16}body[data-theme="vibrant"] .contact,body[data-theme="vibrant"] .quote-btn{border-radius:999px}body[data-layout="list"] .grid{grid-template-columns:1fr}body[data-layout="list"] .card{display:grid;grid-template-columns:minmax(150px,30%) minmax(0,1fr);align-items:stretch}body[data-layout="list"] .photo{height:100%;min-height:160px}body[data-layout="compact"] .grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}body[data-layout="compact"] .photo{height:130px}body[data-layout="compact"] .content{padding:11px}@media(max-width:560px){.hero{padding-top:32px}.photo{height:155px}body[data-layout="compact"] .grid{grid-template-columns:repeat(2,minmax(0,1fr))}body[data-layout="list"] .card{grid-template-columns:100px minmax(0,1fr)}.fields{grid-template-columns:1fr}.fields .full{grid-column:auto}.form{padding:18px}}';
  const lines=[
-'<!doctype html>','<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="'+esc(d.accent)+'"><meta name="description" content="'+esc(d.intro)+'"><title>'+esc(d.name)+' — Catálogo y cotizaciones</title><style>'+css+'</style></head><body>',
+'<!doctype html>','<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="'+esc(design.page)+'"><meta name="description" content="'+esc(d.intro)+'"><title>'+esc(d.name)+' — Catálogo y cotizaciones</title><style>'+css+'</style></head><body data-theme="'+esc(d.theme)+'" data-layout="'+esc(d.layout)+'">',
 '<header class="wrap hero"><div class="label">'+esc([d.category,d.location].filter(Boolean).join(" · ").toUpperCase())+'</div><h1>'+esc(d.name)+'</h1><p><b>'+esc(d.tagline)+'</b></p><p>'+esc(d.intro)+'</p><a class="contact" href="https://wa.me/'+digits(d.phone)+'?text='+encodeURIComponent("Hola, vi su catálogo y me gustaría recibir información.")+'" target="_blank" rel="noopener">Contactar por WhatsApp ↗</a></header>',
 '<main class="wrap"><div class="toolbar"><input id="search" class="search" placeholder="Buscar productos, servicios o materiales…" aria-label="Buscar en el catálogo"><nav class="filters" id="filters" aria-label="Filtrar por categoría"></nav></div><section class="grid" id="grid" aria-live="polite"></section></main>',
 '<footer class="wrap foot">'+esc(d.location||"Contáctanos para conocer más")+' · '+esc(d.name)+'</footer>',
