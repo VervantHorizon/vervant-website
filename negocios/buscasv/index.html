@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10231e">
+<meta name="description" content="Catálogo digital para talleres y fabricantes: hasta 12 productos o servicios, diseño con tu marca y solicitudes guiadas. Oferta especial BuscaSV: US$99 sin anticipo.">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://vervant-public-site.onrender.com/negocios/buscasv/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_SV">
+<meta property="og:title" content="Catálogo digital para tu negocio | Vervant">
+<meta property="og:description" content="Hasta 12 productos o servicios, con tu marca y solicitudes de cotización guiadas. US$99, sin anticipo para consultas originadas en BuscaSV.">
+<meta property="og:url" content="https://vervant-public-site.onrender.com/negocios/buscasv/">
+<meta property="og:image" content="https://vervant-public-site.onrender.com/assets/vervant-local-catalog-preview.webp">
+<meta name="twitter:card" content="summary_large_image">
+<title>Catálogos digitales para negocios | Vervant</title>
+<style>
+:root{--ink:#172820;--muted:#617168;--paper:#f4f6f1;--white:#fff;--line:#dfe7de;--green:#205e48;--mint:#e0eee4;--dark:#10231e;--accent:#b36d4c}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.62 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1080px,calc(100% - 40px));margin:auto}
+header{background:#fbfcf8;border-bottom:1px solid var(--line)}
+header .wrap{height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font-weight:900;font-size:21px;letter-spacing:-.05em}
+.brand span{color:var(--green)}
+.nav{display:flex;align-items:center;gap:18px;font-size:13px;color:var(--muted)}
+.nav .back{font-weight:750;color:var(--green)}
+.hero{display:grid;grid-template-columns:1fr .92fr;gap:48px;align-items:center;padding:66px 0 48px}
+.eyebrow{font-size:11px;font-weight:850;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+h1{font-size:clamp(40px,5.8vw,65px);letter-spacing:-.065em;line-height:1.01;margin:13px 0 18px;max-width:650px}
+h1 span{color:var(--green)}
+.lead{font-size:18px;line-height:1.58;color:#56675d;max-width:610px;margin:0}
+.actions{display:flex;gap:11px;flex-wrap:wrap;margin:25px 0 12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 18px;border-radius:10px;font-size:13px;font-weight:850}
+.primary{background:var(--green);color:#fff;box-shadow:0 8px 20px #164c3924}
+.secondary{border:1px solid var(--line);background:#fff}
+.note{font-size:11px;color:#758178}
+.preview{background:#e3ece1;border:1px solid #ccdbcb;border-radius:22px;padding:15px;box-shadow:0 24px 60px #1b3f2a12}
+.preview img{display:block;width:100%;height:auto;border-radius:13px;border:1px solid #d3ded2;background:#fff}
+.preview small{display:block;color:#617168;font-size:10px;line-height:1.5;padding:10px 4px 0}
+.priceband{display:grid;grid-template-columns:1fr auto;align-items:center;gap:18px;background:#e7f0e5;border:1px solid #cedfce;border-radius:18px;padding:22px 25px;margin:0 0 48px}
+.priceband .label{font-size:11px;font-weight:850;letter-spacing:.1em;text-transform:uppercase;color:#54715d}
+.price{font-size:43px;line-height:1.1;font-weight:950;letter-spacing:-.06em;color:var(--green);margin-top:4px}
+.price small{font-size:13px;font-weight:650;letter-spacing:0;color:#627369}
+.payment{max-width:500px;font-size:13px;color:#43574a}
+.payment strong{color:#203e2d}
+.section{padding:0 0 65px}
+.section h2{font-size:clamp(28px,4.2vw,42px);line-height:1.08;letter-spacing:-.05em;margin:10px 0 12px}
+.intro{color:var(--muted);max-width:730px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:20px}
+.card .num{width:31px;height:31px;border-radius:9px;background:var(--mint);display:grid;place-items:center;color:var(--green);font-size:11px;font-weight:900}
+.card h3{font-size:15px;margin:12px 0 5px}
+.card p{font-size:12px;line-height:1.55;color:var(--muted);margin:0}
+.included{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:start}
+.list{display:grid;gap:12px;margin-top:20px}
+.list article{display:flex;gap:12px;align-items:flex-start;padding:13px 14px;background:#fff;border:1px solid var(--line);border-radius:13px}
+.tick{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:#e2eee1;color:var(--green);font-size:12px;font-weight:900}
+.list b{display:block;font-size:13px}
+.list p{font-size:11px;color:var(--muted);margin:2px 0 0;line-height:1.48}
+.box{background:#fff;border:1px solid var(--line);border-radius:17px;padding:23px}
+.box h3{font-size:17px;margin:0 0 10px}
+.box ul{margin:0;padding-left:18px;color:var(--muted);font-size:12px}
+.box li{margin:7px 0}
+.payment-steps{background:var(--dark);color:#f8faf5;border-radius:19px;padding:28px;margin:0 0 66px}
+.payment-steps .eyebrow{color:#a9cfb4}
+.payment-steps h2{font-size:clamp(26px,3.5vw,36px);letter-spacing:-.05em;line-height:1.1;margin:9px 0 10px}
+.payment-steps>p{font-size:13px;color:#d4ded7;max-width:720px;margin:0}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:24px}
+.step{border-top:1px solid #ffffff38;padding-top:13px}
+.step strong{color:#a9cfb4;font-size:11px}
+.step b{display:block;font-size:13px;margin:5px 0}
+.step small{display:block;color:#cbd7cf;font-size:11px;line-height:1.45}
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+.faq article{border-top:1px solid var(--line);padding:14px 0}
+.faq h3{font-size:14px;margin:0 0 5px}
+.faq p{font-size:12px;line-height:1.55;color:var(--muted);margin:0}
+.cta{display:flex;justify-content:space-between;align-items:center;gap:20px;background:#e5eee3;border:1px solid #d0dfcf;border-radius:18px;padding:25px;margin:0 0 65px}
+.cta h2{font-size:25px;line-height:1.12;letter-spacing:-.04em;margin:0 0 5px}
+.cta p{font-size:12px;color:var(--muted);margin:0}
+footer{border-top:1px solid var(--line);padding:20px 0 28px;color:#738178;font-size:11px}
+.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:800px){.hero{grid-template-columns:1fr;gap:26px;padding:48px 0 35px}.preview{max-width:570px;width:100%;margin:auto}.grid{grid-template-columns:1fr 1fr}.included{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.wrap{width:calc(100% - 28px)}header .wrap{height:60px}.nav{font-size:12px}.nav a:not(.back){display:none}.hero{padding:36px 0 28px}h1{font-size:44px}.lead{font-size:16px}.priceband{grid-template-columns:1fr;padding:18px;gap:8px}.price{font-size:38px}.grid,.faq{grid-template-columns:1fr}.section{padding-bottom:50px}.steps{grid-template-columns:1fr}.payment-steps{padding:22px}.cta{display:block;padding:21px}.cta .btn{width:100%;margin-top:15px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="/"><span>V</span>ERVANT</a><nav class="nav"><a href="/negocios/" class="back">Vervant Local</a><a href="mailto:vervant.contact@gmail.com?subject=Consulta%20desde%20BuscaSV">Contacto</a></nav></div></header>
+<main>
+<section class="wrap hero">
+  <div>
+    <p class="eyebrow">Catálogos digitales · Oferta BuscaSV</p>
+    <h1>Presenta tu trabajo. <span>Recibe consultas mejor preparadas.</span></h1>
+    <p class="lead">Un catálogo claro y adaptado a celulares para que tus clientes vean lo que fabricas u ofreces y puedan explicar qué necesitan al solicitar una cotización.</p>
+    <div class="actions"><a class="btn primary" href="mailto:vervant.contact@gmail.com?subject=Consulta%20por%20catalogo%20digital%20desde%20BuscaSV">Solicitar propuesta escrita ↗</a><a class="btn secondary" href="#incluye">Ver qué incluye</a></div>
+    <p class="note">Servicio remoto para negocios de todo El Salvador. No necesitas saber programar.</p>
+  </div>
+  <div class="preview"><img src="/assets/vervant-local-catalog-preview.webp" alt="Vista ilustrativa de un catálogo digital adaptable con productos y solicitudes de cotización"><small>Vista ilustrativa para mostrar el formato. El catálogo final se adapta a la identidad y los productos autorizados de cada negocio.</small></div>
+</section>
+
+<section class="wrap">
+  <div class="priceband">
+    <div><div class="label">Precio total · pago único</div><div class="price">US$99 <small>por el catálogo completo</small></div></div>
+    <p class="payment"><strong>Sin anticipo para esta oferta de BuscaSV.</strong> Recibes el catálogo HTML final y la guía breve; el pago de US$99 se realiza al completar y entregar el trabajo.</p>
+  </div>
+</section>
+
+<section class="wrap section" id="incluye">
+  <p class="eyebrow">Qué incluye</p><h2>Tu catálogo, organizado alrededor de tu negocio.</h2>
+  <p class="intro">Vervant configura el contenido y la presentación contigo. Acordamos el alcance por escrito antes de comenzar; el servicio no requiere una mensualidad de Vervant.</p>
+  <div class="grid">
+    <article class="card"><span class="num">01</span><h3>Hasta 12 productos o servicios</h3><p>Fichas con fotografías autorizadas, descripciones, categorías y búsqueda para encontrar con facilidad cada opción.</p></article>
+    <article class="card"><span class="num">02</span><h3>Diseño con tu identidad</h3><p>Logotipo, colores, portada, tipografías y una presentación visual coherente con tu negocio.</p></article>
+    <article class="card"><span class="num">03</span><h3>Solicitudes guiadas</h3><p>Campos para medidas, materiales, acabados, cantidades, ubicación y detalles que ayudan a explicar cada trabajo.</p></article>
+  </div>
+</section>
+
+<section class="wrap section included">
+  <div>
+    <p class="eyebrow">Entrega y alcance</p><h2>Un archivo que puedes conservar y compartir.</h2>
+    <div class="list">
+      <article><span class="tick">✓</span><div><b>Archivo HTML autónomo</b><p>Recibes un archivo listo para abrir y una guía sencilla para compartirlo o publicarlo en tu sitio actual.</p></div></article>
+      <article><span class="tick">✓</span><div><b>Una ronda de ajustes</b><p>Revisas la vista previa y puedes solicitar una ronda de correcciones dentro del alcance acordado.</p></div></article>
+      <article><span class="tick">✓</span><div><b>Contacto directo</b><p>Las solicitudes preparan un mensaje para el correo o WhatsApp comercial que configures. Tú decides si lo envías.</p></div></article>
+    </div>
+  </div>
+  <aside class="box"><h3>Qué no está incluido</h3><ul><li>Tienda en línea o cobros con tarjeta.</li><li>Base de datos para almacenar consultas.</li><li>Dominio, hosting o publicación administrada.</li><li>Inventario en vivo, CRM, reservas o integraciones.</li><li>Mantenimiento o cambios fuera de la revisión acordada.</li></ul></aside>
+</section>
+
+<section class="wrap payment-steps">
+  <p class="eyebrow">Cómo funciona esta oferta</p><h2>Sin anticipo. Pago al completar la entrega.</h2>
+  <p>Esta condición especial aplica únicamente a consultas que llegan desde el anuncio de Vervant en BuscaSV. Para otras fuentes se aplican las condiciones publicadas en el canal correspondiente.</p>
+  <div class="steps">
+    <div class="step"><strong>01</strong><b>Definimos el alcance</b><small>Confirmamos por escrito los productos, materiales y datos que se incluirán.</small></div>
+    <div class="step"><strong>02</strong><b>Preparamos el catálogo</b><small>Organizamos la información y te compartimos una vista previa para revisión.</small></div>
+    <div class="step"><strong>03</strong><b>Aplicamos una revisión</b><small>Realizamos la ronda de ajustes acordada y preparamos la entrega final.</small></div>
+    <div class="step"><strong>04</strong><b>Entregamos y pagas</b><small>Recibes el HTML y la guía; al completar y entregar el trabajo, pagas US$99.</small></div>
+  </div>
+</section>
+
+<section class="wrap section">
+  <p class="eyebrow">Preguntas frecuentes</p><h2>Antes de solicitar tu propuesta.</h2>
+  <div class="faq">
+    <article><h3>¿Debo pagar algo para comenzar?</h3><p>No. En esta oferta de BuscaSV no solicitamos anticipo. El pago único de US$99 se realiza al completar y entregar el catálogo HTML final y la guía.</p></article>
+    <article><h3>¿Qué información debo preparar?</h3><p>El nombre del negocio, una breve descripción, hasta 12 productos o servicios, fotografías que tengas autorización de usar y los canales de contacto comercial que quieras mostrar.</p></article>
+    <article><h3>¿El catálogo recibe y guarda pedidos?</h3><p>No. El formulario prepara una consulta para que el visitante la envíe desde su propio correo o WhatsApp. No guarda datos en un servidor ni procesa pedidos o pagos.</p></article>
+    <article><h3>¿Incluye hosting o dominio?</h3><p>No. Se entrega el archivo HTML autónomo y una guía breve. La compra de dominio, hosting y la publicación administrada no están incluidas.</p></article>
+  </div>
+</section>
+
+<section class="wrap"><div class="cta"><div><h2>Cuéntanos qué fabricas o qué servicio ofreces.</h2><p>Solicita una propuesta escrita, sin compromiso. Confirmamos el alcance antes de preparar el catálogo.</p></div><a class="btn primary" href="mailto:vervant.contact@gmail.com?subject=Consulta%20por%20catalogo%20digital%20desde%20BuscaSV">Escribir a Vervant ↗</a></div></section>
+</main>
+<footer><div class="wrap foot"><span>Vervant Local · Catálogos digitales</span><a href="/negocios/">Ver oferta general de Vervant Local</a></div></footer>
+</body>
+</html>
