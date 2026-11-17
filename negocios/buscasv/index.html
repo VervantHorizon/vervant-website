@@ -41,6 +41,17 @@ h1 span{color:var(--green)}
 .preview{background:#e3ece1;border:1px solid #ccdbcb;border-radius:22px;padding:15px;box-shadow:0 24px 60px #1b3f2a12}
 .preview img{display:block;width:100%;height:auto;border-radius:13px;border:1px solid #d3ded2;background:#fff}
 .preview small{display:block;color:#617168;font-size:10px;line-height:1.5;padding:10px 4px 0}
+.examples{padding:0 0 50px}
+.examples-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin:0 0 20px}
+.examples-head h2{font-size:clamp(25px,3.8vw,36px);line-height:1.08;letter-spacing:-.05em;margin:8px 0 0}
+.examples-head p{max-width:390px;font-size:12px;color:var(--muted);margin:0}
+.sample-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.sample-card{min-width:0;background:#fff;border:1px solid var(--line);border-radius:17px;padding:15px}
+.sample-visual{display:flex;justify-content:center;align-items:flex-start;min-height:365px;padding:12px 8px 0;background:#e9f0e8;border:1px solid #d6e1d5;border-radius:12px;overflow:hidden}
+.sample-visual img{display:block;width:auto;height:350px;max-width:100%;object-fit:contain;object-position:top center;border-radius:5px;box-shadow:0 5px 18px #17372b16}
+.sample-card h3{font-size:14px;margin:13px 2px 4px}
+.sample-card p{font-size:11px;color:var(--muted);line-height:1.5;margin:0 2px 2px}
+.sample-caption{font-size:10px;color:#7a877e;margin-top:12px}
 .priceband{display:grid;grid-template-columns:1fr auto;align-items:center;gap:18px;background:#e7f0e5;border:1px solid #cedfce;border-radius:18px;padding:22px 25px;margin:0 0 48px}
 .priceband .label{font-size:11px;font-weight:850;letter-spacing:.1em;text-transform:uppercase;color:#54715d}
 .price{font-size:43px;line-height:1.1;font-weight:950;letter-spacing:-.06em;color:var(--green);margin-top:4px}
@@ -83,8 +94,8 @@ h1 span{color:var(--green)}
 .cta p{font-size:12px;color:var(--muted);margin:0}
 footer{border-top:1px solid var(--line);padding:20px 0 28px;color:#738178;font-size:11px}
 .foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-@media(max-width:800px){.hero{grid-template-columns:1fr;gap:26px;padding:48px 0 35px}.preview{max-width:570px;width:100%;margin:auto}.grid{grid-template-columns:1fr 1fr}.included{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.wrap{width:calc(100% - 28px)}header .wrap{height:60px}.nav{font-size:12px}.nav a:not(.back){display:none}.hero{padding:36px 0 28px}h1{font-size:44px}.lead{font-size:16px}.priceband{grid-template-columns:1fr;padding:18px;gap:8px}.price{font-size:38px}.grid,.faq{grid-template-columns:1fr}.section{padding-bottom:50px}.steps{grid-template-columns:1fr}.payment-steps{padding:22px}.cta{display:block;padding:21px}.cta .btn{width:100%;margin-top:15px}}
+@media(max-width:800px){.hero{grid-template-columns:1fr;gap:26px;padding:48px 0 35px}.preview{max-width:570px;width:100%;margin:auto}.grid{grid-template-columns:1fr 1fr}.included{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.sample-grid{grid-template-columns:1fr 1fr}.sample-visual{min-height:335px}.sample-visual img{height:320px}}
+@media(max-width:560px){.wrap{width:calc(100% - 28px)}header .wrap{height:60px}.nav{font-size:12px}.nav a:not(.back){display:none}.hero{padding:36px 0 28px}h1{font-size:44px}.lead{font-size:16px}.priceband{grid-template-columns:1fr;padding:18px;gap:8px}.price{font-size:38px}.grid,.faq{grid-template-columns:1fr}.section{padding-bottom:50px}.steps{grid-template-columns:1fr}.payment-steps{padding:22px}.cta{display:block;padding:21px}.cta .btn{width:100%;margin-top:15px}.examples-head{display:block}.examples-head p{margin-top:10px}.sample-grid{grid-template-columns:1fr}.sample-card{padding:13px}.sample-visual{min-height:350px}.sample-visual img{height:335px}}
 </style>
 </head>
 <body>
@@ -99,6 +110,19 @@ footer{border-top:1px solid var(--line);padding:20px 0 28px;color:#738178;font-s
     <p class="note">Servicio remoto para negocios de todo El Salvador. No necesitas saber programar.</p>
   </div>
   <div class="preview"><img src="/assets/vervant-local-catalog-preview.webp" alt="Vista ilustrativa de un catálogo digital adaptable con productos y solicitudes de cotización"><small>Vista ilustrativa para mostrar el formato. El catálogo final se adapta a la identidad y los productos autorizados de cada negocio.</small></div>
+</section>
+
+<section class="wrap examples" aria-labelledby="examples-title">
+  <div class="examples-head">
+    <div><p class="eyebrow">Muestras ilustrativas</p><h2 id="examples-title">Tres formas de presentar productos y trabajos.</h2></div>
+    <p>Son ejemplos visuales para mostrar distintas direcciones de catálogo. No representan proyectos ni clientes reales; el diseño se adapta a tu marca y a tu contenido autorizado.</p>
+  </div>
+  <div class="sample-grid">
+    <article class="sample-card"><div class="sample-visual"><img src="/assets/buscasv/01-catalogo-mobiliario-demostracion.jpg" alt="Ejemplo ilustrativo de catálogo de mobiliario y carpintería" loading="lazy"></div><h3>Mobiliario y carpintería</h3><p>Presentación de muebles, acabados y opciones a medida.</p></article>
+    <article class="sample-card"><div class="sample-visual"><img src="/assets/buscasv/02-catalogo-grafico-demostracion.jpg" alt="Ejemplo ilustrativo de catálogo de rótulos e impresión" loading="lazy"></div><h3>Rótulos e impresión</h3><p>Familias de productos, formatos y alternativas de fabricación.</p></article>
+    <article class="sample-card"><div class="sample-visual"><img src="/assets/buscasv/03-catalogo-industrial-demostracion.jpg" alt="Ejemplo ilustrativo de catálogo de fabricación industrial" loading="lazy"></div><h3>Fabricación industrial</h3><p>Trabajos, materiales y solicitudes con detalles técnicos.</p></article>
+  </div>
+  <p class="sample-caption">Todos los ejemplos llevan la marca de agua VERVANT DESIGN PREVIEW y son únicamente demostrativos.</p>
 </section>
 
 <section class="wrap">
