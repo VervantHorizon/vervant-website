@@ -2,12 +2,12 @@
 <html lang="es">
 <head>
 <meta charset="utf-8"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#10231e">
-<meta name="description" content="Catálogos de cotización hechos por Vervant para fabricantes, talleres, carpinterías, rotulistas y servicios industriales. Hasta 12 fichas, diseño de marca y solicitudes guiadas por WhatsApp.">
+<meta name="description" content="Catálogos de cotización para fabricantes y talleres, con diseño de marca y solicitudes guiadas. Añade una ficha de presentación empresarial en PDF de una página para compradores.">
 <link rel="canonical" href="https://vervant-public-site.onrender.com/negocios/">
 <link rel="alternate" hreflang="es" href="https://vervant-public-site.onrender.com/negocios/">
 <link rel="alternate" hreflang="en" href="https://vervant-public-site.onrender.com/negocios/en/">
 <link rel="alternate" hreflang="x-default" href="https://vervant-public-site.onrender.com/negocios/en/">
-<meta property="og:type" content="website"><meta property="og:locale" content="es_SV"><meta property="og:title" content="Vervant Local | Catálogos de cotización para fabricantes"><meta property="og:description" content="Catálogos móviles con solicitudes guiadas para carpinterías, fabricantes, rotulistas y talleres industriales."><meta property="og:url" content="https://vervant-public-site.onrender.com/negocios/"><meta property="og:image" content="https://vervant-public-site.onrender.com/assets/vervant-local-catalog-preview.webp"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:type" content="website"><meta property="og:locale" content="es_SV"><meta property="og:title" content="Vervant Local | Catálogos de cotización para fabricantes"><meta property="og:description" content="Catálogos móviles con solicitudes guiadas y una ficha de presentación empresarial en PDF de una página, diseñada para fabricantes y talleres."><meta property="og:url" content="https://vervant-public-site.onrender.com/negocios/"><meta property="og:image" content="https://vervant-public-site.onrender.com/assets/vervant-local-catalog-preview.webp"><meta name="twitter:card" content="summary_large_image">
 <title>Vervant Local | Catálogos que preparan mejores cotizaciones</title>
 <style>
 :root{--ink:#172820;--muted:#617168;--paper:#f4f6f1;--white:#fff;--line:#dfe7de;--green:#205e48;--mint:#e0eee4;--dark:#10231e}
@@ -24,10 +24,58 @@ header{background:#fbfcf8;border-bottom:1px solid var(--line)}header .wrap{heigh
 @media(max-width:850px){.hero{grid-template-columns:1fr;gap:30px;padding:55px 0}.preview{max-width:560px;width:100%;margin:auto}.grid3{grid-template-columns:1fr 1fr}.pricing{grid-template-columns:1fr}.steps{grid-template-columns:1fr}}@media(max-width:560px){.wrap{width:calc(100% - 28px)}.nav a:not(.lang){display:none}.hero{padding:42px 0}.lead{font-size:16px}h1{font-size:47px}.trust{grid-template-columns:1fr;gap:12px;margin-bottom:55px}.grid3,.faq{grid-template-columns:1fr}.art{height:90px}.section{padding-bottom:60px}.dark{padding:52px 0}.final-cta{padding:23px;display:block}.final-cta .btn{margin-top:15px;width:100%}}
 .payment-breakdown{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;padding:13px 14px;margin:15px 0 5px;border:1px solid #d7e4d8;border-radius:13px;background:#f4f8f2}.payment-breakdown>div{display:flex;flex-direction:column;gap:4px}.payment-breakdown small{font-size:10px;line-height:1.35;color:#627367}.payment-breakdown strong{font-size:22px;letter-spacing:-.04em;color:var(--green)}.payment-breakdown>span{color:#95a59a;font-size:17px}.payment-caption{font-size:11px!important;line-height:1.55!important;color:#637267!important;margin:7px 0 15px!important}
 @media(max-width:560px){.payment-breakdown{gap:7px;padding:11px 9px}.payment-breakdown strong{font-size:19px}.payment-breakdown small{font-size:9px}}
+
+.pricing-intro{margin-top:4px;max-width:850px}
+.capability-plan{padding:25px;overflow:hidden;position:relative}
+.capability-title{font-size:25px;line-height:1.08;letter-spacing:-.045em;margin:15px 0 8px}
+.capability-lead{font-size:13px;color:var(--muted);margin:0 0 15px}
+.capability-price{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 14px;background:#f2f6f0;border:1px solid #dce7da;border-radius:12px}
+.capability-price>div:first-child{display:flex;flex-direction:column;gap:1px}
+.capability-price strong{font-size:33px;line-height:1;letter-spacing:-.055em;color:var(--green)}
+.capability-price span{font-size:10px;color:var(--muted);line-height:1.4}
+.standalone-price{font-size:17px;font-weight:850;text-align:right;white-space:nowrap;color:var(--ink)}
+.bundle-total{font-size:12px;color:#526258;margin:8px 1px 13px}
+.bundle-total strong{color:var(--green);font-size:15px}
+.sheet-preview-wrap{padding:13px;background:#eef2eb;border:1px solid #e0e7dd;border-radius:14px;margin:12px 0 16px}
+.sheet-preview-label{font-size:9px;font-weight:850;letter-spacing:.12em;color:#6a7b6d;margin:0 0 10px;text-align:center}
+.sheet-paper{width:min(100%,310px);margin:auto;aspect-ratio:210/297;background:#fff;color:#1a2d25;padding:17px 17px 13px;box-shadow:0 8px 22px #14291d20;border-radius:2px;display:flex;flex-direction:column;gap:11px;overflow:hidden}
+.sheet-brandline{display:flex;align-items:center;gap:7px;padding-bottom:8px;border-bottom:1px solid #dce5dc;font-size:8px;font-weight:900;letter-spacing:.08em}
+.sheet-symbol{width:17px;height:17px;background:#245b45;border-radius:4px;display:inline-block;position:relative;flex:none}
+.sheet-symbol:after{content:"";position:absolute;inset:5px;border:1px solid #fff;transform:rotate(45deg)}
+.sheet-brandline small{margin-left:auto;color:#748176;font-size:5px;letter-spacing:.09em}
+.sheet-hero{display:grid;grid-template-columns:1.2fr .8fr;gap:8px;align-items:center;min-height:102px}
+.sheet-hero small,.sheet-details small,.sheet-footer small{font-size:5px;font-weight:900;letter-spacing:.12em;color:#38664f}
+.sheet-hero h4{font:700 18px/1.04 Georgia,serif;letter-spacing:-.045em;margin:6px 0;color:#193328}
+.sheet-hero p{font-size:6.4px;line-height:1.45;color:#647269;margin:0}
+.sheet-art{height:91px;background:linear-gradient(145deg,#dce8dd,#a9c1ae);border-radius:3px;position:relative;overflow:hidden}
+.sheet-art i{position:absolute;width:64px;height:47px;right:10px;bottom:12px;background:#405f4d;transform:skewY(-8deg);box-shadow:-11px 8px 0 #6d8772}
+.sheet-art b{position:absolute;width:52px;height:9px;right:14px;bottom:57px;background:#f1eadb;transform:rotate(-8deg)}
+.sheet-art span{position:absolute;width:4px;height:45px;right:67px;bottom:9px;background:#d4b78b}
+.sheet-ribbon{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:8px 0;border-top:1px solid #dce5dc;border-bottom:1px solid #dce5dc;color:#315e46;font-size:5px;font-weight:900;letter-spacing:.04em}
+.sheet-ribbon span{text-align:center}
+.sheet-details{display:grid;grid-template-columns:1fr 1fr;gap:10px;flex:1}
+.sheet-details>div{border-left:2px solid #8ea992;padding-left:7px}
+.sheet-details b{display:block;font-size:8px;line-height:1.2;margin:5px 0;color:#213b2d}
+.sheet-details p{font-size:6px;line-height:1.45;color:#68766c;margin:0}
+.sheet-footer{display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px solid #dce5dc}
+.sheet-footer b{display:block;font-size:7px;color:#203a2c;margin-top:3px}
+.sheet-footer>span{background:#245b45;color:white;padding:5px 7px;border-radius:2px;font-size:6px;font-weight:850;letter-spacing:.1em}
+.capability-summary{font-size:12px;font-weight:650;color:#394f41;margin:0 0 8px}
+.capability-list{padding-left:18px!important;margin:8px 0 13px!important}
+.capability-list li{font-size:12px;line-height:1.45;margin:6px 0!important}
+.sheet-distinction{background:#f1f5ef;border-left:3px solid #3c7656;padding:10px 12px;border-radius:0 9px 9px 0;color:#4f6054;font-size:11px;line-height:1.5;margin:13px 0}
+.sheet-distinction b{color:#203d2e}
+.bundle-reason{font-size:11px;color:var(--muted);line-height:1.5;margin:12px 0}
+.sheet-cta{width:100%;font-size:12px}
+.capability-plan .plan-note{line-height:1.5;margin:12px 0 0}
+@media(max-width:850px){.capability-plan{max-width:none}}
+@media(max-width:560px){.capability-plan{padding:20px}.capability-title{font-size:23px}.capability-price{padding:11px}.capability-price strong{font-size:29px}.standalone-price{font-size:15px}.sheet-paper{width:min(100%,300px)}}
+
+.sheet-purpose{font-size:11px;line-height:1.5;color:var(--muted);margin:0 0 12px}
 </style>
 </head>
 <body>
-<header><div class="wrap"><a class="brand" href="#">vervant <span>local</span></a><nav class="nav"><a href="/negocios/industrias/">Sectores</a><a href="#como-funciona">Proceso</a><a href="#incluye">Qué incluye</a><a href="#precio">Precio</a><a class="lang" href="/negocios/en/" lang="en" hreflang="en" aria-label="Read in English">EN</a><a href="mailto:vervant.contact@gmail.com?subject=Quiero%20una%20muestra%20de%20Vervant%20Local">Solicitar cotización ↗</a></nav></div></header>
+<header><div class="wrap"><a class="brand" href="#">vervant <span>local</span></a><nav class="nav"><a href="/negocios/industrias/">Sectores</a><a href="#como-funciona">Proceso</a><a href="#incluye">Qué incluye</a><a href="#precio">Precio</a><a href="#ficha">Ficha comercial</a><a class="lang" href="/negocios/en/" lang="en" hreflang="en" aria-label="Read in English">EN</a><a href="mailto:vervant.contact@gmail.com?subject=Quiero%20una%20muestra%20de%20Vervant%20Local">Solicitar cotización ↗</a></nav></div></header>
 <main>
 <section class="hero wrap">
 <div><p class="eyebrow">CATÁLOGOS DE COTIZACIÓN PARA FABRICANTES</p><h1>Menos preguntas sueltas. <span>Mejores solicitudes.</span></h1><p class="lead">Creamos una vitrina digital móvil para presentar tus productos, trabajos y servicios. Cada ficha ayuda al interesado a compartir medidas, materiales, cantidades y detalles del proyecto. Una vez publicado, puedes compartir el enlace en WhatsApp, Instagram, tus cotizaciones y correo.</p><div class="actions"><a class="btn primary" href="mailto:vervant.contact@gmail.com?subject=Quiero%20una%20cotizacion%20de%20Vervant%20Local">Pedir propuesta sin costo ↗</a><a class="btn secondary" href="/negocios/constructor/">Explorar diseños ↗</a></div><p class="subnote">Para carpinterías, fabricantes, rotulistas, imprentas y talleres industriales.</p></div>
@@ -51,12 +99,48 @@ header{background:#fbfcf8;border-bottom:1px solid var(--line)}header .wrap{heigh
 <article class="feature"><div class="icon">01</div><h3>Catálogo ordenado</h3><p>Hasta 12 productos, proyectos o servicios con fotografías, descripciones y categorías.</p></article><article class="feature"><div class="icon">02</div><h3>Búsqueda y filtros</h3><p>El cliente encuentra más rápido el tipo de trabajo que le interesa.</p></article><article class="feature"><div class="icon">03</div><h3>Solicitud guiada</h3><p>Medidas, material, cantidad, lugar y detalles se preparan en el mensaje de WhatsApp.</p></article><article class="feature"><div class="icon">04</div><h3>Diseño móvil</h3><p>Una página rápida y adaptable para compartir desde WhatsApp, Instagram o correo.</p></article><article class="feature"><div class="icon">05</div><h3>Entrega autónoma</h3><p>Archivo HTML autónomo y una guía breve para publicar y compartir tu catálogo.</p></article><article class="feature"><div class="icon">06</div><h3>Ficha comercial opcional</h3><p>Una hoja PDF de capacidades para enviar a compradores empresariales y áreas de compras.</p></article>
 </div></section>
 <section class="dark" id="como-funciona"><div class="wrap"><p class="eyebrow">PROCESO</p><h2>De tu material a una vitrina lista para compartir.</h2><div class="steps"><article class="step"><strong>01 · CONTENIDO</strong><h3>Recibimos tus datos autorizados</h3><p>Fotos, lista de productos o servicios, descripciones y WhatsApp comercial. No publicamos información sin tu aprobación.</p></article><article class="step"><strong>02 · CONFIGURACIÓN</strong><h3>Diseñamos y revisamos</h3><p>Organizamos categorías, fichas y campos de cotización. Te compartimos una vista previa y aplicamos una ronda de cambios.</p></article><article class="step"><strong>03 · ENTREGA</strong><h3>Recibes el catálogo</h3><p>Entregamos el HTML autónomo y una guía breve para compartirlo o publicarlo en tu alojamiento.</p></article></div></div></section>
-<section class="section wrap" id="precio"><p class="eyebrow">PRECIO DE LANZAMIENTO</p><h2>Empieza con un piloto de alcance claro.</h2><div class="pricing"><article class="plan highlight"><span class="pill">Catálogo local</span><div class="price">US$149 <small>total · pago único</small></div>
+<section class="section wrap" id="precio"><p class="eyebrow">PRECIO DE LANZAMIENTO</p><h2>Empieza con un piloto de alcance claro.</h2><p class="intro pricing-intro">El catálogo organiza tus productos y solicitudes. La ficha presenta tu empresa en una sola página para compartirla con compradores, adjuntarla a cotizaciones o llevarla a reuniones.</p><div class="pricing"><article class="plan highlight"><span class="pill">Catálogo local</span><div class="price">US$149 <small>total · pago único</small></div>
 <div class="payment-breakdown"><div><small>Para comenzar · 50%</small><strong>US$74.50</strong></div><span aria-hidden="true">＋</span><div><small>Al aprobar la vista previa · 50%</small><strong>US$74.50</strong></div></div>
 <p class="payment-caption">Primero confirmas la propuesta por escrito. El segundo pago se realiza después de revisar y aprobar la vista previa, antes de la entrega final.</p>
-<p>Catálogo de cotización Vervant Local.</p><ul><li>Hasta 12 fichas de productos, trabajos o servicios.</li><li>12 estilos premium con identidades distintas —desde lujo discreto y elegancia nocturna hasta arquitectura contemporánea y naturaleza sofisticada—, además de colores de marca, logotipo, portada, tipografías, encuadres y estilos de tarjetas.</li><li>Categorías y búsqueda.</li><li>Formulario guiado con medidas, material, cantidad, ubicación, fecha estimada y detalles; prepara la solicitud por WhatsApp.</li><li>Configuración con tu identidad comercial.</li><li>Una ronda de correcciones.</li><li>Archivo HTML autónomo y guía de publicación.</li></ul><p class="plan-note">Incluye una versión en español, hasta 12 fichas y una ronda de correcciones. Recibes el archivo HTML autónomo y una guía de publicación. Si necesitas alojamiento o publicación asistida, te confirmamos la opción y su costo antes de empezar.</p></article><article class="plan"><span class="pill">Complemento opcional</span><div class="price">US$59 <small>con catálogo</small></div><p>Ficha comercial de una página en PDF.</p><ul><li>Resumen de capacidades y servicios.</li><li>Sectores, materiales y procesos.</li><li>Contacto comercial autorizado.</li><li>Ficha independiente sin catálogo: US$99.</li></ul><p class="plan-note">Pago único, sin mensualidad de plataforma. La ficha comercial resume tus capacidades, servicios, materiales y procesos para que puedas compartirla con compradores y áreas de compras.</p></article></div></section>
+<p>Catálogo de cotización Vervant Local.</p><ul><li>Hasta 12 fichas de productos, trabajos o servicios.</li><li>12 estilos premium con identidades distintas —desde lujo discreto y elegancia nocturna hasta arquitectura contemporánea y naturaleza sofisticada—, además de colores de marca, logotipo, portada, tipografías, encuadres y estilos de tarjetas.</li><li>Categorías y búsqueda.</li><li>Formulario guiado con medidas, material, cantidad, ubicación, fecha estimada y detalles; prepara la solicitud por WhatsApp.</li><li>Configuración con tu identidad comercial.</li><li>Una ronda de correcciones.</li><li>Archivo HTML autónomo y guía de publicación.</li></ul><p class="plan-note">Incluye una versión en español, hasta 12 fichas y una ronda de correcciones. Recibes el archivo HTML autónomo y una guía de publicación. Si necesitas alojamiento o publicación asistida, te confirmamos la opción y su costo antes de empezar.</p></article><article class="plan capability-plan" id="ficha">
+<span class="pill">Presentación comercial</span>
+<h3 class="capability-title">Ficha de presentación empresarial</h3>
+<p class="capability-lead">Una página para que un comprador entienda rápidamente quién eres, qué haces y cómo iniciar una conversación contigo.</p>
+<div class="capability-price"><div><strong>US$59</strong><span>al añadirla al catálogo</span></div><div class="standalone-price">US$99 <span>por separado</span></div></div>
+<p class="bundle-total">Catálogo + ficha: <strong>US$208</strong> en total, en dos pagos de <strong>US$104</strong>. Por separado: US$99, en dos pagos de US$49.50.</p>
+<div class="sheet-preview-wrap">
+  <p class="sheet-preview-label">ASÍ SE ORGANIZA TU PRESENTACIÓN</p>
+  <div class="sheet-paper" aria-label="Vista ilustrativa de una ficha comercial de una página">
+    <div class="sheet-brandline"><span class="sheet-symbol"></span><span>NOMBRE DE TU EMPRESA</span><small>PERFIL · CAPACIDADES</small></div>
+    <div class="sheet-hero">
+      <div><small>FABRICACIÓN · SERVICIOS · SOLUCIONES</small><h4>Tu trabajo, explicado con claridad.</h4><p>Una presentación breve de tu empresa, tus especialidades y el valor que aportas a cada proyecto.</p></div>
+      <div class="sheet-art" aria-hidden="true"><i></i><b></b><span></span></div>
+    </div>
+    <div class="sheet-ribbon"><span>01&nbsp; SERVICIOS</span><span>02&nbsp; CAPACIDADES</span><span>03&nbsp; SECTORES</span></div>
+    <div class="sheet-details">
+      <div><small>QUÉ HACEMOS</small><b>Servicios y soluciones principales</b><p>Una selección breve de tus trabajos, procesos y especialidades.</p></div>
+      <div><small>CÓMO TRABAJAMOS</small><b>Experiencia y alcance</b><p>Materiales, cobertura y datos útiles para evaluar un proyecto.</p></div>
+    </div>
+    <div class="sheet-footer"><div><small>HABLEMOS DE TU PROYECTO</small><b>WhatsApp · Correo · Sitio web</b></div><span>CONTACTO</span></div>
+  </div>
+</div>
+<p class="capability-summary">No necesitas diseñar ni usar programas especiales. Envíanos tus datos y fotos desde el celular; revisas una vista previa y Vervant prepara el PDF final.</p><p class="sheet-purpose">Úsala para presentarte ante compradores, adjuntarla a cotizaciones, llevarla a reuniones o compartirla por WhatsApp y correo.</p>
+<ul class="capability-list">
+<li>Una página en tamaño Carta o A4 con tus colores; si no tienes logotipo, usamos el nombre de tu negocio con una composición tipográfica sencilla.</li>
+<li>Perfil breve de la empresa y hasta 6 servicios o capacidades.</li>
+<li>Sectores atendidos, materiales, procesos y área de servicio.</li>
+<li>Hasta 3 fotografías que nos compartas.</li>
+<li>Enlaces activos a WhatsApp, correo y sitio web.</li>
+<li>Redacción breve a partir de tus notas y una ronda de ajustes.</li><li>Solo incluimos cifras, certificaciones y credenciales que puedas confirmar.</li>
+<li>PDF legible en celular y preparado para imprimir.</li>
+</ul>
+<div class="sheet-distinction"><b>La diferencia:</b> el catálogo permite explorar productos y preparar solicitudes; esta ficha resume tu empresa en una página para presentarla a nuevos compradores.</div>
+<p class="bundle-reason">Al contratarla junto al catálogo cuesta menos porque aprovechamos la misma información, fotografías e identidad visual. Por separado incluye una preparación independiente.</p>
+<a class="btn primary sheet-cta" href="mailto:vervant.contact@gmail.com?subject=Quiero%20una%20ficha%20de%20presentacion%20empresarial&amp;body=Hola%2C%20quiero%20cotizar%20una%20ficha%20de%20presentacion%20empresarial.%0A%0ANombre%20del%20negocio%3A%0ARubro%3A%0AQuiero%3A%20junto%20al%20catalogo%20%2F%20por%20separado%0ATengo%20logotipo%3A%20si%20%2F%20no%0ATengo%20fotografias%3A%20si%20%2F%20no">Solicitar mi ficha comercial ↗</a>
+<p class="plan-note">Precio de proyecto, sin mensualidad. En ambos casos, confirmamos el alcance por escrito; pagas la primera mitad al comenzar y la segunda después de revisar la vista previa, antes de recibir el PDF final. Tú compartes los datos, el logotipo y las fotos disponibles. Impresión física, fotografía profesional y creación de logotipo se cotizan por separado.</p>
+</article></div></section>
 <section class="section wrap" id="preguntas"><p class="eyebrow">ANTES DE COMENZAR</p><h2>Preguntas frecuentes.</h2><div class="faq">
-<article><h3>¿Qué información tengo que enviar?</h3><p>Nombre y descripción del negocio, WhatsApp comercial, hasta 12 productos o servicios, una fotografía principal por ficha y textos autorizados. El logotipo y la fotografía de portada ayudan a reforzar tu identidad.</p></article>
+<article><h3>¿Cómo pago la ficha comercial?</h3><p>En dos partes iguales. Con el catálogo local y la ficha, el total es US$208: US$104 al comenzar y US$104 después de aprobar la vista previa, antes de la entrega final. Si solicitas solo la ficha, son US$99: dos pagos de US$49.50.</p></article><article><h3>¿Qué recibo exactamente con la ficha?</h3><p>Un PDF de una sola página, en tamaño Carta o A4, con una presentación breve de tu empresa, hasta 6 servicios o capacidades, sectores, materiales, procesos, hasta 3 fotos y enlaces de contacto. Incluye una ronda de ajustes.</p></article><article><h3>¿Necesito saber diseñar o usar programas?</h3><p>No. Puedes enviar los datos, notas, logotipo y fotos como archivos adjuntos desde tu celular. Vervant organiza la información, prepara una vista previa y aplica la ronda de ajustes antes de entregarte el PDF.</p></article><article><h3>¿Qué diferencia hay entre la ficha y el catálogo?</h3><p>La ficha presenta tu empresa en una página para que un comprador conozca tus capacidades. El catálogo permite explorar hasta 12 productos o servicios y preparar una solicitud con detalles del proyecto.</p></article><article><h3>¿Qué información tengo que enviar?</h3><p>Nombre y descripción del negocio, WhatsApp comercial, hasta 12 productos o servicios, una fotografía principal por ficha y textos autorizados. El logotipo y la fotografía de portada ayudan a reforzar tu identidad.</p></article>
 <article><h3>¿Cómo comparto mi catálogo?</h3><p>Recibes un archivo HTML autónomo y una guía breve para publicarlo en tu sitio actual. Si todavía no tienes alojamiento, te orientamos sobre opciones sencillas y confirmamos cualquier costo de publicación antes de iniciar.</p></article>
 <article><h3>¿Qué tipo de consultas puedo recibir?</h3><p>El formulario guía al comprador para compartir medidas, material, cantidad, ubicación, fecha estimada y detalles del proyecto. Tu equipo recibe la información en el WhatsApp comercial configurado y continúa la conversación directamente.</p></article>
 <article><h3>¿Cómo se realiza el pago?</h3><p>En dos partes iguales: US$74.50 para comenzar, después de aceptar la propuesta escrita, y US$74.50 cuando hayas revisado y aprobado la vista previa, antes de recibir el catálogo final.</p></article>

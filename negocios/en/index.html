@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#10231e">
-<meta name="description" content="Custom product and project catalogs for manufacturers, fabricators, sign shops and specialist makers worldwide. Mobile-ready design, 12 distinct themes and guided quote requests by WhatsApp or email.">
+<meta name="description" content="Custom product and project catalogs for manufacturers worldwide, with guided quote requests and an optional one-page company profile PDF.">
 <link rel="canonical" href="https://vervant-public-site.onrender.com/negocios/en/">
 <meta property="og:url" content="https://vervant-public-site.onrender.com/negocios/en/">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://vervant-public-site.onrender.com/assets/vervant-local-catalog-preview-en.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:title" content="Vervant Local — Better enquiries for custom work">
-<meta property="og:description" content="A product catalog and guided RFQ experience, built around the details your customers need to share.">
+<meta property="og:description" content="A product catalog, guided RFQ experience and optional one-page company profile PDF for manufacturers and specialist makers.">
 <meta property="og:type" content="website">
 <title>Vervant Local | Product catalogs and quote requests for makers worldwide</title>
 <link rel="alternate" hreflang="es" href="https://vervant-public-site.onrender.com/negocios/">
@@ -31,8 +31,56 @@ header{background:#fbfcf8;border-bottom:1px solid var(--line)}header .wrap{heigh
 @media(max-width:850px){.hero{grid-template-columns:1fr;gap:30px;padding:55px 0}.preview{max-width:560px;width:100%;margin:auto}.grid3{grid-template-columns:1fr 1fr}.pricing{grid-template-columns:1fr}.steps{grid-template-columns:1fr}}@media(max-width:560px){.wrap{width:calc(100% - 28px)}.nav a:not(.lang){display:none}.hero{padding:42px 0}.lead{font-size:16px}h1{font-size:47px}.trust{grid-template-columns:1fr;gap:12px;margin-bottom:55px}.grid3,.faq{grid-template-columns:1fr}.art{height:90px}.section{padding-bottom:60px}.dark{padding:52px 0}.final-cta{padding:23px;display:block}.final-cta .btn{margin-top:15px;width:100%}}
 .payment-breakdown{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;padding:13px 14px;margin:15px 0 5px;border:1px solid #d7e4d8;border-radius:13px;background:#f4f8f2}.payment-breakdown>div{display:flex;flex-direction:column;gap:4px}.payment-breakdown small{font-size:10px;line-height:1.35;color:#627367}.payment-breakdown strong{font-size:22px;letter-spacing:-.04em;color:var(--green)}.payment-breakdown>span{color:#95a59a;font-size:17px}.payment-caption{font-size:11px!important;line-height:1.55!important;color:#637267!important;margin:7px 0 15px!important}
 @media(max-width:560px){.payment-breakdown{gap:7px;padding:11px 9px}.payment-breakdown strong{font-size:19px}.payment-breakdown small{font-size:9px}}
+
+.pricing-intro{margin-top:4px;max-width:850px}
+.capability-plan{padding:25px;overflow:hidden;position:relative}
+.capability-title{font-size:25px;line-height:1.08;letter-spacing:-.045em;margin:15px 0 8px}
+.capability-lead{font-size:13px;color:var(--muted);margin:0 0 15px}
+.capability-price{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 14px;background:#f2f6f0;border:1px solid #dce7da;border-radius:12px}
+.capability-price>div:first-child{display:flex;flex-direction:column;gap:1px}
+.capability-price strong{font-size:33px;line-height:1;letter-spacing:-.055em;color:var(--green)}
+.capability-price span{font-size:10px;color:var(--muted);line-height:1.4}
+.standalone-price{font-size:17px;font-weight:850;text-align:right;white-space:nowrap;color:var(--ink)}
+.bundle-total{font-size:12px;color:#526258;margin:8px 1px 13px}
+.bundle-total strong{color:var(--green);font-size:15px}
+.sheet-preview-wrap{padding:13px;background:#eef2eb;border:1px solid #e0e7dd;border-radius:14px;margin:12px 0 16px}
+.sheet-preview-label{font-size:9px;font-weight:850;letter-spacing:.12em;color:#6a7b6d;margin:0 0 10px;text-align:center}
+.sheet-paper{width:min(100%,310px);margin:auto;aspect-ratio:210/297;background:#fff;color:#1a2d25;padding:17px 17px 13px;box-shadow:0 8px 22px #14291d20;border-radius:2px;display:flex;flex-direction:column;gap:11px;overflow:hidden}
+.sheet-brandline{display:flex;align-items:center;gap:7px;padding-bottom:8px;border-bottom:1px solid #dce5dc;font-size:8px;font-weight:900;letter-spacing:.08em}
+.sheet-symbol{width:17px;height:17px;background:#245b45;border-radius:4px;display:inline-block;position:relative;flex:none}
+.sheet-symbol:after{content:"";position:absolute;inset:5px;border:1px solid #fff;transform:rotate(45deg)}
+.sheet-brandline small{margin-left:auto;color:#748176;font-size:5px;letter-spacing:.09em}
+.sheet-hero{display:grid;grid-template-columns:1.2fr .8fr;gap:8px;align-items:center;min-height:102px}
+.sheet-hero small,.sheet-details small,.sheet-footer small{font-size:5px;font-weight:900;letter-spacing:.12em;color:#38664f}
+.sheet-hero h4{font:700 18px/1.04 Georgia,serif;letter-spacing:-.045em;margin:6px 0;color:#193328}
+.sheet-hero p{font-size:6.4px;line-height:1.45;color:#647269;margin:0}
+.sheet-art{height:91px;background:linear-gradient(145deg,#dce8dd,#a9c1ae);border-radius:3px;position:relative;overflow:hidden}
+.sheet-art i{position:absolute;width:64px;height:47px;right:10px;bottom:12px;background:#405f4d;transform:skewY(-8deg);box-shadow:-11px 8px 0 #6d8772}
+.sheet-art b{position:absolute;width:52px;height:9px;right:14px;bottom:57px;background:#f1eadb;transform:rotate(-8deg)}
+.sheet-art span{position:absolute;width:4px;height:45px;right:67px;bottom:9px;background:#d4b78b}
+.sheet-ribbon{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:8px 0;border-top:1px solid #dce5dc;border-bottom:1px solid #dce5dc;color:#315e46;font-size:5px;font-weight:900;letter-spacing:.04em}
+.sheet-ribbon span{text-align:center}
+.sheet-details{display:grid;grid-template-columns:1fr 1fr;gap:10px;flex:1}
+.sheet-details>div{border-left:2px solid #8ea992;padding-left:7px}
+.sheet-details b{display:block;font-size:8px;line-height:1.2;margin:5px 0;color:#213b2d}
+.sheet-details p{font-size:6px;line-height:1.45;color:#68766c;margin:0}
+.sheet-footer{display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px solid #dce5dc}
+.sheet-footer b{display:block;font-size:7px;color:#203a2c;margin-top:3px}
+.sheet-footer>span{background:#245b45;color:white;padding:5px 7px;border-radius:2px;font-size:6px;font-weight:850;letter-spacing:.1em}
+.capability-summary{font-size:12px;font-weight:650;color:#394f41;margin:0 0 8px}
+.capability-list{padding-left:18px!important;margin:8px 0 13px!important}
+.capability-list li{font-size:12px;line-height:1.45;margin:6px 0!important}
+.sheet-distinction{background:#f1f5ef;border-left:3px solid #3c7656;padding:10px 12px;border-radius:0 9px 9px 0;color:#4f6054;font-size:11px;line-height:1.5;margin:13px 0}
+.sheet-distinction b{color:#203d2e}
+.bundle-reason{font-size:11px;color:var(--muted);line-height:1.5;margin:12px 0}
+.sheet-cta{width:100%;font-size:12px}
+.capability-plan .plan-note{line-height:1.5;margin:12px 0 0}
+@media(max-width:850px){.capability-plan{max-width:none}}
+@media(max-width:560px){.capability-plan{padding:20px}.capability-title{font-size:23px}.capability-price{padding:11px}.capability-price strong{font-size:29px}.standalone-price{font-size:15px}.sheet-paper{width:min(100%,300px)}}
+
+.sheet-purpose{font-size:11px;line-height:1.5;color:var(--muted);margin:0 0 12px}
 </style></head><body>
-<header><div class="wrap"><a class="brand" href="#">vervant <span>local</span></a><nav class="nav"><a href="/negocios/en/industries/">Industries</a><a href="#process">Process</a><a href="#pricing">Pricing</a><a class="lang" href="/negocios/">ES</a><a href="mailto:vervant.contact@gmail.com?subject=International%20catalog%20enquiry">Contact sales ↗</a></nav></div></header>
+<header><div class="wrap"><a class="brand" href="#">vervant <span>local</span></a><nav class="nav"><a href="/negocios/en/industries/">Industries</a><a href="#process">Process</a><a href="#pricing">Pricing</a><a href="#capability-sheet">Company sheet</a><a class="lang" href="/negocios/">ES</a><a href="mailto:vervant.contact@gmail.com?subject=International%20catalog%20enquiry">Contact sales ↗</a></nav></div></header>
 <main>
 <section class="hero wrap">
 <div><p class="eyebrow">BUILT FOR CUSTOM WORK · AVAILABLE WORLDWIDE</p><h1>Better project details. <span>Better quote requests.</span></h1><p class="lead">Vervant builds mobile-ready product and service catalogs for manufacturers, fabricators and specialist workshops. Each listing helps buyers share the measurements, materials, quantities and project details your team needs before quoting. Once published, share the link through WhatsApp, Instagram, proposals and email.</p><div class="actions"><a class="btn primary" href="mailto:vervant.contact@gmail.com?subject=International%20Vervant%20Local%20quote%20request">Request a free written quote ↗</a><a class="btn secondary" href="/negocios/en/builder/">Explore designs ↗</a></div><p class="subnote">Remote delivery · English-language catalog · USD pricing · Free written proposal · WhatsApp or email enquiries</p></div>
@@ -50,12 +98,48 @@ header{background:#fbfcf8;border-bottom:1px solid var(--line)}header .wrap{heigh
 <article class="feature"><div class="icon">06</div><h3><a href="/negocios/en/industries/">Specialist manufacturers ↗</a></h3><p>Present product families, materials and capabilities with a structured route to an RFQ.</p></article>
 </div><p style="margin-top:22px"><a class="btn secondary" href="/negocios/en/industries/">Explore all industry solutions ↗</a></p></section>
 <section class="dark" id="process"><div class="wrap"><p class="eyebrow">HOW THE SERVICE WORKS</p><h2>We configure it. You approve it. Your buyers use it.</h2><div class="steps"><article class="step"><strong>01 · BRIEF</strong><h3>Share approved business information</h3><p>Send your product list, photos, descriptions, service area and preferred enquiry channel. We only use content you are authorized to publish.</p></article><article class="step"><strong>02 · BUILD AND REVIEW</strong><h3>Receive a tailored preview</h3><p>We organize up to 12 listings, set categories and quote prompts, then apply one revision round after your review.</p></article><article class="step"><strong>03 · HANDOVER</strong><h3>Share your finished catalog</h3><p>You receive a self-contained HTML catalog and a short guide to publish it with your current provider. If you need a hosting option, we confirm it separately before work begins.</p></article></div></div></section>
-<section class="section wrap" id="pricing"><p class="eyebrow">INTERNATIONAL STANDARD PRICING</p><h2>A clear one-time scope with no mandatory subscription.</h2><div class="pricing"><article class="plan highlight"><span class="pill">International Standard</span><div class="price">US$199 <small>total · one-time</small></div>
+<section class="section wrap" id="pricing"><p class="eyebrow">INTERNATIONAL STANDARD PRICING</p><h2>A clear one-time scope with no mandatory subscription.</h2><p class="intro pricing-intro">The catalog organizes products and quote requests. The company sheet introduces your business on one page, ready to share with buyers, attach to proposals or take to meetings.</p><div class="pricing"><article class="plan highlight"><span class="pill">International Standard</span><div class="price">US$199 <small>total · one-time</small></div>
 <div class="payment-breakdown"><div><small>To begin · 50%</small><strong>US$99.50</strong></div><span aria-hidden="true">＋</span><div><small>After preview approval · 50%</small><strong>US$99.50</strong></div></div>
 <p class="payment-caption">Approve the written scope first. The second payment is due after you review and approve the preview, before final handover.</p>
-<p>Vervant Local guided-quote catalog.</p><ul><li>Up to 12 product, service or project listings.</li><li>12 premium design identities —from quiet luxury and after-dark elegance to contemporary architecture and organic refinement— with custom brand colors, logo, cover photography, typography, image framing and card styles.</li><li>Mobile-first design, categories and search.</li><li>Guided quote form for dimensions, material, quantity, location, target date and extra details.</li><li>WhatsApp and/or email enquiry channel.</li><li>One revision round after preview.</li><li>Self-contained HTML handover and update guide.</li></ul><p class="plan-note">The standard edition is in English and covers up to 12 listings with one revision round. Additional languages or an expanded catalog can be quoted to fit your buyers.</p></article><article class="plan"><span class="pill">Optional capability sheet</span><div class="price">US$59 <small>with a catalog</small></div><p>One-page capability sheet PDF.</p><ul><li>Standalone capability sheet: US$99.</li><li>Company overview, services, sectors, materials and approved contact details.</li></ul><p class="plan-note">One-time fee with no recurring platform subscription. If you need a custom domain or assisted publishing, we confirm that option and its cost in writing before work begins.</p></article></div></section>
+<p>Vervant Local guided-quote catalog.</p><ul><li>Up to 12 product, service or project listings.</li><li>12 premium design identities —from quiet luxury and after-dark elegance to contemporary architecture and organic refinement— with custom brand colors, logo, cover photography, typography, image framing and card styles.</li><li>Mobile-first design, categories and search.</li><li>Guided quote form for dimensions, material, quantity, location, target date and extra details.</li><li>WhatsApp and/or email enquiry channel.</li><li>One revision round after preview.</li><li>Self-contained HTML handover and update guide.</li></ul><p class="plan-note">The standard edition is in English and covers up to 12 listings with one revision round. Additional languages or an expanded catalog can be quoted to fit your buyers.</p></article><article class="plan capability-plan" id="capability-sheet">
+<span class="pill">Company presentation</span>
+<h3 class="capability-title">One-page company profile</h3>
+<p class="capability-lead">A clear one-page introduction so a buyer can quickly understand who you are, what you do and how to start a conversation.</p>
+<div class="capability-price"><div><strong>US$59</strong><span>when added to your catalog</span></div><div class="standalone-price">US$99 <span>ordered on its own</span></div></div>
+<p class="bundle-total">Catalog + company sheet: <strong>US$258</strong> total, in two payments of <strong>US$129</strong>. Standalone: US$99, in two payments of US$49.50.</p>
+<div class="sheet-preview-wrap">
+  <p class="sheet-preview-label">HOW YOUR COMPANY IS PRESENTED</p>
+  <div class="sheet-paper" aria-label="Illustrative one-page company profile layout">
+    <div class="sheet-brandline"><span class="sheet-symbol"></span><span>YOUR COMPANY NAME</span><small>PROFILE · CAPABILITIES</small></div>
+    <div class="sheet-hero">
+      <div><small>MANUFACTURING · SERVICES · SOLUTIONS</small><h4>Your work, clearly presented.</h4><p>A concise introduction to your business, specialties and the value you bring to each project.</p></div>
+      <div class="sheet-art" aria-hidden="true"><i></i><b></b><span></span></div>
+    </div>
+    <div class="sheet-ribbon"><span>01&nbsp; SERVICES</span><span>02&nbsp; CAPABILITIES</span><span>03&nbsp; INDUSTRIES</span></div>
+    <div class="sheet-details">
+      <div><small>WHAT WE DO</small><b>Core services and solutions</b><p>A concise selection of your work, processes and specialist skills.</p></div>
+      <div><small>HOW WE WORK</small><b>Experience and coverage</b><p>Materials, service area and useful project information.</p></div>
+    </div>
+    <div class="sheet-footer"><div><small>LET'S DISCUSS YOUR PROJECT</small><b>WhatsApp · Email · Website</b></div><span>CONTACT</span></div>
+  </div>
+</div>
+<p class="capability-summary">You do not need design software or technical experience. Send your business details and photos from your phone; review a preview and Vervant prepares the final PDF.</p><p class="sheet-purpose">Use it to introduce your company to buyers, attach it to proposals, bring it to meetings or share it by WhatsApp and email.</p>
+<ul class="capability-list">
+<li>One-page Letter or A4 layout in your brand colors; if you do not have a logo, we use a simple typographic treatment of your business name.</li>
+<li>A concise company profile and up to 6 services or capabilities.</li>
+<li>Industries served, materials, processes and service area.</li>
+<li>Up to 3 photos supplied by your business.</li>
+<li>Clickable links to WhatsApp, email and your website.</li>
+<li>Concise copy shaping from your notes, plus one revision round.</li><li>Figures, certifications and credentials are included only when you can verify them.</li>
+<li>A PDF designed for phone viewing and printing.</li>
+</ul>
+<div class="sheet-distinction"><b>The difference:</b> the catalog lets buyers browse products and prepare enquiries; this one-page sheet introduces your company to new buyers.</div>
+<p class="bundle-reason">The bundled price is lower because we reuse the business information, photos and brand direction gathered for your catalog. Ordered separately, it includes its own brief and design setup.</p>
+<a class="btn primary sheet-cta" href="mailto:vervant.contact@gmail.com?subject=One-page%20company%20profile%20request&amp;body=Hello%2C%20I%27d%20like%20a%20quote%20for%20a%20one-page%20company%20profile.%0A%0ABusiness%20name%3A%0AIndustry%3A%0AI%20need%3A%20with%20the%20catalog%20%2F%20standalone%0AI%20have%20a%20logo%3A%20yes%20%2F%20no%0AI%20have%20photos%3A%20yes%20%2F%20no">Request my company sheet ↗</a>
+<p class="plan-note">One-time project price, no monthly subscription. We confirm the scope in writing; you pay half to begin and the second half after reviewing the preview, before final delivery. Send your business details, logo and available photos. Physical printing, professional photography and logo creation are quoted separately.</p>
+</article></div></section>
 <section class="section wrap" id="questions"><p class="eyebrow">BEFORE YOU START</p><h2>Questions buyers usually ask.</h2><div class="faq">
-<article><h3>Do you work with companies outside your country?</h3><p>Yes. Vervant Local is delivered remotely. The standard sales and delivery language is English, with prices quoted in US dollars.</p></article>
+<article><h3>How do I pay for the company sheet?</h3><p>In two equal parts. With the catalog, the US$258 total is paid as US$129 to begin and US$129 after you approve the preview, before final delivery. For the standalone sheet, the total is US$99: two payments of US$49.50.</p></article><article><h3>What exactly do I receive?</h3><p>A one-page PDF in Letter or A4 size, with a short company introduction, up to 6 services or capabilities, industries, materials, processes, up to 3 photos and contact links. One revision round is included.</p></article><article><h3>Do I need design or computer skills?</h3><p>No. You can send your business details, notes, logo and photos as email attachments from your phone. Vervant organizes the information, prepares a preview and applies your revision before delivering the PDF.</p></article><article><h3>What is the difference between the sheet and the catalog?</h3><p>The sheet introduces your company on one page so a buyer can understand your capabilities. The catalog lets buyers browse up to 12 products or services and prepare an enquiry with project details.</p></article><article><h3>Do you work with companies outside your country?</h3><p>Yes. Vervant Local is delivered remotely. The standard sales and delivery language is English, with prices quoted in US dollars.</p></article>
 <article><h3>How do I share the finished catalog?</h3><p>You receive a self-contained HTML file and a short publishing guide for your current website. If you do not have hosting yet, we can outline simple options and confirm any setup cost before the project begins.</p></article>
 <article><h3>What kind of enquiries does it support?</h3><p>Buyers can share dimensions, materials, quantities, location, target date and project details. The message goes to the business WhatsApp number or email address you choose.</p></article>
 <article><h3>How is payment arranged?</h3><p>In two equal installments: US$99.50 to start after you approve the written proposal, and US$99.50 after you review and approve the preview, before final delivery.</p></article>
