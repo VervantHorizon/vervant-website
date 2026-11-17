@@ -52,6 +52,24 @@ h1 span{color:var(--green)}
 .sample-card h3{font-size:14px;margin:13px 2px 4px}
 .sample-card p{font-size:11px;color:var(--muted);line-height:1.5;margin:0 2px 2px}
 .sample-caption{font-size:10px;color:#7a877e;margin-top:12px}
+
+.inquiry{padding:0 0 58px}
+.inquiry-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(20px,4vw,34px);box-shadow:0 14px 36px #18372a0b}
+.inquiry-head{max-width:720px;margin-bottom:23px}
+.inquiry-head h2{font-size:clamp(28px,4vw,40px);line-height:1.07;letter-spacing:-.05em;margin:9px 0 10px}
+.inquiry-head p{font-size:13px;color:var(--muted);margin:0}
+.inquiry-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.inquiry-field{display:grid;gap:6px;min-width:0}
+.inquiry-field.full{grid-column:1/-1}
+.inquiry-field label{font-size:12px;font-weight:800;color:#31473b}
+.inquiry-field input,.inquiry-field select,.inquiry-field textarea{width:100%;min-width:0;border:1px solid #d4ded3;border-radius:10px;padding:12px 13px;background:#fbfcfa;color:var(--ink);font:inherit;font-size:14px;outline:none}
+.inquiry-field input:focus,.inquiry-field select:focus,.inquiry-field textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px #205e4818}
+.inquiry-field textarea{min-height:105px;resize:vertical}
+.inquiry-help{font-size:10px;color:#76837a;line-height:1.5}
+.inquiry-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.inquiry-status{min-height:22px;font-size:12px;color:var(--green);margin-top:10px}
+.inquiry-privacy{font-size:11px;color:var(--muted);margin:12px 0 0}
+@media(max-width:560px){.inquiry-form{grid-template-columns:1fr}.inquiry-field.full{grid-column:auto}.inquiry-actions .btn{width:100%}}
 .priceband{display:grid;grid-template-columns:1fr auto;align-items:center;gap:18px;background:#e7f0e5;border:1px solid #cedfce;border-radius:18px;padding:22px 25px;margin:0 0 48px}
 .priceband .label{font-size:11px;font-weight:850;letter-spacing:.1em;text-transform:uppercase;color:#54715d}
 .price{font-size:43px;line-height:1.1;font-weight:950;letter-spacing:-.06em;color:var(--green);margin-top:4px}
@@ -99,14 +117,14 @@ footer{border-top:1px solid var(--line);padding:20px 0 28px;color:#738178;font-s
 </style>
 </head>
 <body>
-<header><div class="wrap"><a class="brand" href="/"><span>V</span>ERVANT</a><nav class="nav"><a href="/negocios/" class="back">Vervant Local</a><a href="mailto:vervant.contact@gmail.com?subject=Consulta%20desde%20BuscaSV">Contacto</a></nav></div></header>
+<header><div class="wrap"><a class="brand" href="/"><span>V</span>ERVANT</a><nav class="nav"><a href="/negocios/" class="back">Vervant Local</a><a href="#consulta">Contacto</a></nav></div></header>
 <main>
 <section class="wrap hero">
   <div>
     <p class="eyebrow">Catálogos digitales · Oferta BuscaSV</p>
     <h1>Presenta tu trabajo. <span>Recibe consultas mejor preparadas.</span></h1>
     <p class="lead">Un catálogo claro y adaptado a celulares para que tus clientes vean lo que fabricas u ofreces y puedan explicar qué necesitan al solicitar una cotización.</p>
-    <div class="actions"><a class="btn primary" href="mailto:vervant.contact@gmail.com?subject=Consulta%20por%20catalogo%20digital%20desde%20BuscaSV">Solicitar propuesta escrita ↗</a><a class="btn secondary" href="#incluye">Ver qué incluye</a></div>
+    <div class="actions"><a class="btn primary" href="#consulta">Solicitar propuesta escrita ↗</a><a class="btn secondary" href="#incluye">Ver qué incluye</a></div>
     <p class="note">Servicio remoto para negocios de todo El Salvador. No necesitas saber programar.</p>
   </div>
   <div class="preview"><img src="/assets/vervant-local-catalog-preview.webp" alt="Vista ilustrativa de un catálogo digital adaptable con productos y solicitudes de cotización"><small>Vista ilustrativa para mostrar el formato. El catálogo final se adapta a la identidad y los productos autorizados de cada negocio.</small></div>
@@ -175,8 +193,105 @@ footer{border-top:1px solid var(--line);padding:20px 0 28px;color:#738178;font-s
   </div>
 </section>
 
-<section class="wrap"><div class="cta"><div><h2>Cuéntanos qué fabricas o qué servicio ofreces.</h2><p>Solicita una propuesta escrita, sin compromiso. Confirmamos el alcance antes de preparar el catálogo.</p></div><a class="btn primary" href="mailto:vervant.contact@gmail.com?subject=Consulta%20por%20catalogo%20digital%20desde%20BuscaSV">Escribir a Vervant ↗</a></div></section>
+
+<section class="wrap inquiry" id="consulta" aria-labelledby="inquiry-title">
+  <div class="inquiry-card">
+    <div class="inquiry-head">
+      <p class="eyebrow">Solicitar propuesta</p>
+      <h2 id="inquiry-title">Cuéntanos qué necesitas mostrar.</h2>
+      <p>Con unos pocos datos podemos valorar el tipo de catálogo que encaja con tu negocio. No necesitas preparar una ficha técnica completa.</p>
+    </div>
+    <form class="inquiry-form" id="quote-request">
+      <div class="inquiry-field">
+        <label for="business-name">Nombre de tu negocio</label>
+        <input id="business-name" name="business" autocomplete="organization" maxlength="100" placeholder="Ej. Taller o negocio">
+      </div>
+      <div class="inquiry-field">
+        <label for="business-type">¿Qué haces o vendes?</label>
+        <input id="business-type" name="activity" required maxlength="120" placeholder="Ej. Muebles a medida, rótulos, metal">
+      </div>
+      <div class="inquiry-field">
+        <label for="catalog-count">¿Cuántos productos o servicios?</label>
+        <select id="catalog-count" name="count" required>
+          <option value="">Selecciona una opción</option>
+          <option>1 a 4</option><option>5 a 8</option><option>9 a 12</option>
+        </select>
+        <span class="inquiry-help">El paquete incluye hasta 12 fichas.</span>
+      </div>
+      <div class="inquiry-field">
+        <label for="reply-email">Correo para responderte (opcional)</label>
+        <input id="reply-email" name="replyEmail" type="email" autocomplete="email" maxlength="150" placeholder="tu@correo.com">
+      </div>
+      <div class="inquiry-field full">
+        <label for="catalog-details">¿Qué productos o trabajos te gustaría mostrar?</label>
+        <textarea id="catalog-details" name="details" required maxlength="1200" placeholder="Puedes mencionar algunos productos, opciones, medidas, materiales o acabados que tus clientes suelen consultar."></textarea>
+      </div>
+      <div class="inquiry-field full">
+        <label for="extra-info">Algo más que debamos saber (opcional)</label>
+        <input id="extra-info" name="extra" maxlength="300" placeholder="Ej. Ya tengo logotipo y fotografías.">
+      </div>
+      <div class="inquiry-field full">
+        <div class="inquiry-actions">
+          <button class="btn primary" type="submit">Preparar correo a Vervant ↗</button>
+          <button class="btn secondary" type="button" id="copy-request">Copiar mensaje</button>
+        </div>
+        <div class="inquiry-status" id="inquiry-status" role="status" aria-live="polite"></div>
+        <p class="inquiry-privacy">Tus respuestas no se guardan en esta página. El botón prepara un correo en tu dispositivo; tú decides si lo envías. También puedes copiar el texto y escribirnos a <a href="mailto:vervant.contact@gmail.com">vervant.contact@gmail.com</a>.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="wrap"><div class="cta"><div><h2>Cuéntanos qué fabricas o qué servicio ofreces.</h2><p>Solicita una propuesta escrita, sin compromiso. Confirmamos el alcance antes de preparar el catálogo.</p></div><a class="btn primary" href="#consulta">Escribir a Vervant ↗</a></div></section>
 </main>
 <footer><div class="wrap foot"><span>Vervant Local · Catálogos digitales</span><a href="/negocios/">Ver oferta general de Vervant Local</a></div></footer>
+
+<script>
+(() => {
+  const form = document.getElementById('quote-request');
+  const status = document.getElementById('inquiry-status');
+  if (!form || !status) return;
+  const value = id => (document.getElementById(id)?.value || '').trim();
+  const makeMessage = () => [
+    'Hola Vervant, quisiera una propuesta para un catálogo digital desde BuscaSV.',
+    '',
+    'Negocio: ' + (value('business-name') || 'No indicado'),
+    'Actividad: ' + value('business-type'),
+    'Cantidad estimada: ' + value('catalog-count'),
+    'Alcance: hasta 12 fichas, diseño adaptable, una revisión y entrega HTML con guía breve.',
+    'Correo para responder: ' + (value('reply-email') || 'Responder al correo desde el que envío este mensaje'),
+    '',
+    'Productos o trabajos que deseo mostrar:',
+    value('catalog-details'),
+    '',
+    'Información adicional: ' + (value('extra-info') || 'No indicada'),
+    '',
+    'Entiendo que esta oferta de BuscaSV cuesta US$99 en total, sin anticipo, y que el pago se realiza al completar y recibir el catálogo HTML y la guía breve.'
+  ].join('\n');
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    const subject = encodeURIComponent('Solicitud de catálogo digital desde BuscaSV');
+    const body = encodeURIComponent(makeMessage());
+    status.textContent = 'Se abrirá tu aplicación de correo. Revisa el mensaje y envíalo cuando estés listo.';
+    window.location.href = 'mailto:vervant.contact@gmail.com?subject=' + subject + '&body=' + body;
+  });
+  document.getElementById('copy-request')?.addEventListener('click', async () => {
+    if (!form.reportValidity()) return;
+    const message = makeMessage();
+    try {
+      await navigator.clipboard.writeText(message);
+      status.textContent = 'Mensaje copiado. Puedes pegarlo en un correo a vervant.contact@gmail.com.';
+    } catch (_) {
+      const tmp = document.createElement('textarea');
+      tmp.value = message; tmp.setAttribute('readonly',''); tmp.style.position='absolute'; tmp.style.left='-9999px';
+      document.body.appendChild(tmp); tmp.select();
+      const ok = document.execCommand('copy'); tmp.remove();
+      status.textContent = ok ? 'Mensaje copiado. Puedes pegarlo en un correo a Vervant.' : 'No se pudo copiar. Selecciona tus respuestas y escríbenos por correo.';
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
