@@ -611,7 +611,7 @@ select.preset{font:700 11px system-ui,sans-serif;border-radius:10px;padding:10px
 <details class="custom-details">
 <summary><span>Logo, cover image and brand links</span><small>Optional</small></summary>
 <div class="details-body">
-<div class="field"><label for="logoFile">Business logo</label><input id="logoFile" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml"><div class="asset-line"><span id="logoStatus" aria-live="polite">No logo selected</span><button id="removeLogo" type="button" class="asset-remove" hidden>Remove</button></div><p class="hint">A transparent PNG or WebP works best. It stays in your local preview.</p></div>
+<div class="field"><label for="logoFile">Business logo</label><input id="logoFile" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml"><div class="asset-line"><span id="logoStatus" aria-live="polite">No logo selected</span><button id="removeLogo" type="button" class="asset-remove" hidden>Remove</button></div><p class="hint">A transparent PNG or WebP works best to preserve your brand identity.</p></div>
 <div class="field"><label for="heroFile">Cover / hero photo</label><input id="heroFile" type="file" accept="image/*"><div class="asset-line"><span id="heroStatus" aria-live="polite">No cover photo selected</span><button id="removeHero" type="button" class="asset-remove" hidden>Remove</button></div><p class="hint">Use a real product, workshop or completed-project photo. Wide images work especially well.</p></div>
 <div class="row"><div class="field"><label for="websiteUrl">Website</label><input id="websiteUrl" type="url" placeholder="https://yourbusiness.com"></div><div class="field"><label for="instagramUrl">Instagram</label><input id="instagramUrl" type="url" placeholder="https://instagram.com/yourbrand"></div></div>
 </div>
@@ -632,13 +632,13 @@ select.preset{font:700 11px system-ui,sans-serif;border-radius:10px;padding:10px
 <div class="section-title"><b>Products and projects</b><span class="count" id="counter">0 / 12</span></div>
 <div id="productList"></div>
 <div class="actions"><button id="addProduct" class="btn soft" type="button">＋ Add product</button><select id="demoType" class="preset" aria-label="Choose a sample"><option value="wood">Sample · Furniture</option><option value="signage">Sample · Signage and print</option><option value="industrial">Sample · Metal fabrication</option></select><button id="loadDemo" class="btn outline" type="button">Load sample</button></div>
-<div class="privacy">Local preview: the images, text and business details you add stay in your browser. No final catalog file is generated or downloaded. When you request the service, an email is prepared with the business name, theme, typefaces and product presentation you selected; your photos and descriptions are not attached.</div>
+<div class="privacy">Customize your business identity, explore different product presentations and review every change instantly. When the design reflects your work, request a written proposal from Vervant.</div>
 <a id="requestBuild" class="btn green wide request-build disabled" href="#requestBuild" aria-disabled="true">Request my professionally built catalog ↗</a>
 <p id="status" class="status" aria-live="polite">Add your business name and at least one product to request a proposal.</p>
 </div>
 </section>
 <section class="panel preview-wrap">
-<div class="preview-top"><div class="preview-caption"><b>Catalog preview</b><span>Protected preview · no HTML download</span></div><button id="fullscreenPreview" class="preview-action" type="button" aria-pressed="false" title="Open fullscreen preview"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7 3H3v4M13 3h4v4M3 13v4h4M17 13v4h-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Full screen</span></button></div>
+<div class="preview-top"><div class="preview-caption"><b>Catalog preview</b><span>Your brand and products, updated live</span></div><button id="fullscreenPreview" class="preview-action" type="button" aria-pressed="false" title="Open fullscreen preview"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7 3H3v4M13 3h4v4M3 13v4h4M17 13v4h-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Full screen</span></button></div>
 <div class="preview">
 <div class="site" id="sitePreview" data-theme="atelier" data-layout="grid" data-hero-layout="split" data-image-ratio="landscape" data-image-fit="cover" data-image-focus="center" data-card-style="soft" data-button-shape="rounded" data-has-hero-image="false">
 <nav class="site-nav" aria-label="Catalog navigation">
@@ -675,7 +675,7 @@ select.preset{font:700 11px system-ui,sans-serif;border-radius:10px;padding:10px
 (function(){
 "use strict";
 const byId = function(id){return document.getElementById(id);};
-const state = {products:[],logo:"",heroImage:"",heroIsDemo:false};
+const state = {products:[],logo:"",heroImage:"",heroIsDemo:false,demoLoaded:false,demoBusinessName:""};
 
 function demoProductArt(kind,index){
  const p=kind==="wood"?{bg1:"#eee3d2",bg2:"#d4bea0",a:"#9b6945",b:"#65432f",c:"#c69665"}:kind==="signage"?{bg1:"#e4edf1",bg2:"#b7cbd5",a:"#244b5d",b:"#142f3b",c:"#f0b75d"}:{bg1:"#e6ebee",bg2:"#b9c5cc",a:"#657782",b:"#34434d",c:"#e27a49"};
@@ -863,7 +863,7 @@ function renderPreview(){
  const contact=byId("previewContact");
  if(validNumber(d.phone)){contact.href=waUrl(d.phone,d.lang==="en"?"Hello, I saw your catalog and would like more information.":"Hola, vi su catálogo y me gustaría recibir información.");contact.textContent=d.lang==="en"?"Contact on WhatsApp ↗":"Contactar por WhatsApp ↗";contact.removeAttribute("aria-disabled");}
  else if(d.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)){contact.href="mailto:"+d.email+"?subject="+encodeURIComponent("Product enquiry for "+d.name);contact.textContent="Email the business ↗";contact.removeAttribute("aria-disabled");}
- else{contact.href="#";contact.textContent=d.lang==="en"?"Add WhatsApp or email to enable enquiries":"WhatsApp · número pendiente";contact.setAttribute("aria-disabled","true");}
+ else{contact.href="#previewProducts";contact.textContent=d.lang==="en"?"Explore the collection ↗":"Ver productos ↗";contact.removeAttribute("aria-disabled");}
  const website=byId("previewWebsite"),instagram=byId("previewInstagram");
  website.hidden=!d.websiteUrl;if(d.websiteUrl){website.href=d.websiteUrl;website.textContent=d.lang==="en"?"Website ↗":"Sitio web ↗";}
  instagram.hidden=!d.instagramUrl;if(d.instagramUrl){instagram.href=d.instagramUrl;instagram.textContent="Instagram ↗";}
@@ -876,16 +876,17 @@ function renderPreview(){
   const message=(d.lang==="en"?"Hello, I would like a quote for: ":"Hola, me interesa cotizar: ")+p.name;
   const active=validNumber(d.phone)||!!(d.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email));
   const quoteHref=validNumber(d.phone)?waUrl(d.phone,message):(d.email?"mailto:"+d.email+"?subject="+encodeURIComponent("Quote request: "+p.name)+"&body="+encodeURIComponent(message):"#");
-  const buttonText=d.lang==="en"?"Request a quote":"Cotizar por WhatsApp";
+  const buttonText=d.lang==="en"?"Request a quote":"Solicitar cotización";
   el.innerHTML='<div class="photo'+(p.image?'':' placeholder')+'">'+photo+'<span class="photo-index">'+number+'</span><span class="photo-arrow" aria-hidden="true">↗</span></div><div class="card-content"><div class="card-meta"><span class="category">'+esc(p.category||(d.lang==="en"?"Custom project":"Trabajo a medida"))+'</span><span class="product-index">'+number+' / '+String(d.products.length).padStart(2,"0")+'</span></div><h3>'+esc(p.name|| (d.lang==="en"?"Untitled product":"Producto sin nombre"))+'</h3><p>'+esc(p.description||(d.lang==="en"?"Description coming soon.":"Descripción pendiente."))+'</p><div class="card-bottom"><small class="price">'+esc(p.price||(d.lang==="en"?"Request a quote":"Solicitar cotización"))+'</small><a class="quote-btn" href="'+quoteHref+'" '+(active?'target="_blank" rel="noopener"':'aria-disabled="true"')+'>'+buttonText+'</a></div></div>';
   cards.appendChild(el);
  });
 }
 function validate(){
  const d=getData();const business=byId("businessName").value.trim();const hasProduct=d.products.length>0&&d.products.some(function(p){return p.name.trim().length>0;});
- const ok=business.length>0&&hasProduct;const button=byId("requestBuild");
+ const isSampleName=state.demoLoaded&&business.toLocaleLowerCase()===state.demoBusinessName.toLocaleLowerCase();
+ const ok=business.length>0&&hasProduct&&!isSampleName;const button=byId("requestBuild");
  button.classList.toggle("disabled",!ok);button.setAttribute("aria-disabled",String(!ok));button.tabIndex=ok?0:-1;
- if(!ok){button.href="#requestBuild";status(!business?"Enter your business name to prepare the request.":"Add at least one product and give it a name.");return;}
+ if(!ok){button.href="#requestBuild";status(!business?"Enter your business name to prepare the request.":(isSampleName?"Replace the sample business name with your own to prepare a proposal.":"Add at least one product and give it a name."));return;}
  const themeButton=byId("themeChoices").querySelector('[data-theme-choice="'+d.theme+'"]');
  const themeName=themeButton?themeButton.querySelector("b").textContent:d.theme;
  const details=[
@@ -897,7 +898,7 @@ function validate(){
   "Product presentation: "+byId("layout").selectedOptions[0].textContent,
   "Planned listings: "+d.products.length,
   "",
-  "I configured this preview in the builder. Please share the scope, timeline and next steps. No photos or product descriptions are attached."
+   "I can share the approved product information and photos once we confirm the scope and next steps."
  ];
  const recipient="vervant.contact@gmail.com";
  button.href="mailto:"+recipient+"?subject="+encodeURIComponent("Vervant Local catalog request — "+business)+"&body="+encodeURIComponent(details.join("\n"));
@@ -961,12 +962,13 @@ byId("loadDemo").addEventListener("click",function(){
  };
  const demoType=byId("demoType").value;
   const demo=demos[demoType]||demos.wood;
+  state.demoLoaded=true;state.demoBusinessName=demo.name;
   chooseTheme(({wood:"atelier",signage:"riviera",industrial:"forma"})[demoType]||"atelier");
  byId("businessName").value=demo.name;byId("tagline").value=demo.tagline;byId("category").value=demo.category;byId("location").value=demo.location;byId("introText").value=demo.intro;
  byId("whatsapp").value="";byId("email").value="";
  state.products=demo.products.map((p,index)=>({...p,image:demoProductArt(demoType,index),demoArt:true}));if(!state.heroImage||state.heroIsDemo){state.heroImage=demoHeroArt(demoType);state.heroIsDemo=true;}
  renderProductsForm();renderPreview();validate();
- status("Sample loaded. Replace the fictional details and add an authorized business WhatsApp number or enquiry email before requesting.");
+ status("Sample loaded. Replace the sample business details with your own to prepare a written proposal.");
 });
 function setupFullscreenPreview(){
  const wrap=document.querySelector(".preview-wrap"),button=byId("fullscreenPreview"),label=button.querySelector("span");
@@ -983,7 +985,7 @@ function protectPreview(){const root=byId("sitePreview");["contextmenu","dragsta
 
 setupFullscreenPreview();
 protectPreview();
-renderProductsForm();renderPreview();validate();
+byId("loadDemo").click();
 })();
 </script>
 </body>
