@@ -1,14 +1,14 @@
 # Vervant Local — catálogo de cotización
 
-## Oferta comercial piloto
-Catálogo móvil hecho por Vervant para fabricantes y negocios que cotizan productos o trabajos a medida.
+## Oferta comercial aprobada — 16 de noviembre de 2026
+Catálogo Vervant Local para fabricantes y negocios que cotizan productos, proyectos o trabajos a medida.
 
-- Precio piloto: USD 149 pago único para los tres primeros proyectos.
-- Precio regular previsto: USD 249.
-- Alcance: hasta 12 fichas, categorías, búsqueda, fotografías optimizadas, solicitud guiada a WhatsApp y una ronda de cambios.
-- Complemento: ficha de capacidades de una página en PDF por USD 49 con el catálogo.
-- Entrega: HTML autónomo listo para publicarse en el alojamiento del cliente o en un servicio de alojamiento elegido por separado.
-- No incluye dominio, alojamiento de pago, tienda, pagos, inventario, integraciones privadas ni mensualidad de mantenimiento.
+- El Salvador: US$149 pago único, bajo el alcance local publicado: hasta 12 fichas, diseño adaptable, categorías y búsqueda, solicitud guiada por WhatsApp, identidad comercial, una revisión, archivo HTML autónomo y guía breve.
+- Internacional: US$199 pago único, hasta 12 listings, diseño adaptable con marca, categorías y búsqueda, formulario guiado, canal email y/o WhatsApp, una revisión, entrega HTML autónoma y guía breve.
+- Capability Sheet: US$99 standalone / US$59 add-on con catálogo.
+- No existe suscripción obligatoria de Vervant. No comunicar otros paquetes, tiers, tarifas de localización ni precios hipotéticos.
+- El visitante decide si envía la consulta preparada desde su propia aplicación de correo o WhatsApp; Vervant no captura ni almacena leads automáticamente.
+- No incluye hosting, dominio, publicación en el sitio del cliente, CRM, precios o stock en vivo, reservas, pagos, carga de archivos, integraciones ni mantenimiento.
 
 ## Estado técnico
 - index.html: oferta comercial y landing page en español.
@@ -47,8 +47,8 @@ Nota histórica supersedida el 15-11-2026: el constructor y los ejemplos españo
 ## International English offer
 - English landing: negocios/en/index.html; English catalog builder: negocios/en/builder/index.html.
 - Remote-first service for customers worldwide. English delivery; quotes in USD unless otherwise agreed.
-- First 3 international pilots: USD 199 one-time; expected standard price USD 299.
-- Capability sheet: USD 99 standalone / USD 59 with catalog. Additional language adaptation from USD 149.
+- International Vervant Local: USD 199 one-time, up to 12 listings, branded responsive layout, categories/search, guided email and/or WhatsApp enquiry, one revision, self-contained HTML handover and short guide.
+- Capability sheet: USD 99 standalone / USD 59 with catalog. Additional language adaptation is not part of the approved offer.
 - English catalogs support business WhatsApp and/or email enquiry channels, depending on the contact methods the customer provides.
 - The exported file contains a guided quote form for measurements/specifications, material/finish, quantity, location, target date and additional details. The visitor chooses WhatsApp or email where both are configured.
 - Do not send international cold email into jurisdictions where consent is required unless the contact has a documented lawful basis. Observe opt-outs and retain source/date/role evidence.
@@ -75,9 +75,9 @@ Nota histórica supersedida el 15-11-2026: el constructor y los ejemplos españo
 - Do not use placeholder customer details in a real delivery. Only approved names, photos, descriptions, contact details and intellectual property may be published.
 
 ## International offer and geographic scope
-- First 3 international pilots: USD 199 one-time; expected standard price USD 299.
+- International Vervant Local: USD 199 one-time, up to 12 listings, branded responsive layout, categories/search, guided email and/or WhatsApp enquiry, one revision, self-contained HTML handover and short guide.
 - Capability sheet: USD 99 standalone / USD 59 with a catalog.
-- Additional language adaptation starts at USD 149, after review.
+- Do not quote or publish additional language adaptation until the CEO approves a separate scope and price.
 - Service is remote-first. English delivery; USD pricing unless otherwise agreed in writing.
 - Superseded 15 Nov 2026: the English landing, builder and sector pages are published at https://vervant-public-site.onrender.com/negocios/en/; the Render static site auto-deploys commits to main.
 - Use country-specific outbound compliance rules. Current outbound pilot is limited to verified UK corporate subscribers at role-based company email addresses. See /home/will/Documentos/Vervant-Operations/international-go-to-market.md.
