@@ -1,0 +1,10 @@
+annotation_id,image_file,class_name,x_min,y_min,x_max,y_max,image_width,image_height
+scene01-01,scene-01-desk.png,bottle,135,143,220,470,800,600
+scene01-02,scene-01-desk.png,mug,315,342,495,500,800,600
+scene01-03,scene-01-desk.png,tape_dispenser,545,365,715,505,800,600
+scene02-01,scene-02-workshop.png,toolbox,90,205,325,470,800,600
+scene02-02,scene-02-workshop.png,hard_hat,395,210,605,375,800,600
+scene02-03,scene-02-workshop.png,wrench,584,285,770,480,800,600
+scene03-01,scene-03-packaging.png,cardboard_box,80,235,355,495,800,600
+scene03-02,scene-03-packaging.png,cardboard_box,390,275,630,500,800,600
+scene03-03,scene-03-packaging.png,label_printer,650,210,750,425,800,600
