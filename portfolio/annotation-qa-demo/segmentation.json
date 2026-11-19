@@ -1,0 +1,217 @@
+{
+  "version": "1.0",
+  "task": "illustrative pixel segmentation",
+  "coordinate_system": "pixel coordinates, origin at top-left",
+  "items": [
+    {
+      "id": "seg-scene01-bottle",
+      "image_file": "scene-01-desk.png",
+      "mask_file": "scene-01-bottle-mask.png",
+      "class_name": "bottle",
+      "image_width": 800,
+      "image_height": 600,
+      "polygon": [
+        {
+          "x": 151,
+          "y": 143
+        },
+        {
+          "x": 204,
+          "y": 143
+        },
+        {
+          "x": 204,
+          "y": 170
+        },
+        {
+          "x": 200,
+          "y": 170
+        },
+        {
+          "x": 200,
+          "y": 196
+        },
+        {
+          "x": 211,
+          "y": 201
+        },
+        {
+          "x": 218,
+          "y": 212
+        },
+        {
+          "x": 220,
+          "y": 225
+        },
+        {
+          "x": 220,
+          "y": 448
+        },
+        {
+          "x": 218,
+          "y": 458
+        },
+        {
+          "x": 212,
+          "y": 466
+        },
+        {
+          "x": 204,
+          "y": 470
+        },
+        {
+          "x": 151,
+          "y": 470
+        },
+        {
+          "x": 143,
+          "y": 466
+        },
+        {
+          "x": 137,
+          "y": 458
+        },
+        {
+          "x": 135,
+          "y": 448
+        },
+        {
+          "x": 135,
+          "y": 225
+        },
+        {
+          "x": 137,
+          "y": 212
+        },
+        {
+          "x": 144,
+          "y": 201
+        },
+        {
+          "x": 155,
+          "y": 196
+        },
+        {
+          "x": 155,
+          "y": 170
+        },
+        {
+          "x": 151,
+          "y": 170
+        }
+      ],
+      "segmentation_id": "seg-scene01-bottle"
+    },
+    {
+      "id": "seg-scene02-toolbox",
+      "image_file": "scene-02-workshop.png",
+      "mask_file": "scene-02-toolbox-mask.png",
+      "class_name": "toolbox",
+      "image_width": 800,
+      "image_height": 600,
+      "polygon": [
+        {
+          "x": 160,
+          "y": 205
+        },
+        {
+          "x": 255,
+          "y": 205
+        },
+        {
+          "x": 255,
+          "y": 245
+        },
+        {
+          "x": 305,
+          "y": 245
+        },
+        {
+          "x": 317,
+          "y": 248
+        },
+        {
+          "x": 325,
+          "y": 258
+        },
+        {
+          "x": 325,
+          "y": 455
+        },
+        {
+          "x": 321,
+          "y": 465
+        },
+        {
+          "x": 311,
+          "y": 470
+        },
+        {
+          "x": 104,
+          "y": 470
+        },
+        {
+          "x": 94,
+          "y": 466
+        },
+        {
+          "x": 90,
+          "y": 455
+        },
+        {
+          "x": 90,
+          "y": 260
+        },
+        {
+          "x": 94,
+          "y": 250
+        },
+        {
+          "x": 105,
+          "y": 245
+        },
+        {
+          "x": 160,
+          "y": 245
+        }
+      ],
+      "segmentation_id": "seg-scene02-toolbox"
+    },
+    {
+      "id": "seg-scene03-cardboard-box",
+      "image_file": "scene-03-packaging.png",
+      "mask_file": "scene-03-cardboard-box-mask.png",
+      "class_name": "cardboard_box",
+      "image_width": 800,
+      "image_height": 600,
+      "polygon": [
+        {
+          "x": 80,
+          "y": 280
+        },
+        {
+          "x": 240,
+          "y": 235
+        },
+        {
+          "x": 355,
+          "y": 280
+        },
+        {
+          "x": 355,
+          "y": 445
+        },
+        {
+          "x": 190,
+          "y": 495
+        },
+        {
+          "x": 80,
+          "y": 430
+        }
+      ],
+      "segmentation_id": "seg-scene03-cardboard-box"
+    }
+  ],
+  "source": "synthetic scenes; masks are portfolio practice only"
+}

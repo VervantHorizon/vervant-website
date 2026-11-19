@@ -4,7 +4,9 @@ This is a small, fully synthetic portfolio exercise created to demonstrate a bas
 
 ## Contents
 - `images/`: three original synthetic scenes (800 × 600).
-- `overlays/`: the same scenes with reviewed bounding boxes and annotation IDs.
+- `overlays/`: the same scenes with reviewed bounding boxes and annotation IDs, plus three segmentation previews.
+- `masks/`: three single-channel pixel masks for selected synthetic objects.
+- `segmentation.json`: matching polygon coordinates and mask/image references.
 - `annotations.csv`: one row per object, with pixel bounding boxes.
 - `label-map.json`: classes and coordinate convention.
 - `audit.py`: deterministic validation of file existence, class IDs, box bounds, dimensions and duplicate IDs.
@@ -20,3 +22,6 @@ This is a small, fully synthetic portfolio exercise created to demonstrate a bas
 Run: `python3 audit.py`
 
 Expected outcome: 9 annotations across 3 images, all valid, zero duplicate IDs, zero out-of-bounds boxes.
+
+## Segmentation examples
+Three selected objects also have polygon outlines and binary PNG masks. The polygons are simplified practice annotations, not production-grade contours. The audit validates polygon coordinates and mask dimensions/non-empty pixels.
