@@ -542,6 +542,7 @@ select.preset{font:700 11px system-ui,sans-serif;border-radius:10px;padding:10px
 .request-build{display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;text-decoration:none}
 .request-build.disabled{opacity:.48;cursor:not-allowed;pointer-events:none}
 .request-note{margin:-3px 0 9px;font-size:10px;line-height:1.5;color:#77857b}
+.contact-hint{margin:-4px 0 14px;font-size:12px;font-weight:650;color:#586a60;line-height:1.45}
 @media(max-width:900px){
  .site[data-layout="showcase"] .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
  .site[data-layout="showcase"] .card:first-child{grid-template-columns:1fr;grid-row:span 1}
@@ -583,7 +584,7 @@ select.preset{font:700 11px system-ui,sans-serif;border-radius:10px;padding:10px
 <div class="field"><label for="category">Actividad</label><input id="category" placeholder="Carpintería" value="Carpintería"></div>
 <div class="field"><label for="location">Ubicación</label><input id="location" placeholder="Santa Tecla, La Libertad" value="Santa Tecla, El Salvador"></div>
 </div>
-<div class="field"><label for="whatsapp">WhatsApp comercial *</label><input id="whatsapp" type="tel" inputmode="numeric" autocomplete="tel" aria-describedby="whatsappHint" placeholder="503XXXXXXXX" required><p class="hint" id="whatsappHint">Escribe entre 8 y 15 dígitos con código de país. Ejemplo de El Salvador: 503 + número. No uses un número ajeno.</p></div>
+<div class="row contact-row"><div class="field"><label for="whatsapp">WhatsApp comercial</label><input id="whatsapp" type="tel" inputmode="numeric" autocomplete="tel" aria-describedby="whatsappHint" placeholder="503XXXXXXXX"><p class="hint" id="whatsappHint">8–15 dígitos con código de país. Ej.: 503 + número.</p></div><div class="field"><label for="email">Correo comercial</label><input id="email" type="email" inputmode="email" autocomplete="email" aria-describedby="emailHint" placeholder="cotizaciones@tunegocio.com"><p class="hint" id="emailHint">Alternativa para recibir solicitudes por correo.</p></div></div><p class="hint contact-hint" id="contactHint" aria-live="polite">Completa al menos uno. Si incluyes ambos, el catálogo prioriza WhatsApp.</p>
 <div class="field"><label for="introText">Texto de presentación</label><textarea id="introText">Diseñamos y fabricamos muebles personalizados para tu hogar o negocio. Cuéntanos qué necesitas y te ayudamos a cotizar.</textarea></div>
 <div class="field theme-field">
 <label>Elige tu identidad visual · 12 estilos premium</label>
@@ -718,7 +719,7 @@ function demoHeroArt(kind){
  return "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(svg);
 }
 
-const inputs = ["businessName","tagline","category","location","whatsapp","introText","accent","pageColor","surfaceColor","textColor","fontChoice","layout","bodyFontChoice","heroLayout","imageRatio","imageFit","imageFocus","cardStyle","buttonShape","websiteUrl","instagramUrl"];
+const inputs = ["businessName","tagline","category","location","whatsapp","email","introText","accent","pageColor","surfaceColor","textColor","fontChoice","layout","bodyFontChoice","heroLayout","imageRatio","imageFit","imageFocus","cardStyle","buttonShape","websiteUrl","instagramUrl"];
 const esc = function(value){return String(value == null ? "" : value).replace(/[&<>"']/g,function(ch){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch];});};
 const digits = function(value){return String(value || "").replace(/\D/g,"");};
 const validNumber = function(value){const n=digits(value);return n.length>=8 && n.length<=15;};
@@ -733,6 +734,8 @@ const getData = function(){return {
  category:byId("category").value.trim(),
  location:byId("location").value.trim(),
  phone:digits(byId("whatsapp").value),
+ phoneRaw:byId("whatsapp").value.trim(),
+ email:byId("email").value.trim(),
  intro:byId("introText").value.trim(),
  theme:byId("theme").value,accent:byId("accent").value,pageColor:byId("pageColor").value,surfaceColor:byId("surfaceColor").value,textColor:byId("textColor").value,
  fontChoice:byId("fontChoice").value,bodyFontChoice:byId("bodyFontChoice").value,layout:byId("layout").value,
@@ -873,7 +876,7 @@ function renderPreview(){
  byId("removeLogo").hidden=!d.logo;byId("removeHero").hidden=!d.heroImage;
  const contact=byId("previewContact");
  if(validNumber(d.phone)){contact.href=waUrl(d.phone,d.lang==="en"?"Hello, I saw your catalog and would like more information.":"Hola, vi su catálogo y me gustaría recibir información.");contact.textContent=d.lang==="en"?"Contact on WhatsApp ↗":"Contactar por WhatsApp ↗";contact.removeAttribute("aria-disabled");}
- else if(d.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)){contact.href="mailto:"+d.email+"?subject="+encodeURIComponent("Product enquiry for "+d.name);contact.textContent="Email the business ↗";contact.removeAttribute("aria-disabled");}
+ else if(d.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)){contact.href="mailto:"+d.email+"?subject="+encodeURIComponent("Consulta de productos para "+d.name);contact.textContent=d.lang==="en"?"Email the business ↗":"Enviar correo ↗";contact.removeAttribute("aria-disabled");}
  else{contact.href="#previewProducts";contact.textContent=d.lang==="en"?"Explore the collection ↗":"Ver productos ↗";contact.removeAttribute("aria-disabled");}
  const website=byId("previewWebsite"),instagram=byId("previewInstagram");
  website.hidden=!d.websiteUrl;if(d.websiteUrl){website.href=d.websiteUrl;website.textContent=d.lang==="en"?"Website ↗":"Sitio web ↗";}
@@ -895,9 +898,9 @@ function renderPreview(){
 function validate(){
  const d=getData();const business=byId("businessName").value.trim();const hasProduct=d.products.length>0&&d.products.some(function(p){return p.name.trim().length>0;});
  const isSampleName=state.demoLoaded&&business.toLocaleLowerCase()===state.demoBusinessName.toLocaleLowerCase();
- const contactIsValid=validNumber(d.phone);const ok=business.length>0&&hasProduct&&!isSampleName&&contactIsValid;const button=byId("requestBuild");
+ const phoneValid=validNumber(d.phone);const emailValid=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email);const contactIsValid=(phoneValid||emailValid)&&(!d.phoneRaw||phoneValid)&&(!d.email||emailValid);const ok=business.length>0&&hasProduct&&!isSampleName&&contactIsValid;const button=byId("requestBuild");
  button.classList.toggle("disabled",!ok);button.setAttribute("aria-disabled",String(!ok));button.tabIndex=ok?0:-1;
- if(!ok){button.href="#requestBuild";const mobile=byId("mobileRequest");if(mobile){mobile.href="#requestBuild";mobile.setAttribute("aria-disabled","true");mobile.classList.add("disabled");}status(!business?"Escribe el nombre de tu negocio para preparar la solicitud.":(isSampleName?"Cambia el nombre de la muestra por el de tu negocio para preparar la propuesta.":(!hasProduct?"Añade al menos un producto y escribe su nombre.": "Escribe un WhatsApp comercial válido, con código de país (8–15 dígitos).")));return;}
+ if(!ok){button.href="#requestBuild";const mobile=byId("mobileRequest");if(mobile){mobile.href="#requestBuild";mobile.setAttribute("aria-disabled","true");mobile.classList.add("disabled");}status(!business?"Escribe el nombre de tu negocio para preparar la solicitud.":(isSampleName?"Cambia el nombre de la muestra por el de tu negocio para preparar la propuesta.":(!hasProduct?"Añade al menos un producto y escribe su nombre.": "Añade al menos un contacto válido: WhatsApp con código de país o correo comercial.")));return;}
  const themeButton=byId("themeChoices").querySelector('[data-theme-choice="'+d.theme+'"]');
  const themeName=themeButton?themeButton.querySelector("b").textContent:d.theme;
  const details=[
@@ -908,6 +911,8 @@ function validate(){
   "Tipografía del texto: "+byId("bodyFontChoice").selectedOptions[0].textContent,
   "Presentación de productos: "+byId("layout").selectedOptions[0].textContent,
   "Fichas previstas: "+d.products.length,
+  d.phone?"WhatsApp comercial: +"+d.phone:"",
+  d.email?"Correo comercial: "+d.email:"",
   "",
    "Puedo compartir el contenido y las fotografías autorizadas cuando confirmemos el alcance y los siguientes pasos."
  ];
