@@ -6,7 +6,7 @@ This repository is a **static pre-launch website**. The existing Render Static S
 
 - Render service: ver-vant-public-site (legacy service slug; do not confuse it with the separate API/preflight service).
 - Source: this GitHub repository, branch main.
-- Publish path: repository root (.).
+- Publish path: ubelta_site/ (isolates the public release from archived repository content).
 - Build command: true.
 - Auto-deploy: enabled on commits to main.
 - No Docker image, web service, worker, database, persistent disk, environment secret or backend process is required.

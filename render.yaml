@@ -4,7 +4,7 @@ services:
     name: vervant-public-site
     branch: main
     buildCommand: "true"
-    staticPublishPath: .
+    staticPublishPath: ubelta_site
     autoDeployTrigger: commit
     headers:
       - path: /*

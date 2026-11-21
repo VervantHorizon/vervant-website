@@ -20,4 +20,4 @@ The website is static and does not collect customer data or use third-party scri
 
 ## Deployment
 
-Render publishes the repository root from the main branch. Commits to main trigger automatic deployments. See DEPLOYMENT_RENDER.md.
+Render publishes only the ubelta_site/ directory from the main branch. Commits to main trigger automatic deployments. See DEPLOYMENT_RENDER.md.
