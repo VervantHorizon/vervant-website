@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Ubelta crea herramientas sencillas para organizar consultas, requisitos de compradores y seguimiento de facturas.">
-<meta name="theme-color" content="#10212d">
+<meta name="theme-color" content="#10212d"><link rel="canonical" href="https://vervant-public-site.onrender.com/"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta property="og:url" content="https://vervant-public-site.onrender.com/"><meta name="twitter:card" content="summary">
 <meta property="og:type" content="website"><meta property="og:title" content="Ubelta — Menos fricción. Flujos más claros.">
 <meta property="og:description" content="Herramientas prácticas para negocios, con alcance y límites explicados con claridad.">
 <title>Ubelta — Practical tools. Clear workflows.</title>
@@ -23,6 +23,6 @@
 </main>
 <footer class="footer"><div class="wrap footrow"><div><div class="brand"><span class="mark" style="background:white;color:var(--ink)">U</span>ubelta</div><p data-es="Herramientas prácticas. Flujos claros." data-en="Practical tools. Clear workflows.">Herramientas prácticas. Flujos claros.</p></div><div><div class="small">© 2026 Ubelta</div><span class="prelaunch" data-es="Vista previa — compra y descarga aún no activas" data-en="Preview — checkout and downloads not yet active">Vista previa — compra y descarga aún no activas</span></div></div></footer>
 <script>
-(()=>{const b=document.getElementById('lang');let lang='es';function setLanguage(next){lang=next;document.documentElement.lang=lang;b.textContent=lang==='es'?'EN':'ES';document.querySelectorAll('[data-es][data-en]').forEach(el=>{const value=el.dataset[lang];if(value.includes('\\n'))el.innerHTML=value.replaceAll('\\n','<br>');else el.textContent=value;});}b.addEventListener('click',()=>setLanguage(lang==='es'?'en':'es'));})();
+(()=>{const b=document.getElementById('lang');let lang='es';function setLanguage(next){lang=next;document.documentElement.lang=lang;b.textContent=lang==='es'?'EN':'ES';b.setAttribute('aria-label',lang==='es'?'Cambiar idioma':'Switch language');document.querySelector('.nav').setAttribute('aria-label',lang==='es'?'Navegación':'Main navigation');document.querySelectorAll('[data-es][data-en]').forEach(el=>{const value=el.dataset[lang];if(value.includes('\\n'))el.innerHTML=value.replaceAll('\\n','<br>');else el.textContent=value;});}b.addEventListener('click',()=>setLanguage(lang==='es'?'en':'es'));})();
 </script>
 </body></html>
