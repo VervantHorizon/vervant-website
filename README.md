@@ -1,18 +1,23 @@
-# Vervant's public website and developer guides
+# Ubelta — public website
 
-Welcome! This repository holds the public home for Vervant: the product website, practical PDF guides, invoice examples and a small demo you can try in your browser.
+This repository contains the public, bilingual Ubelta pre-launch website.
 
-- [Visit Vervant](https://vervant-public-site.onrender.com/)
-- [Try the invoice preview](https://vervant-public-site.onrender.com/tools/invoice-preview/)
-- [Plan a PDF workflow](https://vervant-public-site.onrender.com/tools/workflow-brief/)
-- [Browse the developer guides](https://vervant-public-site.onrender.com/guides/)
-- [Read the rendering and security guide](https://vervant-public-site.onrender.com/guides/secure-html-to-pdf.html)
-- [Share a question or idea](https://github.com/VervantHorizon/vervant-website/discussions/1)
+- Public preview: https://vervant-public-site.onrender.com/
+- Brand: Ubelta
+- Languages: Spanish and English
+- Hosting: Render Static Site, free static hosting configuration
+- Build: static HTML/CSS/JavaScript; no server, database, account system or tracking
 
-The public site is live on Render as a static site. The hosted Vervant API is still being prepared and is not open for public use. Its production Docker image passes a PDF and network-isolation smoke test in GitHub Actions, but Railway does not expose the namespace/security controls the renderer needs. We will keep the API offline until a compatible production host has been tested. Please don't send personal, confidential or production customer documents.
+## Product scope
 
-The invoice preview runs entirely in your browser. It doesn't upload or store what you enter, and it uses your browser's print dialog to save a PDF. It's a layout example, not the hosted API or accounting/tax software.
+The page introduces QuotePath Starter, Supplier Follow-up Desk Kit and the combined From Enquiry to Payment bundle. It explains the supported workflow and product limitations.
 
-We're building Vervant for SaaS teams that want an easier way to create consistent PDFs from HTML. Thanks for stopping by and taking a look.
+**Pre-launch status:** catalogue pricing, checkout and file delivery are not active. Do not advertise the page as a live store or accept payment through it until approved prices, refund terms, seller/support details, payment onboarding and tested delivery are in place.
 
-- [Vervant Local — international catalogue offer](https://vervant-public-site.onrender.com/negocios/en/)
+## Quality and privacy
+
+The website is static and does not collect customer data or use third-party scripts. QuotePath prepares message drafts for the customer to review and send. Supplier Follow-up Desk Kit is a manual spreadsheet, not an automated accounting or payment-verification system.
+
+## Deployment
+
+Render publishes the repository root from the main branch. Commits to main trigger automatic deployments. See DEPLOYMENT_RENDER.md.
